@@ -1,0 +1,1 @@
+C:\Users\petersj\Documents\payitsquare\WePaySDK\WePayASPNet\WePayExamplesMVC\obj\Debug\WePayExamplesMVC.csprojResolveAssemblyReference.cache

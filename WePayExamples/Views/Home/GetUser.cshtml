@@ -1,0 +1,40 @@
+﻿@model WePay.Entities.WePayUser
+@{
+    ViewBag.Title = "Get User";
+   
+}
+
+<table>
+    <tr>
+        <th colspan="2">User Data</th>
+    </tr>
+    <tr>
+        <td>ID</td>
+        <td>@Model.UserID</td>
+    </tr>
+    <tr>
+        <td>Full Name</td>
+        <td>@Model.FullName</td>
+    </tr>
+    <tr>
+        <td>First Name</td>
+        <td>@Model.FirstName</td>
+    </tr>
+    <tr>
+        <td>Last Name</td>
+        <td>@Model.LastName</td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td>@Model.Email</td>
+    </tr>
+    <tr>
+        <td>State</td>
+        <td>@Model.State</td>
+    </tr>
+    <tr>
+        <td>Callback Uri</td>
+        <td>@Model.CallbackUri</td>
+    </tr>
+</table>
+

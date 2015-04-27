@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Test Page";
+}
+
+<h2>Examples</h2>
+
+<div class="well">
+<h3>#1 Get User Info (by AccessToken)</h3>
+    <form action="/Home/GetUser" method="post">
+        <input id="accessToken" placeholder="enter access token" type="text" name="accessToken" value="" />
+        <input class="btn" id="submit" type="submit" value="submit" />
+    </form>
+</div>
+
+<div class="well">
+    <h2>#2 Account</h2>
+    <h3>Get</h3>
+    <form action="/Home/GetAccount" method="post">
+        <input id="accessToken2" placeholder="enter access token" type="text" name="accessToken" value="" />
+        <input id="AccountId" placeholder="enter account id" type="text" name="AccountId" value="" />
+        <input class="btn" id="submit" type="submit" value="submit" />
+    </form>
+
+    <h3>Find</h3>
+    <form action="/Home/FindAccount" method="post">
+        <input id="accessToken3" placeholder="enter access token" type="text" name="accessToken" value="" />
+        <input id="name" placeholder="enter name" type="text" name="name" value="" />
+        <input id="reference_id" placeholder="enter reference id" type="text" name="referenceId" value="" />
+        <input id="sort_order" placeholder="enter sort order" type="text" name="sortOrder" value="" />
+        <input class="btn" id="submit" type="submit" value="submit" />
+    </form>
+</div>
+
