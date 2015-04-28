@@ -5,6 +5,9 @@ using WePay.Infrastructure;
 
 namespace WePay.Entities
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class WepayAccount
     {
         [JsonProperty("account_id")]

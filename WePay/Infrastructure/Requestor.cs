@@ -18,6 +18,13 @@ namespace WePay.Infrastructure
             return ExecuteWebRequest(wr);
         }
 
+        public static string PostString(string url, string json = null)
+        {
+            var wr = GetWebRequest(url, "POST", json);
+
+            return ExecuteWebRequest(wr);
+        }
+
         internal static WebRequest GetWebRequest(string url, string method, string json, string AccessToken = null, bool useBearer = false)
         {
             AccessToken = AccessToken ?? WePayConfiguration.GetAccessToken();
@@ -25,6 +32,7 @@ namespace WePay.Infrastructure
             var request = (HttpWebRequest)WebRequest.Create(url);
             request.Method = method;
 
+            if (useBearer)
             request.Headers.Add("Authorization", GetAuthorizationHeaderValueBearer(AccessToken));
 
             request.Headers.Add("Api-Version", WePayConfiguration.ApiVersion);

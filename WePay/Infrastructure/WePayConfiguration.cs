@@ -8,7 +8,7 @@ namespace WePay
         internal const string SupportedApiVersion = "2014-01-08";
         private static bool _ProductionMode = false;
         private static string _ClientSecret;
-        private static string _ClientId;
+        private static long _ClientId;
         private static string _AccessToken;
         private static string _authScope = "manage_accounts,collect_payments,view_user,preapprove_payments,manage_subscriptions,send_money";
 
@@ -33,15 +33,15 @@ namespace WePay
         #endregion
 
         #region ClientId
-        internal static string GetClientId()
+        internal static long GetClientId()
         {
             if (string.IsNullOrEmpty(_ClientSecret))
-                _ClientId = ConfigurationManager.AppSettings["WepayClientId"];
+                long.TryParse(ConfigurationManager.AppSettings["WepayClientId"], out _ClientId);
 
             return _ClientId;
         }
 
-        public static void SetClientId(string newClientId)
+        public static void SetClientId(long newClientId)
         {
             _ClientId = newClientId;
         }

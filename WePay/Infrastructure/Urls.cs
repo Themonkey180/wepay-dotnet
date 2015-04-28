@@ -13,6 +13,21 @@ namespace WePay.Infrastructure
             get { return BaseUrl + "/user"; }
         }
 
+        public static string UserModify
+        {
+            get { return BaseUrl + "/user/modify"; }
+        }
+
+        public static string UserRegister
+        {
+            get { return BaseUrl + "/user/register"; }
+        }
+
+        public static string UserSendConfirmation
+        {
+            get { return BaseUrl + "/user/send_confirmation"; }
+        }
+
         public static string Account
         {
             get { return BaseUrl + "/account"; }
