@@ -2,12 +2,12 @@
 
 namespace WePay.Entities
 {
-    public class WePayAccountUpdateUri
+    public class WePayDeletedAccount
     {
         [JsonProperty("account_id")]
         public long AccountId { get; set; }
 
-        [JsonProperty("uri")]
-        public string Uri { get; set; }
+        [JsonProperty("state")]
+        public string State { get; set; }
     }
 }

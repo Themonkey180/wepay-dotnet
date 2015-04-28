@@ -53,22 +53,22 @@ namespace WePay
             return Mapper<WePayDeletedAccount>.MapFromJson(response);
         }
 
-        public virtual WePayAccountUpdateUri GetUpdateUri(WePayGetUpdateUriAccountArguments arguments)
+        public virtual WepayAccountUpdatedUri GetUpdateUri(WePayGetUpdateUriAccountArguments arguments)
         {
             var url = Urls.AccountModify;
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(url, AccessToken, parameters);
 
-            return Mapper<WePayAccountUpdateUri>.MapFromJson(response);
+            return Mapper<WepayAccountUpdatedUri>.MapFromJson(response);
         }
 
-        public virtual WePayDeletedAccount GetReserveDetails(WePayGetReserveDetailsAccountArguments arguments)
+        public virtual WepayAccountReserveDetails GetReserveDetails(WePayGetReserveDetailsAccountArguments arguments)
         {
             var url = Urls.AccountModify;
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(url, AccessToken, parameters);
 
-            return Mapper<WePayDeletedAccount>.MapFromJson(response);
+            return Mapper<WepayAccountReserveDetails>.MapFromJson(response);
         }
     }
 }
