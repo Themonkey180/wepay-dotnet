@@ -63,6 +63,16 @@ namespace WePay.Infrastructure
             get { return BaseUrl + "/account/get_reserve_details"; }
         }
 
+        public static string App
+        {
+            get { return BaseUrl + "/app"; }
+        }
+
+        public static string AppModify
+        {
+            get { return BaseUrl + "/app/modify"; }
+        }
+
         private static string BaseUrl
         {
             get { return "https://stage.wepayapi.com/v2/"; }

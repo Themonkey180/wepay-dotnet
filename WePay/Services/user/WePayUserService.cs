@@ -13,6 +13,8 @@ namespace WePay
     {
         public WePayUserService(string accessToken = null, long? clientId = null, string ClientSecret = null) : base(accessToken, clientId, ClientSecret) { }
 
+        public WePayUserService(string accessToken = null) : base(accessToken) { }
+
         public virtual WePayUser Get()
         {
             var response = Requestor.PostStringBearer(Urls.User, AccessToken);

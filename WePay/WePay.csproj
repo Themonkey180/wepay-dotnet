@@ -51,9 +51,13 @@
     <Compile Include="Entities\Structure\WepayAccountBalance.cs" />
     <Compile Include="Entities\Structure\WepayStatuses.cs" />
     <Compile Include="Entities\Structure\WepayTheme.cs" />
+    <Compile Include="Entities\Structure\WithdrawalsSchedule.cs" />
     <Compile Include="Entities\WepayAccount.cs" />
-    <Compile Include="Entities\WePayAccountUpdateUri.cs" />
+    <Compile Include="Entities\WepayAccountReserveDetails.cs" />
     <Compile Include="Entities\WePayDeletedAccount.cs" />
+    <Compile Include="Entities\WepayAccountUpdatedUri.cs" />
+    <Compile Include="Entities\WePayUserSendConfirmation.cs" />
+    <Compile Include="Entities\WePayUserRegisterd.cs" />
     <Compile Include="Entities\WePayUser.cs" />
     <Compile Include="Entities\WePayError.cs" />
     <Compile Include="Infrastructure\EpochTime.cs" />
@@ -65,15 +69,21 @@
     <Compile Include="Infrastructure\WePayDateTimeConverter.cs" />
     <Compile Include="Infrastructure\WePayException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\account\Arguments\WePayCreateAccountArgument.cs" />
-    <Compile Include="Services\account\Arguments\WePayDeleteAccountArguments.cs" />
-    <Compile Include="Services\account\Arguments\WePayGetReserveDetailsAccountArguments.cs" />
-    <Compile Include="Services\account\Arguments\WePayGetUpdateUriAccountArguments.cs" />
-    <Compile Include="Services\account\Arguments\WePayModifyAccountArguments.cs" />
-    <Compile Include="Services\account\Arguments\WePayAccountArguments.cs" />
-    <Compile Include="Services\account\WePayAccountService.cs" />
-    <Compile Include="Services\account\Arguments\WePayFindAccountArguments.cs" />
-    <Compile Include="Services\user\WePayUserService.cs" />
+    <Compile Include="Services\Account\Arguments\WePayCreateAccountArgument.cs" />
+    <Compile Include="Services\Account\Arguments\WePayDeleteAccountArguments.cs" />
+    <Compile Include="Services\Account\Arguments\WePayGetReserveDetailsAccountArguments.cs" />
+    <Compile Include="Services\Account\Arguments\WePayGetUpdateUriAccountArguments.cs" />
+    <Compile Include="Services\Account\Arguments\WePayModifyAccountArguments.cs" />
+    <Compile Include="Services\Account\Arguments\WePayAccountArguments.cs" />
+    <Compile Include="Services\Account\WePayAccountService.cs" />
+    <Compile Include="Services\Account\Arguments\WePayFindAccountArguments.cs" />
+    <Compile Include="Services\App\Arguments\WePayAppModifyArguments.cs" />
+    <Compile Include="Services\App\Arguments\WePayAppArguments.cs" />
+    <Compile Include="Services\App\WePayAppService.cs" />
+    <Compile Include="Services\User\Arguments\WePayUserSendConfirmationArguments.cs" />
+    <Compile Include="Services\User\Arguments\WePayUserRegisterArguments.cs" />
+    <Compile Include="Services\User\Arguments\WePayUserModifyArguments.cs" />
+    <Compile Include="Services\User\WePayUserService.cs" />
     <Compile Include="Services\WepayService.cs" />
   </ItemGroup>
   <ItemGroup />
