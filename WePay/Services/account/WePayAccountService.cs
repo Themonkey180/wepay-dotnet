@@ -4,6 +4,9 @@ using WePay.Services;
 
 namespace WePay
 {
+    /// <summary>
+    /// https://www.wepay.com/developer/reference/account
+    /// </summary>
     public class WePayAccountrService : WepayService
     {
         public WePayAccountrService(string accessToken = null) : base(accessToken) { }

@@ -73,6 +73,66 @@ namespace WePay.Infrastructure
             get { return BaseUrl + "/app/modify"; }
         }
 
+        public static string Checkout
+        {
+            get { return BaseUrl + "/checkout"; }
+        }
+
+        public static string CheckoutFind
+        {
+            get { return BaseUrl + "/checkout/find"; }
+        }
+
+        public static string CheckoutCreate
+        {
+            get { return BaseUrl + "/checkout/create"; }
+        }
+
+        public static string CheckoutCancel
+        {
+            get { return BaseUrl + "/checkout/cancel"; }
+        }
+
+        public static string CheckoutRefund
+        {
+            get { return BaseUrl + "/checkout/refund"; }
+        }
+
+        public static string CheckoutCapture
+        {
+            get { return BaseUrl + "/checkout/capture"; }
+        }
+
+        public static string CheckoutModify
+        {
+            get { return BaseUrl + "/checkout/modify"; }
+        }
+
+        public static string Preapproval
+        {
+            get { return BaseUrl + "/preapproval"; }
+        }
+
+        public static string PreapprovalFind
+        {
+            get { return BaseUrl + "/preapproval/find"; }
+        }
+
+        public static string PreapprovalCreate
+        {
+            get { return BaseUrl + "/preapproval/create"; }
+        }
+
+        public static string PreapprovalCancel
+        {
+            get { return BaseUrl + "/preapproval/cancel"; }
+        }
+
+        public static string PreapprovalModify
+        {
+            get { return BaseUrl + "/preapproval/modify"; }
+        }
+
         private static string BaseUrl
         {
             get { return "https://stage.wepayapi.com/v2/"; }

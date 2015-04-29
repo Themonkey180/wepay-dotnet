@@ -9,11 +9,14 @@ using WePay.Services;
 
 namespace WePay
 {
+    /// <summary>
+    /// https://www.wepay.com/developer/reference/app
+    /// </summary>
     public class WePayAppService : WepayService
     {
         public WePayAppService(string accessToken = null, long? clientId = null, string ClientSecret = null) : base(accessToken, clientId, ClientSecret) { }
 
-        public virtual WePayUserRegisterd App(WePayAppArguments arguments)
+        public virtual WePayUserRegisterd Get(WePayAppArguments arguments)
         {
             arguments.ClientId = arguments.ClientId.Equals(null) ? (ClientId == null ? WePayConfiguration.GetClientId() : ClientId) : arguments.ClientId;
             arguments.ClientSecret = string.IsNullOrWhiteSpace(arguments.ClientSecret) ? (string.IsNullOrWhiteSpace(ClientSecret) ? WePayConfiguration.GetClientSecret() : ClientSecret) : arguments.ClientSecret;

@@ -2,22 +2,16 @@
 
 namespace WePay.Entities.Structure
 {
-    /// <summary>
-    /// https://www.wepay.com/developer/reference/structures#checkout_prefill_info
-    /// </summary>
-    public class WepayPrefillInfo
+    public class WepayShippingAddress
     {
         [JsonProperty("name")]
         public string Name { get; set; }
 
-        [JsonProperty("email")]
-        public string Email { get; set; }
+        [JsonProperty("address1")]
+        public string Address1 { get; set; }
 
-        [JsonProperty("phone_number")]
-        public string PhoneNumber { get; set; }
-
-        [JsonProperty("address")]
-        public string Address { get; set; }
+        [JsonProperty("address2")]
+        public string Address2 { get; set; }
 
         [JsonProperty("city")]
         public string City { get; set; }
@@ -36,6 +30,5 @@ namespace WePay.Entities.Structure
 
         [JsonProperty("country")]
         public string Country { get; set; }
-
     }
 }
