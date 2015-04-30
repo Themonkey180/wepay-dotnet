@@ -153,6 +153,31 @@ namespace WePay.Infrastructure
             get { return BaseUrl + "/withdrawal/modify"; }
         }
 
+        public static string CreditCard
+        {
+            get { return BaseUrl + "/credit_card"; }
+        }
+
+        public static string CreditCardCreate
+        {
+            get { return BaseUrl + "/credit_card/create"; }
+        }
+
+        public static string CreditCardAuthorize
+        {
+            get { return BaseUrl + "/credit_card/authorize"; }
+        }
+
+        public static string CreditCardFind
+        {
+            get { return BaseUrl + "/credit_card/find"; }
+        }
+
+        public static string CreditCardDelete
+        {
+            get { return BaseUrl + "/credit_card/delete"; }
+        }
+
         private static string BaseUrl
         {
             get { return "https://stage.wepayapi.com/v2/"; }
