@@ -49,14 +49,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Structure\WepayAccountBalance.cs" />
+    <Compile Include="Entities\Structure\WepayShippingAddress.cs" />
     <Compile Include="Entities\Structure\WepayStatuses.cs" />
     <Compile Include="Entities\Structure\WepayPrefillInfo.cs" />
     <Compile Include="Entities\Structure\WepayTheme.cs" />
     <Compile Include="Entities\Structure\WithdrawalsSchedule.cs" />
     <Compile Include="Entities\WepayAccount.cs" />
     <Compile Include="Entities\WepayAccountReserveDetails.cs" />
+    <Compile Include="Entities\WePayPreapprovalState.cs" />
+    <Compile Include="Entities\WePayPreapprovalCreate.cs" />
+    <Compile Include="Entities\WePayPreapproval.cs" />
+    <Compile Include="Entities\WePayCheckoutState.cs" />
     <Compile Include="Entities\WePayDeletedAccount.cs" />
     <Compile Include="Entities\WepayAccountUpdatedUri.cs" />
+    <Compile Include="Entities\WePayCheckout.cs" />
     <Compile Include="Entities\WePayUserSendConfirmation.cs" />
     <Compile Include="Entities\WePayUserRegisterd.cs" />
     <Compile Include="Entities\WePayUser.cs" />
@@ -81,12 +87,18 @@
     <Compile Include="Services\App\Arguments\WePayAppModifyArguments.cs" />
     <Compile Include="Services\App\Arguments\WePayAppArguments.cs" />
     <Compile Include="Services\App\WePayAppService.cs" />
+    <Compile Include="Services\Checkout\Arguments\WePayCheckoutModifyArguments.cs" />
     <Compile Include="Services\Checkout\Arguments\WePayCheckoutRefundArguments.cs" />
     <Compile Include="Services\Checkout\Arguments\WePayCheckoutCancelArguments.cs" />
     <Compile Include="Services\Checkout\Arguments\WePayCheckoutCreateArguments.cs" />
     <Compile Include="Services\Checkout\Arguments\WePayCheckoutFindArguments.cs" />
     <Compile Include="Services\Checkout\Arguments\WePayCheckoutArguments.cs" />
     <Compile Include="Services\Checkout\WePayCheckoutService.cs" />
+    <Compile Include="Services\Preapproval\Arguments\WePayPreapprovalModifyArguments.cs" />
+    <Compile Include="Services\Preapproval\Arguments\WePayPreapprovalCreateArguments.cs" />
+    <Compile Include="Services\Preapproval\Arguments\WePayPreapprovalFindArguments.cs" />
+    <Compile Include="Services\Preapproval\Arguments\WePayPreapprovalArguments.cs" />
+    <Compile Include="Services\Preapproval\WePayPreapprovalService.cs" />
     <Compile Include="Services\User\Arguments\WePayUserSendConfirmationArguments.cs" />
     <Compile Include="Services\User\Arguments\WePayUserRegisterArguments.cs" />
     <Compile Include="Services\User\Arguments\WePayUserModifyArguments.cs" />

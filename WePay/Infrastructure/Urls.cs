@@ -133,6 +133,26 @@ namespace WePay.Infrastructure
             get { return BaseUrl + "/preapproval/modify"; }
         }
 
+        public static string Withdrawal
+        {
+            get { return BaseUrl + "/withdrawal"; }
+        }
+
+        public static string WithdrawalFind
+        {
+            get { return BaseUrl + "/withdrawal/find"; }
+        }
+
+        public static string WithdrawalCreate
+        {
+            get { return BaseUrl + "/withdrawal/create"; }
+        }
+
+        public static string WithdrawalModify
+        {
+            get { return BaseUrl + "/withdrawal/modify"; }
+        }
+
         private static string BaseUrl
         {
             get { return "https://stage.wepayapi.com/v2/"; }
