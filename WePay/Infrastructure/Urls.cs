@@ -178,6 +178,31 @@ namespace WePay.Infrastructure
             get { return BaseUrl + "/credit_card/delete"; }
         }
 
+        public static string SubscriptionPlan
+        {
+            get { return BaseUrl + "/subscription_plan"; }
+        }
+
+        public static string SubscriptionPlanFind
+        {
+            get { return BaseUrl + "/subscription_plan/find"; }
+        }
+
+        public static string SubscriptionPlanCreate
+        {
+            get { return BaseUrl + "/subscription_plan/create"; }
+        }
+
+        public static string SubscriptionPlanDelete
+        {
+            get { return BaseUrl + "/subscription_plan/delete"; }
+        }
+
+        public static string SubscriptionPlanModify
+        {
+            get { return BaseUrl + "/subscription_plan/modify"; }
+        }
+
         private static string BaseUrl
         {
             get { return "https://stage.wepayapi.com/v2/"; }

@@ -14,7 +14,7 @@ namespace WePay
     /// </summary>
     public class WePayCreditCardService : WepayService
     {
-        public WePayCreditCardService(string accessToken = null) : base(accessToken) { }
+        public WePayCreditCardService(string accessToken = null, long? clientId = null, string clientSecret = null) : base(accessToken, clientId, clientSecret) { }
 
         public virtual WePayCreditCard Get(WePayCreditCardArguments arguments)
         {
