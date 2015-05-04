@@ -9,7 +9,7 @@ namespace WePay
     public class WePayCreditCardCreateArguments
     {
         [JsonProperty("client_id", Required = Required.Always)]
-        public long ClientId { get; set; }
+        public long? ClientId { get; set; }
 
         [JsonProperty("cc_number", Required = Required.Always)]
         public string CCnumber { get; set; }
