@@ -243,6 +243,12 @@ namespace WePay.Infrastructure
             get { return BaseUrl + "/subscription_charge/refund"; }
         }
 
+        public static string Oauth2Token
+        {
+            get { return BaseUrl + "/oauth2/token"; }
+        }
+
+
         private static string BaseUrl
         {
             get { return "https://stage.wepayapi.com/v2/"; }
