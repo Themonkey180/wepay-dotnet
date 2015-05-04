@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Structure\WepayAccountBalance.cs" />
+    <Compile Include="Entities\Structure\WepayAddress.cs" />
     <Compile Include="Entities\Structure\WepayShippingAddress.cs" />
     <Compile Include="Entities\Structure\WepayStatuses.cs" />
     <Compile Include="Entities\Structure\WepayPrefillInfo.cs" />
@@ -56,6 +57,12 @@
     <Compile Include="Entities\Structure\WithdrawalsSchedule.cs" />
     <Compile Include="Entities\WepayAccount.cs" />
     <Compile Include="Entities\WepayAccountReserveDetails.cs" />
+    <Compile Include="Entities\WePaySubscription.cs" />
+    <Compile Include="Entities\WePaySubscriptionPlanState.cs" />
+    <Compile Include="Entities\WePaySubscriptionPlan.cs" />
+    <Compile Include="Entities\WePayCreditCard.cs" />
+    <Compile Include="Entities\WePayCreditCardState.cs" />
+    <Compile Include="Entities\WePayWithdrawalCreated.cs" />
     <Compile Include="Entities\WePayPreapprovalState.cs" />
     <Compile Include="Entities\WePayPreapprovalCreate.cs" />
     <Compile Include="Entities\WePayPreapproval.cs" />
@@ -63,6 +70,7 @@
     <Compile Include="Entities\WePayDeletedAccount.cs" />
     <Compile Include="Entities\WepayAccountUpdatedUri.cs" />
     <Compile Include="Entities\WePayCheckout.cs" />
+    <Compile Include="Entities\WePayWithdrawal.cs" />
     <Compile Include="Entities\WePayUserSendConfirmation.cs" />
     <Compile Include="Entities\WePayUserRegisterd.cs" />
     <Compile Include="Entities\WePayUser.cs" />
@@ -99,11 +107,32 @@
     <Compile Include="Services\Preapproval\Arguments\WePayPreapprovalFindArguments.cs" />
     <Compile Include="Services\Preapproval\Arguments\WePayPreapprovalArguments.cs" />
     <Compile Include="Services\Preapproval\WePayPreapprovalService.cs" />
+    <Compile Include="Services\Subscription\Arguments\WePaySubscriptionArguments.cs" />
+    <Compile Include="Services\Subscription\Arguments\WePaySubscriptionCreateArguments.cs" />
+    <Compile Include="Services\Subscription\Arguments\WePaySubscriptionCancelArguments.cs" />
+    <Compile Include="Services\Subscription\Arguments\WePaySubscriptionFindArguments.cs" />
+    <Compile Include="Services\Subscription\Arguments\WePaySubscriptionModifyeArguments.cs" />
+    <Compile Include="Services\Subscription\WePaySubscriptionService.cs" />
+    <Compile Include="Services\SubscriptionPlan\Arguments\WePaySubscriptionPlanModifyeArguments.cs" />
+    <Compile Include="Services\SubscriptionPlan\Arguments\WePaySubscriptionPlanDeleteArguments.cs" />
+    <Compile Include="Services\SubscriptionPlan\Arguments\WePaySubscriptionPlanArguments.cs" />
+    <Compile Include="Services\SubscriptionPlan\Arguments\WePaySubscriptionPlanCreateArguments.cs" />
+    <Compile Include="Services\SubscriptionPlan\Arguments\WePaySubscriptionPlanFindArguments.cs" />
+    <Compile Include="Services\SubscriptionPlan\WePaySubscriptionPlanService.cs" />
     <Compile Include="Services\User\Arguments\WePayUserSendConfirmationArguments.cs" />
     <Compile Include="Services\User\Arguments\WePayUserRegisterArguments.cs" />
     <Compile Include="Services\User\Arguments\WePayUserModifyArguments.cs" />
     <Compile Include="Services\User\WePayUserService.cs" />
     <Compile Include="Services\WepayService.cs" />
+    <Compile Include="Services\CreditCard\Arguments\WePayCreditCardArguments.cs" />
+    <Compile Include="Services\CreditCard\Arguments\WePayCreditCardCreateArguments.cs" />
+    <Compile Include="Services\CreditCard\Arguments\WePayCreditCardFindArguments.cs" />
+    <Compile Include="Services\CreditCard\WePayCreditCardService.cs" />
+    <Compile Include="Services\Withdrawal\Arguments\WePayWithdrawalFindArguments.cs" />
+    <Compile Include="Services\Withdrawal\Arguments\WePayWithdrawalModifyArguments.cs" />
+    <Compile Include="Services\Withdrawal\Arguments\WePayWithdrawalCreateArguments.cs" />
+    <Compile Include="Services\Withdrawal\Arguments\WePayWithdrawalArguments.cs" />
+    <Compile Include="Services\Withdrawal\WePayWithdrawalService.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
