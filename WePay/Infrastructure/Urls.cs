@@ -228,6 +228,21 @@ namespace WePay.Infrastructure
             get { return BaseUrl + "/subscription/modify"; }
         }
 
+        public static string SubscriptionCharge
+        {
+            get { return BaseUrl + "/subscription_charge"; }
+        }
+
+        public static string SubscriptionChargeFind
+        {
+            get { return BaseUrl + "/subscription_charge/find"; }
+        }
+
+        public static string SubscriptionChargeRefund
+        {
+            get { return BaseUrl + "/subscription_charge/refund"; }
+        }
+
         private static string BaseUrl
         {
             get { return "https://stage.wepayapi.com/v2/"; }
