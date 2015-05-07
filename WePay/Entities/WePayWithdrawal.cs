@@ -47,10 +47,10 @@ namespace WePay.Entities
 
         [JsonProperty("create_time")]
         [JsonConverter(typeof(WePayDateTimeConverter))]
-        public DateTime CreateTime { get; set; }
+        public DateTime? CreateTime { get; set; }
 
         [JsonProperty("capture_time")]
         [JsonConverter(typeof(WePayDateTimeConverter))]
-        public DateTime CaptureTime { get; set; }
+        public DateTime? CaptureTime { get; set; }
     }
 }

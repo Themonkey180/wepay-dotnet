@@ -32,7 +32,7 @@ namespace WePay.Entities.Structure
 
         [JsonProperty("withdrawal_next_time")]
         [JsonConverter(typeof(WePayDateTimeConverter))]
-        public DateTime WithdrawalNextTime { get; set; }
+        public DateTime? WithdrawalNextTime { get; set; }
 
         [JsonProperty("withdrawal_bank_name")]
         public string WithdrawalBankName { get; set; }

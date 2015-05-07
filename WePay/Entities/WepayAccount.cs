@@ -39,7 +39,7 @@ namespace WePay.Entities
 
         [JsonProperty("create_time")]
         [JsonConverter(typeof(WePayDateTimeConverter))]
-        public DateTime CreateTime { get; set; }
+        public DateTime? CreateTime { get; set; }
 
         [JsonProperty("balances")]
         public WepayAccountBalance[] Balances { get; set; }
@@ -55,7 +55,7 @@ namespace WePay.Entities
 
         [JsonProperty("disablement_time")]
         [JsonConverter(typeof(WePayDateTimeConverter))]
-        public DateTime DisablementTime { get; set; }
+        public DateTime? DisablementTime { get; set; }
 
         [JsonProperty("country")]
         public string Country { get; set; }

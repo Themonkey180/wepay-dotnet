@@ -24,12 +24,12 @@ namespace WePay.Entities
         [JsonProperty("user_name")]
         public string FullName { get; set; }
 
-        [JsonProperty("state")]
-        public string State { get; set; }
+        [JsonProperty("email")]
+        public string Email { get; set; }
 
         [JsonProperty("create_time")]
         [JsonConverter(typeof(WePayDateTimeConverter))]
-        public DateTime CreateTime { get; set; }
+        public DateTime? CreateTime { get; set; }
 
         [JsonProperty("reference_id")]
         public string ReferenceId { get; set; }

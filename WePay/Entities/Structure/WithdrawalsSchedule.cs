@@ -4,11 +4,11 @@ using WePay.Infrastructure;
 
 namespace WePay.Entities.Structure
 {
-    class WithdrawalsSchedule
+    public class WithdrawalsSchedule
     {
         [JsonProperty("time")]
         [JsonConverter(typeof(WePayDateTimeConverter))]
-        public DateTime WithdrawalTime { get; set; }
+        public DateTime? WithdrawalTime { get; set; }
 
         [JsonProperty("amount")]
         public decimal Amount { get; set; }

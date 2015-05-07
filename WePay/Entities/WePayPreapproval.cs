@@ -54,11 +54,11 @@ namespace WePay.Entities
 
         [JsonProperty("start_time")]
         [JsonConverter(typeof(WePayDateTimeConverter))]
-        public DateTime StartTime { get; set; }
+        public DateTime? StartTime { get; set; }
 
         [JsonProperty("end_time")]
         [JsonConverter(typeof(WePayDateTimeConverter))]
-        public DateTime EndTime { get; set; }
+        public DateTime? EndTime { get; set; }
 
         [JsonProperty("reference_id")]
         public string ReferenceId { get; set; }
@@ -78,23 +78,20 @@ namespace WePay.Entities
         [JsonProperty("payer_email")]
         public string PayerEmail { get; set; }
 
-        [JsonProperty("frequency")]
-        public long Frequency { get; set; }
-
         [JsonProperty("create_time")]
         [JsonConverter(typeof(WePayDateTimeConverter))]
-        public DateTime CreateTime { get; set; }
+        public DateTime? CreateTime { get; set; }
 
         [JsonProperty("next_due_time")]
         [JsonConverter(typeof(WePayDateTimeConverter))]
-        public DateTime NextDueTime { get; set; }
+        public DateTime? NextDueTime { get; set; }
 
         [JsonProperty("last_checkout_id")]
         public long LastCheckoutId { get; set; }
 
         [JsonProperty("last_checkout_time")]
         [JsonConverter(typeof(WePayDateTimeConverter))]
-        public DateTime LastCheckoutTime { get; set; }
+        public DateTime? LastCheckoutTime { get; set; }
 
         [JsonProperty("mode")]
         public string Mode { get; set; }

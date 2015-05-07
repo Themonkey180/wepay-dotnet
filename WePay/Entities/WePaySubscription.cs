@@ -45,7 +45,7 @@ namespace WePay.Entities
 
         [JsonProperty("create_time")]
         [JsonConverter(typeof(WePayDateTimeConverter))]
-        public DateTime CreateTime { get; set; }
+        public DateTime? CreateTime { get; set; }
 
         [JsonProperty("redirect_uri")]
         public long RedirectUri { get; set; }
@@ -70,7 +70,7 @@ namespace WePay.Entities
 
         [JsonProperty("transition_expire_time")]
         [JsonConverter(typeof(WePayDateTimeConverter))]
-        public DateTime TransitionExpireTime { get; set; }
+        public DateTime? TransitionExpireTime { get; set; }
 
         [JsonProperty("transition_prorate")]
         public bool TransitionProrate { get; set; }
