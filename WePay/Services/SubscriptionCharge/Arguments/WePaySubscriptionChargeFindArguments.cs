@@ -20,11 +20,11 @@ namespace WePay
 
         [JsonProperty("start_time")]
         [JsonConverter(typeof(WePayDateTimeConverter))]
-        public DateTime StartTime { get; set; }
+        public DateTime? StartTime { get; set; }
 
         [JsonProperty("end_time")]
         [JsonConverter(typeof(WePayDateTimeConverter))]
-        public DateTime EndTime { get; set; }
+        public DateTime? EndTime { get; set; }
 
         [JsonProperty("type")]
         public string Type { get; set; }
@@ -34,5 +34,7 @@ namespace WePay
 
         [JsonProperty("state")]
         public string State { get; set; }
+
+        public string BatchUrl() { return "/subscription_charge/find"; }
     }
 }

@@ -32,12 +32,14 @@ namespace WePay
 
         [JsonProperty("tos_acceptance_time", Required = Required.Always)]
         [JsonConverter(typeof(WePayDateTimeConverter))]
-        public DateTime TOSAcceptanceTime { get; set; }
+        public DateTime? TOSAcceptanceTime { get; set; }
 
         [JsonProperty("redirect_uri")]
         public string RedirectUri { get; set; }
 
         [JsonProperty("callback_uri")]
         public string CallbackUri { get; set; }
+
+        public string BatchUrl() { return "/user/register"; }
     }
 }

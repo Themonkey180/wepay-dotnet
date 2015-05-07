@@ -34,5 +34,7 @@ namespace WePay
 
         [JsonProperty("prefill_info")]
         public WepayPrefillInfo PrefillInfo { get; set; }
+
+        public string BatchUrl() { return "/subscription/create"; }
     }
 }

@@ -5,27 +5,29 @@ namespace WePay
     public class WePayPreapprovalFindArguments
     {
         [JsonProperty("account_id")]
-        public long account_id { get; set; }
+        public long AccountId { get; set; }
 
         [JsonProperty("state")]
-        public long state { get; set; }
+        public long State { get; set; }
 
         [JsonProperty("reference_id")]
-        public long reference_id { get; set; }
+        public long ReferenceId { get; set; }
 
         [JsonProperty("start")]
-        public long start { get; set; }
+        public long Start { get; set; }
 
         [JsonProperty("limit")]
-        public long limit { get; set; }
+        public long Limit { get; set; }
 
         [JsonProperty("sort_order")]
-        public long sort_order { get; set; }
+        public long SortOrder { get; set; }
 
         [JsonProperty("last_checkout_id")]
-        public long last_checkout_id { get; set; }
+        public long LastCheckoutId { get; set; }
 
         [JsonProperty("shipping_fee")]
-        public long shipping_fee { get; set; }
+        public long ShippingFee { get; set; }
+
+        public string BatchUrl() { return "/preapproval/create"; }
     }
 }

@@ -5,7 +5,7 @@ namespace WePay
     /// <summary>
     /// https://www.wepay.com/developer/reference/oauth2#token
     /// </summary>
-    public class WePayOauth2STokenArguments
+    public class WePayOauth2TokenArguments
     {
         [JsonProperty("client_id", Required = Required.Always)]
         public long? ClientId { get; set; }
@@ -21,5 +21,7 @@ namespace WePay
 
         [JsonProperty("callback_uri")]
         public string CallbackUri { get; set; }
+
+        public string BatchUrl() { return "/oauth2/token"; }
     }
 }

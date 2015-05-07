@@ -11,6 +11,8 @@ namespace WePay
         public long SubscriptionId { get; set; }
 
         [JsonProperty("reason")]
-        public string reason { get; set; }
+        public string Reason { get; set; }
+
+        public string BatchUrl() { return "/subscription/cancel"; }
     }
 }

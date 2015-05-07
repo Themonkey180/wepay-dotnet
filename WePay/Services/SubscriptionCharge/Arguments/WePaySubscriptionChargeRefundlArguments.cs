@@ -12,5 +12,7 @@ namespace WePay
 
         [JsonProperty("refund_reason")]
         public string Reason { get; set; }
+
+        public string BatchUrl() { return "/subscription_charge/refund"; }
     }
 }

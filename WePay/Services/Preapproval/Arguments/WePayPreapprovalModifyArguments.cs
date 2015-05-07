@@ -12,5 +12,7 @@ namespace WePay
 
         [JsonProperty("callback_uri")]
         public string callback_uri { get; set; }
+
+        public string BatchUrl() { return "/preapproval/modify"; }
     }
 }

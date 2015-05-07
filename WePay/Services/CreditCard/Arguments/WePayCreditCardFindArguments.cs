@@ -24,5 +24,7 @@ namespace WePay
 
         [JsonProperty("sort_order")]
         public string sort_order { get; set; }
+
+        public string BatchUrl() { return "/credit_card/find"; }
     }
 }

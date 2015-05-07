@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using WePay.Infrastructure;
 
 namespace WePay
 {
@@ -11,5 +12,16 @@ namespace WePay
     {
         [JsonProperty("preapproval_id", Required = Required.Always)]
         public long PreapprovalId { get; set; }
+
+        public string BatchUrl(BatchUrlType type)
+        {
+            switch (type)
+            {
+                case BatchUrlType.Cancel:
+                    return "/preapproval/cancel";
+                default:
+                    return "/preapproval";
+            }
+        }
     }
 }

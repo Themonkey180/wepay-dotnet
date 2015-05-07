@@ -78,5 +78,7 @@ namespace WePay
 
         [JsonProperty("payment_method_type")]
         public string PaymentMethodType { get; set; }
+
+        public string BatchUrl() { return "/checkout/create"; }
     }
 }

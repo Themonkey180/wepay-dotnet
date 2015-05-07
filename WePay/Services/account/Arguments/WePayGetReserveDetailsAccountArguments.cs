@@ -3,6 +3,9 @@ using WePay.Entities.Structure;
 
 namespace WePay
 {
+    /// <summary>
+    /// https://www.wepay.com/developer/reference/account#reserve
+    /// </summary>
     public class WePayGetReserveDetailsAccountArguments
     {
         [JsonProperty("account_id", Required = Required.Always)]
@@ -10,5 +13,7 @@ namespace WePay
 
         [JsonProperty("currency")]
         public string Currency { get; set; }
+
+        public string BatchUrl() { return "/account/get_reserve_details"; }
     }
 }

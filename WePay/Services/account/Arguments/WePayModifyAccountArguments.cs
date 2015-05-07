@@ -5,6 +5,9 @@ namespace WePay
 {
     public class WePayModifyAccountArguments
     {
+        /// <summary>
+        /// https://www.wepay.com/developer/reference/account#modify
+        /// </summary>
         [JsonProperty("account_id", Required = Required.Always)]
         public long AccountId { get; set; }
 
@@ -28,5 +31,7 @@ namespace WePay
 
         [JsonProperty("callback_uri")]
         public WepayTheme CallbackUri { get; set; }
+
+        public string BatchUrl() { return "/account/modify"; }
     }
 }

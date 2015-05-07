@@ -3,6 +3,9 @@ using WePay.Entities.Structure;
 
 namespace WePay
 {
+    /// <summary>
+    /// https://www.wepay.com/developer/reference/app#modify
+    /// </summary>
     public class WePayAppModifyArguments
     {
         [JsonProperty("client_id", Required = Required.Always)]
@@ -12,9 +15,11 @@ namespace WePay
         public string ClientSecret { get; set; }
 
         [JsonProperty("theme_object")]
-        public WepayTheme ClientSecret { get; set; }
+        public WepayTheme Theme { get; set; }
 
         [JsonProperty("gaq_domains")]
         public string[] GoogleAnalyticsIDs { get; set; }
+
+        public string BatchUrl() { return "/app/modify"; }
     }
 }

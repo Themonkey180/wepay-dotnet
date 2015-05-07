@@ -12,5 +12,7 @@ namespace WePay
 
         [JsonProperty("reason")]
         public string reason { get; set; }
+
+        public string BatchUrl() { return "/subscription_plan/delete"; }
     }
 }

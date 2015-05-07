@@ -40,5 +40,7 @@ namespace WePay
 
         [JsonProperty("reference_id")]
         public string ReferenceId { get; set; }
+
+        public string BatchUrl() { return "/subscription_plan/modify"; }
     }
 }

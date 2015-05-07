@@ -2,6 +2,9 @@
 
 namespace WePay
 {
+    /// <summary>
+    /// https://www.wepay.com/developer/reference/account#delete
+    /// </summary>
     public class WePayDeleteAccountArguments
     {
         [JsonProperty("account_id", Required = Required.Always)]
@@ -9,5 +12,7 @@ namespace WePay
 
         [JsonProperty("reason")]
         public string Reason { get; set; }
+
+        public string BatchUrl() { return "/account/delete"; }
     }
 }

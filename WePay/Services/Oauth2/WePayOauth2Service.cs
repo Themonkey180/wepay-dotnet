@@ -16,7 +16,7 @@ namespace WePay
     {
         public WePayOauth2Service(long? clientId = null, string ClientSecret = null) : base(clientId, ClientSecret) { }
 
-        public virtual WePayUserRegisterd Token(WePayOauth2STokenArguments arguments)
+        public virtual WePayUserRegisterd Token(WePayOauth2TokenArguments arguments)
         {
             arguments.ClientId = arguments.ClientId.Equals(null) ? (ClientId == null ? WePayConfiguration.GetClientId() : ClientId) : arguments.ClientId;
             arguments.ClientSecret = string.IsNullOrWhiteSpace(arguments.ClientSecret) ? (string.IsNullOrWhiteSpace(ClientSecret) ? WePayConfiguration.GetClientSecret() : ClientSecret) : arguments.ClientSecret;

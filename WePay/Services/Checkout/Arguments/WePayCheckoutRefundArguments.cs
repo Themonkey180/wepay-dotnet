@@ -14,7 +14,7 @@ namespace WePay
         public string RefundReason { get; set; }
 
         [JsonProperty("amount")]
-        public decimal RefundReason { get; set; }
+        public decimal Amount { get; set; }
 
         [JsonProperty("app_fee")]
         public decimal AppFee { get; set; }
@@ -24,5 +24,7 @@ namespace WePay
 
         [JsonProperty("payee_email_message")]
         public string PayeeEmailMessage { get; set; }
+
+        public string BatchUrl() { return "/checkout/refund"; }
     }
 }

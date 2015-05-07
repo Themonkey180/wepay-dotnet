@@ -5,6 +5,9 @@ namespace WePay
 {
     public class WePayGetUpdateUriAccountArguments
     {
+        /// <summary>
+        /// https://www.wepay.com/developer/reference/account#update_uri
+        /// </summary>
         [JsonProperty("account_id", Required = Required.Always)]
         public long AccountId { get; set; }
 
@@ -13,5 +16,7 @@ namespace WePay
 
         [JsonProperty("redirect_uri")]
         public string RedirectUri { get; set; }
+
+        public string BatchUrl() { return "/account/get_update_uri"; }
     }
 }

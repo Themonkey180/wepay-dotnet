@@ -12,5 +12,7 @@ namespace WePay
 
         [JsonProperty("callback_uri")]
         public long CallbackUri { get; set; }
+
+        public string BatchUrl() { return "/checkout/modify"; }
     }
 }

@@ -60,11 +60,11 @@ namespace WePay
 
         [JsonProperty("start_time")]
         [JsonConverter(typeof(WePayDateTimeConverter))]
-        public DateTime StartTime { get; set; }
+        public DateTime? StartTime { get; set; }
 
         [JsonProperty("end_time")]
         [JsonConverter(typeof(WePayDateTimeConverter))]
-        public DateTime EndTime { get; set; }
+        public DateTime? EndTime { get; set; }
 
         [JsonProperty("auto_capture")]
         public bool AutoCapture { get; set; }
@@ -83,5 +83,7 @@ namespace WePay
 
         [JsonProperty("payment_method_type")]
         public string PaymentMethodType { get; set; }
+
+        public string BatchUrl() { return "/preapproval/create"; }
     }
 }

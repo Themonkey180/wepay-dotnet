@@ -9,5 +9,7 @@ namespace WePay
     {
         [JsonProperty("withdrawal_id", Required = Required.Always)]
         public long WithdrawalId { get; set; }
+
+        public string BatchUrl() { return "/withdrawal"; }
     }
 }

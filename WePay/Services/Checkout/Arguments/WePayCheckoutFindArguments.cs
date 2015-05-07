@@ -29,16 +29,18 @@ namespace WePay
 
         [JsonProperty("start_time")]
         [JsonConverter(typeof(WePayDateTimeConverter))]
-        public DateTime StartTime { get; set; }
+        public DateTime? StartTime { get; set; }
 
         [JsonProperty("end_time")]
         [JsonConverter(typeof(WePayDateTimeConverter))]
-        public DateTime EndTime { get; set; }
+        public DateTime? EndTime { get; set; }
 
         [JsonProperty("sort_order")]
         public string SortOrder { get; set; }
 
         [JsonProperty("shipping_fee")]
         public decimal ShippingFee { get; set; }
+
+        public string BatchUrl() { return "/checkout/find"; }
     }
 }

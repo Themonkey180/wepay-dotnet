@@ -9,5 +9,7 @@ namespace WePay
     {
         [JsonProperty("subscription_plan_id", Required = Required.Always)]
         public long SubscriptionPlanId { get; set; }
+
+        public string BatchUrl() { return "/subscription_plan"; }
     }
 }

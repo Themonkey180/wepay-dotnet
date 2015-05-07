@@ -3,6 +3,9 @@ using WePay.Entities.Structure;
 
 namespace WePay
 {
+    /// <summary>
+    /// https://www.wepay.com/developer/reference/account#create
+    /// </summary>
     public class WePayCreateAccountArgument
     {
         [JsonProperty("name", Required = Required.Always)]
@@ -37,5 +40,7 @@ namespace WePay
 
         [JsonProperty("currencies")]
         public string[] currencies { get; set; }
+
+        public string BatchUrl() { return "/account/create"; }
     }
 }

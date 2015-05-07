@@ -12,5 +12,7 @@ namespace WePay
 
         [JsonProperty("cancel_reason", Required = Required.Always)]
         public string CancelReason { get; set; }
+
+        public string BatchUrl() { return "/checkout/cancel"; }
     }
 }

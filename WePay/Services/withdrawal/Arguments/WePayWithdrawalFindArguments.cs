@@ -21,5 +21,7 @@ namespace WePay
 
         [JsonProperty("state")]
         public string state { get; set; }
+
+        public string BatchUrl() { return "/withdrawal/find"; }
     }
 }

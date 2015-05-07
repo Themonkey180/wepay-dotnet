@@ -12,5 +12,7 @@ namespace WePay
 
         [JsonProperty("callback_uri")]
         public string CallbackUri { get; set; }
+
+        public string BatchUrl() { return "/withdrawal/modify"; }
     }
 }

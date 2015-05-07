@@ -40,5 +40,7 @@ namespace WePay
 
         [JsonProperty("extend_trial_days")]
         public long ExtendTrialDays { get; set; }
+
+        public string BatchUrl() { return "/subscription/modify"; }
     }
 }
