@@ -5,3 +5,10 @@ C:\Users\petersj\documents\visual studio 2013\Projects\WePay.net\WePay\bin\Debug
 C:\Users\petersj\documents\visual studio 2013\Projects\WePay.net\WePay\obj\Debug\WePay.dll
 C:\Users\petersj\documents\visual studio 2013\Projects\WePay.net\WePay\obj\Debug\WePay.pdb
 C:\Users\petersj\documents\visual studio 2013\Projects\WePay.net\WePay\obj\Debug\WePay.csprojResolveAssemblyReference.cache
+C:\Users\petersj\Documents\wepay-dotnet\WePay\obj\Debug\WePay.csprojResolveAssemblyReference.cache
+C:\Users\petersj\Documents\wepay-dotnet\WePay\obj\Debug\WePay.dll
+C:\Users\petersj\Documents\wepay-dotnet\WePay\obj\Debug\WePay.pdb
+C:\Users\petersj\Documents\wepay-dotnet\WePay\bin\Debug\WePay.dll
+C:\Users\petersj\Documents\wepay-dotnet\WePay\bin\Debug\WePay.pdb
+C:\Users\petersj\Documents\wepay-dotnet\WePay\bin\Debug\Newtonsoft.Json.dll
+C:\Users\petersj\Documents\wepay-dotnet\WePay\bin\Debug\Newtonsoft.Json.xml

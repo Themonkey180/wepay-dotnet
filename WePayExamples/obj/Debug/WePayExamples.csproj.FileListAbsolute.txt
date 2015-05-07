@@ -44,3 +44,4 @@ C:\Users\petersj\Documents\wepay-dotnet\WePayExamples\bin\System.Web.WebPages.Ra
 C:\Users\petersj\Documents\wepay-dotnet\WePayExamples\obj\Debug\WePayExamples.csprojResolveAssemblyReference.cache
 C:\Users\petersj\Documents\wepay-dotnet\WePayExamples\obj\Debug\WePayExamplesMVC.dll
 C:\Users\petersj\Documents\wepay-dotnet\WePayExamples\obj\Debug\WePayExamplesMVC.pdb
+C:\Users\petersj\Documents\wepay-dotnet\WePayExamples\bin\Newtonsoft.Json.xml
