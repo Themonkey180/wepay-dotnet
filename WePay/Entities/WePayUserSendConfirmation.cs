@@ -2,7 +2,7 @@
 
 namespace WePay.Entities
 {
-    public class WePayUser
+    public class WePayUserSendConfirmation : WepayBatch
     {
         [JsonProperty("user_id")]
         public long UserID { get; set; }
@@ -21,9 +21,5 @@ namespace WePay.Entities
 
         [JsonProperty("state")]
         public string State { get; set; }
-
-        [JsonProperty("callback_uri")]
-        public string CallbackUri { get; set; }
-
     }
 }

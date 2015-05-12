@@ -2,7 +2,7 @@
 
 namespace WePay.Entities
 {
-    public class WePayDeletedAccount
+    public class WePayAccountState : WepayBatch
     {
         [JsonProperty("account_id")]
         public long AccountId { get; set; }

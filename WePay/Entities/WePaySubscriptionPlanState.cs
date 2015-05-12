@@ -8,7 +8,7 @@ namespace WePay.Entities
     /// <summary>
     /// https://www.wepay.com/developer/reference/subscription_plan#delete
     /// </summary>
-    public class WePaySubscriptionPlanState
+    public class WePaySubscriptionPlanState : WepayBatch
     {
         [JsonProperty("subscription_plan_id")]
         public long SubscriptionPlanId { get; set; }

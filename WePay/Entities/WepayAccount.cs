@@ -8,7 +8,7 @@ namespace WePay.Entities
     /// <summary>
     /// 
     /// </summary>
-    public class WepayAccount
+    public class WepayAccount : WepayBatch
     {
         [JsonProperty("account_id")]
         public long AccountId { get; set; }

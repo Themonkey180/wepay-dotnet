@@ -12,7 +12,7 @@ namespace WePay.Entities
     /// https://www.wepay.com/developer/reference/checkout#create
     /// https://www.wepay.com/developer/reference/checkout#modify
     /// </summary>
-    public class WePayCheckout
+    public class WePayCheckout : WepayBatch
     {
         [JsonProperty("checkout_id")]
         public long CheckoutId { get; set; }

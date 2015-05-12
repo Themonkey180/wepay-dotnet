@@ -8,7 +8,7 @@ namespace WePay.Entities
     /// <summary>
     /// https://www.wepay.com/developer/reference/preapproval#lookup
     /// </summary>
-    public class WePayPreapproval
+    public class WePayPreapproval : WepayBatch
     {
         [JsonProperty("preapproval_id")]
         public long PreapprovalId { get; set; }

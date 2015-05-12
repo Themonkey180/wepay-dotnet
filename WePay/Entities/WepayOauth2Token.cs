@@ -1,11 +1,17 @@
 ﻿using Newtonsoft.Json;
+using System;
+using WePay.Entities.Structure;
+using WePay.Infrastructure;
 
 namespace WePay.Entities
 {
-    public class WePayUserRegisterd : WepayBatch
+    /// <summary>
+    /// https://www.wepay.com/developer/reference/oauth2
+    /// </summary>
+    public class WepayOauth2Token : WepayBatch
     {
         [JsonProperty("user_id")]
-        public long UserID { get; set; }
+        public long UserId { get; set; }
 
         [JsonProperty("access_token")]
         public string AccessToken { get; set; }
@@ -17,3 +23,4 @@ namespace WePay.Entities
         public long ExpiresIn { get; set; }
     }
 }
+

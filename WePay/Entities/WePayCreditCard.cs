@@ -10,7 +10,7 @@ namespace WePay.Entities
     /// and
     /// https://www.wepay.com/developer/reference/credit_card#find
     /// </summary>
-    public class WePayCreditCard
+    public class WePayCreditCard : WepayBatch
     {
         [JsonProperty("credit_card_id")]
         public long CreditCardId { get; set; }

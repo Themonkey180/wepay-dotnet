@@ -8,7 +8,7 @@ namespace WePay.Entities
     /// <summary>
     /// https://www.wepay.com/developer/reference/subscription_charge#refund
     /// </summary>
-    public class WePaySubscriptionChargeState
+    public class WePaySubscriptionChargeState : WepayBatch
     {
         [JsonProperty("subscription_plan_id")]
         public long SubscriptionPlanId { get; set; }

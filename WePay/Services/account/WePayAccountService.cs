@@ -47,13 +47,13 @@ namespace WePay
             return Mapper<WepayAccount>.MapFromJson(response);
         }
 
-        public virtual WePayDeletedAccount Delete(WePayDeleteAccountArguments arguments)
+        public virtual WePayAccountState Delete(WePayDeleteAccountArguments arguments)
         {
             var url = Urls.AccountModify;
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(url, AccessToken, parameters);
 
-            return Mapper<WePayDeletedAccount>.MapFromJson(response);
+            return Mapper<WePayAccountState>.MapFromJson(response);
         }
 
         public virtual WepayAccountUpdatedUri GetUpdateUri(WePayGetUpdateUriAccountArguments arguments)

@@ -7,7 +7,7 @@ namespace WePay.Entities
     /// <summary>
     /// https://www.wepay.com/developer/reference/withdrawal#lookup
     /// </summary>
-    public class WePayWithdrawal
+    public class WePayWithdrawal : WepayBatch
     {
         [JsonProperty("withdrawal_id")]
         public long WithdrawalId { get; set; }

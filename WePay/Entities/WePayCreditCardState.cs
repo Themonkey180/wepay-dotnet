@@ -12,7 +12,7 @@ namespace WePay.Entities
     /// and
     /// https://www.wepay.com/developer/reference/credit_card#delete
     /// </summary>
-    public class WePayCreditCardState
+    public class WePayCreditCardState : WepayBatch
     {
         [JsonProperty("credit_card_id")]
         public long CreditCardId { get; set; }

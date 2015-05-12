@@ -248,9 +248,14 @@ namespace WePay.Infrastructure
             get { return BaseUrl + "oauth2/token"; }
         }
 
+        public static string BatchCreate
+        {
+            get { return BaseUrl + "batch/create"; }
+        }
+
         private static string BaseUrl
         {
-            get { return "https://stage.wepayapi.com/v2/"; }
+            get { return "https://wepayapi.com/v2/"; }
         }
     }
 }

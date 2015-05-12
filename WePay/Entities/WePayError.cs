@@ -2,7 +2,7 @@
 
 namespace WePay.Entities
 {
-    class WePayError
+    class WePayError : WepayBatch
     {
         [JsonProperty("error")]
         public string Error { get; set; }

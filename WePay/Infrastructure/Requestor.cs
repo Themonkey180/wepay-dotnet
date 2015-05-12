@@ -33,7 +33,7 @@ namespace WePay.Infrastructure
             request.Method = method;
 
             if (useBearer)
-            request.Headers.Add("Authorization", GetAuthorizationHeaderValueBearer(AccessToken));
+                request.Headers.Add("Authorization", GetAuthorizationHeaderValueBearer(AccessToken));
 
             request.Headers.Add("Api-Version", WePayConfiguration.ApiVersion);
 

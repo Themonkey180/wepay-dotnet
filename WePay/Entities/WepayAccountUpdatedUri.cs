@@ -2,7 +2,7 @@
 
 namespace WePay.Entities
 {
-    public class WepayAccountUpdatedUri
+    public class WepayAccountUpdatedUri : WepayBatch
     {
         [JsonProperty("account_id")]
         public long AccountId { get; set; }

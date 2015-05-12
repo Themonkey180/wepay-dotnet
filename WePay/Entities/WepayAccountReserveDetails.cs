@@ -3,7 +3,7 @@ using WePay.Entities.Structure;
 
 namespace WePay.Entities
 {
-    public class WepayAccountReserveDetails
+    public class WepayAccountReserveDetails : WepayBatch
     {
         [JsonProperty("account_id")]
         public long AccountId { get; set; }

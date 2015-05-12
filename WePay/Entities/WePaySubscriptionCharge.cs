@@ -8,7 +8,7 @@ namespace WePay.Entities
     /// <summary>
     /// https://www.wepay.com/developer/reference/subscription_charge#lookup
     /// </summary>
-    public class WePaySubscriptionCharge
+    public class WePaySubscriptionCharge : WepayBatch
     {
         [JsonProperty("subscription_charge_id")]
         public long SubscriptionChargeId { get; set; }

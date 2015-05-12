@@ -16,7 +16,7 @@ namespace WePay
     {
         public WePayAppService(string accessToken = null, long? clientId = null, string ClientSecret = null) : base(accessToken, clientId, ClientSecret) { }
 
-        public virtual WePayUserRegisterd Get(WePayAppArguments arguments)
+        public virtual WepayApp Get(WePayAppArguments arguments)
         {
             arguments.ClientId = arguments.ClientId.Equals(null) ? (ClientId == null ? WePayConfiguration.GetClientId() : ClientId) : arguments.ClientId;
             arguments.ClientSecret = string.IsNullOrWhiteSpace(arguments.ClientSecret) ? (string.IsNullOrWhiteSpace(ClientSecret) ? WePayConfiguration.GetClientSecret() : ClientSecret) : arguments.ClientSecret;
@@ -24,10 +24,10 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostString(Urls.App, parameters);
 
-            return Mapper<WePayUserRegisterd>.MapFromJson(response);
+            return Mapper<WepayApp>.MapFromJson(response);
         }
 
-        public virtual WePayUserRegisterd Modify(WePayUserRegisterArguments arguments)
+        public virtual WepayAppModify Modify(WePayUserRegisterArguments arguments)
         {
             arguments.ClientId = arguments.ClientId.Equals(null) ? (ClientId == null ? WePayConfiguration.GetClientId() : ClientId) : arguments.ClientId;
             arguments.ClientSecret = string.IsNullOrWhiteSpace(arguments.ClientSecret) ? (string.IsNullOrWhiteSpace(ClientSecret) ? WePayConfiguration.GetClientSecret() : ClientSecret) : arguments.ClientSecret;
@@ -35,7 +35,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostString(Urls.AppModify, parameters);
 
-            return Mapper<WePayUserRegisterd>.MapFromJson(response);
+            return Mapper<WepayAppModify>.MapFromJson(response);
         }
     }
 }
