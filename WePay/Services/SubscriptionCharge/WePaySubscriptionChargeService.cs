@@ -32,7 +32,7 @@ namespace WePay
             return Mapper<WePaySubscriptionCharge[]>.MapFromJson(response);
         }
 
-        public virtual WePaySubscriptionChargeState Refund(WePaySubscriptionChargeRefundlArguments arguments)
+        public virtual WePaySubscriptionChargeState Refund(WePaySubscriptionChargeRefundArguments arguments)
         {
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.SubscriptionChargeRefund, AccessToken, parameters);

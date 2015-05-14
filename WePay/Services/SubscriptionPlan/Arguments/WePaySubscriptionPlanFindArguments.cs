@@ -16,8 +16,8 @@ namespace WePay
         [JsonProperty("limit")]
         public long Limit { get; set; }
 
-        [JsonProperty("start")]
-        public string Start { get; set; }
+        [JsonProperty("state")]
+        public string State { get; set; }
 
         [JsonProperty("reference_id")]
         public string ReferenceId { get; set; }

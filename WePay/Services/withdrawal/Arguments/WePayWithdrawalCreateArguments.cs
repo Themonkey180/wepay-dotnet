@@ -8,7 +8,7 @@ namespace WePay
     public class WePayWithdrawalCreateArguments
     {
         [JsonProperty("account_id", Required = Required.Always)]
-        public long Account_id { get; set; }
+        public long AccountId { get; set; }
 
         [JsonProperty("currency")]
         public string Currency { get; set; }

@@ -6,7 +6,7 @@ namespace WePay
     /// <summary>
     /// https://www.wepay.com/developer/reference/subscription#modify
     /// </summary>
-    public class WePaySubscriptionModifyeArguments
+    public class WePaySubscriptionModifyArguments
     {
         [JsonProperty("subscription_id", Required = Required.Always)]
         public long SubscriptionId { get; set; }
@@ -18,7 +18,7 @@ namespace WePay
         public long Quantity { get; set; }
 
         [JsonProperty("prorate")]
-        public bool Prorate { get; set; }
+        public bool? Prorate { get; set; }
 
         [JsonProperty("transition_expire_days")]
         public long TransitionExpireDays { get; set; }

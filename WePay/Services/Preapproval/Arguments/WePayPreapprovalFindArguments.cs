@@ -28,6 +28,6 @@ namespace WePay
         [JsonProperty("shipping_fee")]
         public long ShippingFee { get; set; }
 
-        public string BatchUrl() { return "/preapproval/create"; }
+        public string BatchUrl() { return "/preapproval/find"; }
     }
 }

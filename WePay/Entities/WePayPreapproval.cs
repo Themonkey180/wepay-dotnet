@@ -73,7 +73,7 @@ namespace WePay.Entities
         public decimal ShippingFee { get; set; }
 
         [JsonProperty("auto_recur")]
-        public bool AutoRecur { get; set; }
+        public bool? AutoRecur { get; set; }
 
         [JsonProperty("payer_email")]
         public string PayerEmail { get; set; }

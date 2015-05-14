@@ -35,7 +35,7 @@ namespace WePay
         [JsonProperty("trial_length")]
         public long TrialLength { get; set; }
 
-        [JsonProperty("SetupFee")]
+        [JsonProperty("setup_fee")]
         public decimal SetupFee { get; set; }
 
         [JsonProperty("reference_id")]

@@ -48,7 +48,7 @@ namespace WePay.Entities
         public DateTime? CreateTime { get; set; }
 
         [JsonProperty("redirect_uri")]
-        public long RedirectUri { get; set; }
+        public string RedirectUri { get; set; }
 
         [JsonProperty("callback_uri")]
         public string CallbackUri { get; set; }
@@ -73,7 +73,7 @@ namespace WePay.Entities
         public DateTime? TransitionExpireTime { get; set; }
 
         [JsonProperty("transition_prorate")]
-        public bool TransitionProrate { get; set; }
+        public bool? TransitionProrate { get; set; }
 
         [JsonProperty("transition_quantity")]
         public long TransitionQuantity { get; set; }

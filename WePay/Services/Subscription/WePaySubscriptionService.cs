@@ -40,7 +40,7 @@ namespace WePay
             return Mapper<WePaySubscriptionCreate>.MapFromJson(response);
         }
 
-        public virtual WePaySubscription Modify(WePaySubscriptionModifyeArguments arguments)
+        public virtual WePaySubscription Modify(WePaySubscriptionModifyArguments arguments)
         {
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.SubscriptionModify, AccessToken, parameters);

@@ -40,7 +40,7 @@ namespace WePay.Entities
         public string RecipientName { get; set; }
 
         [JsonProperty("recipient_confirmed")]
-        public bool RecipientConfirmed { get; set; }
+        public bool? RecipientConfirmed { get; set; }
 
         [JsonProperty("type")]
         public string Type { get; set; }

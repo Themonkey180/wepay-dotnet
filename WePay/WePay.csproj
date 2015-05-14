@@ -91,6 +91,7 @@
     <Compile Include="Entities\WePayUserRegisterd.cs" />
     <Compile Include="Entities\WePayUserSendConfirmation.cs" />
     <Compile Include="Entities\WePayError.cs" />
+    <Compile Include="Infrastructure\WepayPermissions.cs" />
     <Compile Include="Infrastructure\BatchUrlType.cs" />
     <Compile Include="Infrastructure\EpochTime.cs" />
     <Compile Include="Infrastructure\Mapper.cs" />
@@ -130,14 +131,14 @@
     <Compile Include="Services\Preapproval\Arguments\WePayPreapprovalArguments.cs" />
     <Compile Include="Services\Preapproval\WePayPreapprovalService.cs" />
     <Compile Include="Services\SubscriptionCharge\Arguments\WePaySubscriptionChargeArguments.cs" />
-    <Compile Include="Services\SubscriptionCharge\Arguments\WePaySubscriptionChargeRefundlArguments.cs" />
+    <Compile Include="Services\SubscriptionCharge\Arguments\WePaySubscriptionChargeRefundArguments.cs" />
     <Compile Include="Services\SubscriptionCharge\Arguments\WePaySubscriptionChargeFindArguments.cs" />
     <Compile Include="Services\SubscriptionCharge\WePaySubscriptionChargeService.cs" />
     <Compile Include="Services\Subscription\Arguments\WePaySubscriptionArguments.cs" />
     <Compile Include="Services\Subscription\Arguments\WePaySubscriptionCreateArguments.cs" />
     <Compile Include="Services\Subscription\Arguments\WePaySubscriptionCancelArguments.cs" />
     <Compile Include="Services\Subscription\Arguments\WePaySubscriptionFindArguments.cs" />
-    <Compile Include="Services\Subscription\Arguments\WePaySubscriptionModifyeArguments.cs" />
+    <Compile Include="Services\Subscription\Arguments\WePaySubscriptionModifyArguments.cs" />
     <Compile Include="Services\Subscription\WePaySubscriptionService.cs" />
     <Compile Include="Services\SubscriptionPlan\Arguments\WePaySubscriptionPlanModifyeArguments.cs" />
     <Compile Include="Services\SubscriptionPlan\Arguments\WePaySubscriptionPlanDeleteArguments.cs" />

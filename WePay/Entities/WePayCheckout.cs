@@ -91,10 +91,10 @@ namespace WePay.Entities
         public string RefundReason { get; set; }
 
         [JsonProperty("auto_capture")]
-        public bool AutoCapture { get; set; }
+        public bool? AutoCapture { get; set; }
 
         [JsonProperty("require_shipping")]
-        public bool RequireShipping { get; set; }
+        public bool? RequireShipping { get; set; }
 
         [JsonProperty("shipping_address")]
         public WepayShippingAddress ShippingAddress { get; set; }
