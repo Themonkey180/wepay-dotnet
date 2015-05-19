@@ -255,7 +255,17 @@ namespace WePay.Infrastructure
 
         private static string BaseUrl
         {
-            get { return "https://stage.wepayapi.com/v2/"; }
+            get
+            {
+                if (WePayConfiguration.GetProductionMode())
+                {
+                    return "https://wepayapi.com/v2/";
+                }
+                else
+                {
+                    return "https://stage.wepayapi.com/v2/";
+                }
+            }
         }
     }
 }

@@ -13,16 +13,21 @@ namespace WePay.Infrastructure
     {
         public static string PostStringBearer(string url, string AccessToken = null, string json = null)
         {
-            var wr = GetWebRequest(url, "POST", json, AccessToken, true);
+            var wr = GetWebRequestAsync(url, "POST", json, AccessToken, true).Result;
 
-            return ExecuteWebRequest(wr);
+            return ExecuteWebRequestAsync(wr).Result; 
         }
 
-        public static string PostString(string url, string json = null)
+        public  static string PostString(string url, string json = null)
         {
-            var wr = GetWebRequest(url, "POST", json);
+            var wr = GetWebRequestAsync(url, "POST", json).Result;
 
-            return ExecuteWebRequest(wr);
+            return ExecuteWebRequestAsync(wr).Result;
+        }
+
+        internal async static Task<WebRequest> GetWebRequestAsync(string url, string method, string json, string AccessToken = null, bool useBearer = false)
+        {
+            return await Task.Run(() => GetWebRequest(url, method, json, AccessToken, useBearer));
         }
 
         internal static WebRequest GetWebRequest(string url, string method, string json, string AccessToken = null, bool useBearer = false)
@@ -57,13 +62,18 @@ namespace WePay.Infrastructure
             return string.Format("Bearer {0}", AccessToken);
         }
 
+        private async static Task<string> ExecuteWebRequestAsync(WebRequest webRequest)
+        {
+            return await Task.Run(() => ExecuteWebRequest(webRequest));
+        }
+
         private static string ExecuteWebRequest(WebRequest webRequest)
         {
             try
             {
                 using (var response = webRequest.GetResponse())
                 {
-                    return ReadStream(response.GetResponseStream());
+                    return ReadStreamAsync(response.GetResponseStream()).Result;
                 }
             }
             catch (WebException webException)
@@ -81,6 +91,11 @@ namespace WePay.Infrastructure
 
                 throw;
             }
+        }
+
+        private async static Task<string> ReadStreamAsync(Stream stream)
+        {
+            return await Task.Run(() => ReadStream(stream));
         }
 
         private static string ReadStream(Stream stream)

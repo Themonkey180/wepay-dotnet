@@ -22,11 +22,11 @@ namespace WePay.Infrastructure
 
         public static class Mapper
         {
-            public static List<WepayBatch> MapBatchFromJson(string json)
+            public async static Task<List<WepayBatch>> MapBatchFromJson(string json)
             {
                 dynamic frist = JsonConvert.DeserializeObject<dynamic>(json);
                 List<WepayBatch> list = new List<WepayBatch>();
-                foreach (var a in frist.calls)
+                foreach (var a in await Task.WhenAll(frist.calls))
                 {
                     var temp = a.response.ToString();
                     if (temp.Contains("error_code"))

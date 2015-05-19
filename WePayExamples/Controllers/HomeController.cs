@@ -43,6 +43,20 @@ namespace Controllers
             return View(wePayAccount);
         }
 
+        public ActionResult GetApp()
+        {
+            long clientId = 0;
+            var accessToken = Request.Form["accessToken"];
+            var clientSecret = Request.Form["ClientSecret"];
+            long.TryParse(Request.Form["clientId"], out clientId);
+                
+            WePay.WePayConfiguration.SetAccessToken(accessToken);
+            var WePayAppService = new WePay.WePayAppService(accessToken, clientId, clientSecret);
+            var wePayApp = WePayAppService.Get(new WePayAppArguments { });
+
+            return View(wePayApp);
+        }
+
         public ActionResult FindAccount()
         {
             var name = Request.Form["name"];
