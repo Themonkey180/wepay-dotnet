@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace WePay
+namespace WePay.User
 {
     public class UserArguments
     {

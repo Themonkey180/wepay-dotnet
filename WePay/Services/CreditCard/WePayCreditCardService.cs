@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using WePay.CreditCard;
 using WePay.Entities;
 using WePay.Infrastructure;
 using WePay.Services;
@@ -16,7 +12,7 @@ namespace WePay
     {
         public WePayCreditCardService(string accessToken = null, long? clientId = null, string clientSecret = null) : base(accessToken, clientId, clientSecret) { }
 
-        public virtual WePayCreditCard Get(WePayCreditCardArguments arguments)
+        public virtual WePayCreditCard Get(CreditCardArguments arguments)
         {
             arguments.ClientId = arguments.ClientId.Equals(null) ? (ClientId == null ? WePayConfiguration.GetClientId() : ClientId) : arguments.ClientId;
             arguments.ClientSecret = string.IsNullOrWhiteSpace(arguments.ClientSecret) ? (string.IsNullOrWhiteSpace(ClientSecret) ? WePayConfiguration.GetClientSecret() : ClientSecret) : arguments.ClientSecret;
@@ -27,7 +23,7 @@ namespace WePay
             return Mapper<WePayCreditCard>.MapFromJson(response);
         }
 
-        public virtual WePayCreditCard[] Find(WePayCreditCardFindArguments arguments)
+        public virtual WePayCreditCard[] Find(CreditCardFindArguments arguments)
         {
 
             arguments.ClientId = arguments.ClientId.Equals(null) ? (ClientId == null ? WePayConfiguration.GetClientId() : ClientId) : arguments.ClientId;
@@ -39,7 +35,7 @@ namespace WePay
             return Mapper<WePayCreditCard[]>.MapFromJson(response);
         }
 
-        public virtual WePayCreditCardState Create(WePayCreditCardCreateArguments arguments)
+        public virtual WePayCreditCardState Create(CreditCardCreateArguments arguments)
         {
             arguments.ClientId = arguments.ClientId.Equals(null) ? (ClientId == null ? WePayConfiguration.GetClientId() : ClientId) : arguments.ClientId;
          
@@ -49,7 +45,7 @@ namespace WePay
             return Mapper<WePayCreditCardState>.MapFromJson(response);
         }
 
-        public virtual WePayCreditCardState Authorize(WePayCreditCardArguments arguments)
+        public virtual WePayCreditCardState Authorize(CreditCardArguments arguments)
         {
             arguments.ClientId = arguments.ClientId.Equals(null) ? (ClientId == null ? WePayConfiguration.GetClientId() : ClientId) : arguments.ClientId;
             arguments.ClientSecret = string.IsNullOrWhiteSpace(arguments.ClientSecret) ? (string.IsNullOrWhiteSpace(ClientSecret) ? WePayConfiguration.GetClientSecret() : ClientSecret) : arguments.ClientSecret;
@@ -60,7 +56,7 @@ namespace WePay
             return Mapper<WePayCreditCardState>.MapFromJson(response);
         }
 
-        public virtual WePayCreditCardState Delete(WePayCreditCardArguments arguments)
+        public virtual WePayCreditCardState Delete(CreditCardArguments arguments)
         {
 
             arguments.ClientId = arguments.ClientId.Equals(null) ? (ClientId == null ? WePayConfiguration.GetClientId() : ClientId) : arguments.ClientId;

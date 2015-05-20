@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WePay.Entities;
+﻿using WePay.Entities;
 using WePay.Infrastructure;
+using WePay.Preapproval;
 using WePay.Services;
 
 namespace WePay
@@ -16,7 +12,7 @@ namespace WePay
     {
         public WePayPreapprovalService(string accessToken = null) : base(accessToken) { }
 
-        public virtual WePayPreapproval Get(WePayPreapprovalArguments arguments)
+        public virtual WePayPreapproval Get(PreapprovalArguments arguments)
         {
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.Preapproval, AccessToken, parameters);
@@ -24,7 +20,7 @@ namespace WePay
             return Mapper<WePayPreapproval>.MapFromJson(response);
         }
 
-        public virtual WePayPreapproval[] Find(WePayPreapprovalFindArguments arguments)
+        public virtual WePayPreapproval[] Find(PreapprovalFindArguments arguments)
         {
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.PreapprovalFind, AccessToken, parameters);
@@ -32,7 +28,7 @@ namespace WePay
             return Mapper<WePayPreapproval[]>.MapFromJson(response);
         }
 
-        public virtual WePayPreapprovalCreate Create(WePayPreapprovalCreateArguments arguments)
+        public virtual WePayPreapprovalCreate Create(PreapprovalCreateArguments arguments)
         {
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.PreapprovalCreate, AccessToken, parameters);
@@ -40,7 +36,7 @@ namespace WePay
             return Mapper<WePayPreapprovalCreate>.MapFromJson(response);
         }
 
-        public virtual WePayPreapprovalState Cancel(WePayPreapprovalArguments arguments)
+        public virtual WePayPreapprovalState Cancel(PreapprovalArguments arguments)
         {
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.PreapprovalCancel, AccessToken, parameters);
@@ -48,7 +44,7 @@ namespace WePay
             return Mapper<WePayPreapprovalState>.MapFromJson(response);
         }
 
-        public virtual WePayPreapproval Modify(WePayPreapprovalModifyArguments arguments)
+        public virtual WePayPreapproval Modify(PreapprovalModifyArguments arguments)
         {
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.PreapprovalModify, AccessToken, parameters);

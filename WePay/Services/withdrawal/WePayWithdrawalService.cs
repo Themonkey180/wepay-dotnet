@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WePay.Entities;
+﻿using WePay.Entities;
 using WePay.Infrastructure;
 using WePay.Services;
+using WePay.Withdrawal;
 
 namespace WePay
 {
@@ -16,7 +12,7 @@ namespace WePay
     {
         public WePayWithdrawalService(string accessToken = null) : base(accessToken) { }
 
-        public virtual WePayWithdrawal Get(WePayWithdrawalArguments arguments)
+        public virtual WePayWithdrawal Get(WithdrawalArguments arguments)
         {
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.Withdrawal, AccessToken, parameters);
@@ -24,7 +20,7 @@ namespace WePay
             return Mapper<WePayWithdrawal>.MapFromJson(response);
         }
 
-        public virtual WePayWithdrawal[] Find(WePayWithdrawalFindArguments arguments)
+        public virtual WePayWithdrawal[] Find(WithdrawalFindArguments arguments)
         {
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.WithdrawalFind, AccessToken, parameters);
@@ -32,7 +28,7 @@ namespace WePay
             return Mapper<WePayWithdrawal[]>.MapFromJson(response);
         }
 
-        public virtual WePayWithdrawalCreated Create(WePayWithdrawalCreateArguments arguments)
+        public virtual WePayWithdrawalCreated Create(WithdrawalCreateArguments arguments)
         {
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.WithdrawalCreate, AccessToken, parameters);
@@ -40,7 +36,7 @@ namespace WePay
             return Mapper<WePayWithdrawalCreated>.MapFromJson(response);
         }
 
-        public virtual WePayWithdrawal Modify(WePayWithdrawalModifyArguments arguments)
+        public virtual WePayWithdrawal Modify(WithdrawalModifyArguments arguments)
         {
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.WithdrawalModify, AccessToken, parameters);

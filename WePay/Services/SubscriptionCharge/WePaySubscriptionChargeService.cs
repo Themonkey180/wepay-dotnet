@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WePay.Entities;
+﻿using WePay.Entities;
 using WePay.Infrastructure;
 using WePay.Services;
+using WePay.SubscriptionCharge;
 
 namespace WePay
 {
@@ -16,7 +12,7 @@ namespace WePay
     {
         public WePaySubscriptionChargeService(string accessToken = null) : base(accessToken) { }
 
-        public virtual WePaySubscriptionCharge Get(WePaySubscriptionChargeArguments arguments)
+        public virtual WePaySubscriptionCharge Get(SubscriptionChargeArguments arguments)
         {
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.SubscriptionCharge, AccessToken, parameters);
@@ -24,7 +20,7 @@ namespace WePay
             return Mapper<WePaySubscriptionCharge>.MapFromJson(response);
         }
 
-        public virtual WePaySubscriptionCharge[] Find(WePaySubscriptionChargeFindArguments arguments)
+        public virtual WePaySubscriptionCharge[] Find(SubscriptionChargeFindArguments arguments)
         {
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.SubscriptionChargeFind, AccessToken, parameters);
@@ -32,7 +28,7 @@ namespace WePay
             return Mapper<WePaySubscriptionCharge[]>.MapFromJson(response);
         }
 
-        public virtual WePaySubscriptionChargeState Refund(WePaySubscriptionChargeRefundArguments arguments)
+        public virtual WePaySubscriptionChargeState Refund(SubscriptionChargeRefundArguments arguments)
         {
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.SubscriptionChargeRefund, AccessToken, parameters);

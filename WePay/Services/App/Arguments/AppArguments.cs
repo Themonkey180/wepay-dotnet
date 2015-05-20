@@ -1,11 +1,11 @@
 ﻿using Newtonsoft.Json;
 
-namespace WePay.Batch
+namespace WePay.App
 {
     /// <summary>
-    /// https://www.wepay.com/developer/reference/batch#create
+    /// https://www.wepay.com/developer/reference/app#lookup
     /// </summary>
-    public class BatchArguments
+    public class AppArguments
     {
         [JsonProperty("client_id", Required = Required.Always)]
         public long? ClientId { get; set; }
@@ -13,7 +13,6 @@ namespace WePay.Batch
         [JsonProperty("client_secret", Required = Required.Always)]
         public string ClientSecret { get; set; }
 
-        [JsonProperty("calls", Required = Required.Always)]
-        public BatchCallsArguments[] Calls { get; set; }
+        public string BatchUrl() { return "/app"; }
     }
 }

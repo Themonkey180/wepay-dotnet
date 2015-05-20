@@ -11,6 +11,17 @@ using WePay;
 using WePay.Infrastructure;
 using WePay.Entities;
 using WePay.Entities.Structure;
+using WePay.Account;
+using WePay.App;
+using WePay.Batch;
+using WePay.Checkout;
+using WePay.CreditCard;
+using WePay.Preapproval;
+using WePay.Subscription;
+using WePay.SubscriptionCharge;
+using WePay.SubscriptionPlan;
+using WePay.User;
+using WePay.Withdrawal;
 
 namespace Controllers
 {
@@ -52,7 +63,7 @@ namespace Controllers
                 
             WePay.WePayConfiguration.SetAccessToken(accessToken);
             var WePayAppService = new WePay.WePayAppService(accessToken, clientId, clientSecret);
-            var wePayApp = WePayAppService.Get(new WePayAppArguments { });
+            var wePayApp = WePayAppService.Get(new AppArguments { });
 
             return View(wePayApp);
         }
@@ -65,7 +76,7 @@ namespace Controllers
             var accessToken = Request.Form["accessToken"];
 
             var wePayAccountService = new WePay.WePayAccountrService(accessToken);
-            var wePayAccount = wePayAccountService.Find(new WePayFindAccountArguments { Name = name, ReferenceId = referenceId, SortOrder = sortOrder });
+            var wePayAccount = wePayAccountService.Find(new AccountFindArguments { Name = name, ReferenceId = referenceId, SortOrder = sortOrder });
 
             return View(wePayAccount);
         }
@@ -96,7 +107,7 @@ namespace Controllers
 
                 var wePayUserService = new WePay.WePayUserService(null, clientId, clientSecret);
 
-                var ParametersRegister = new WePayUserRegisterArguments { 
+                var ParametersRegister = new UserRegisterArguments { 
                     ClientId = clientId, 
                     ClientSecret = clientSecret, 
                     Email = email,
@@ -114,7 +125,7 @@ namespace Controllers
                 #region Accounts
 
                 var wePayAccountService = new WePay.WePayAccountrService(user.AccessToken);
-                WepayAccount account = wePayAccountService.Create(new WePayCreateAccountArgument
+                WepayAccount account = wePayAccountService.Create(new AccountCreateArgument
                 {
                     Name = "SDK Test",
                     Description = "An account that is a test made one.",
@@ -126,13 +137,13 @@ namespace Controllers
                     currencies = new string[] { "USD" }
                 });
 
-                WepayAccount accountDelete = wePayAccountService.Create(new WePayCreateAccountArgument { Name = "SDK Test delete", Description = "An account that is a test made one to delete." });
+                WepayAccount accountDelete = wePayAccountService.Create(new AccountCreateArgument { Name = "SDK Test delete", Description = "An account that is a test made one to delete." });
                 #endregion
 
                 #region CreditCard
 
                 var wePayCreditCardService = new WePay.WePayCreditCardService(user.AccessToken);
-                var CreditCard = wePayCreditCardService.Create(new WePayCreditCardCreateArguments
+                var CreditCard = wePayCreditCardService.Create(new CreditCardCreateArguments
                 {
                     ClientId = clientId,
                     CCnumber = "4003830171874018",
@@ -146,7 +157,7 @@ namespace Controllers
                     OriginalDevice = userAgent
                 });
 
-                var CreditCardDelete = wePayCreditCardService.Create(new WePayCreditCardCreateArguments
+                var CreditCardDelete = wePayCreditCardService.Create(new CreditCardCreateArguments
                 {
                     ClientId = clientId,
                     CCnumber = "5496198584584769",
@@ -160,7 +171,7 @@ namespace Controllers
                     OriginalDevice = userAgent
                 });
 
-                 var CreditCardAuthorize = wePayCreditCardService.Create(new WePayCreditCardCreateArguments
+                 var CreditCardAuthorize = wePayCreditCardService.Create(new CreditCardCreateArguments
                 {
                     ClientId = clientId,
                     CCnumber = "5496198584584769",
@@ -178,7 +189,7 @@ namespace Controllers
                 #region Preapproval
 
                 var wePayPreapprovalService = new WePay.WePayPreapprovalService(user.AccessToken);
-                var Preapproval = wePayPreapprovalService.Create(new WePayPreapprovalCreateArguments
+                var Preapproval = wePayPreapprovalService.Create(new PreapprovalCreateArguments
                 {
                     AccountId = account.AccountId,
                     ShortDescription = "Test a checkout Preapproval",
@@ -193,7 +204,7 @@ namespace Controllers
                     PaymentMethodType = "credit_card"
                 });
 
-                var PreapprovalCancel = wePayPreapprovalService.Create(new WePayPreapprovalCreateArguments
+                var PreapprovalCancel = wePayPreapprovalService.Create(new PreapprovalCreateArguments
                 {
                     AccountId = account.AccountId,
                     ShortDescription = "Test a checkout Preapproval Cancel",
@@ -213,7 +224,7 @@ namespace Controllers
                 #region Checkout
 
                 var wePayCheckoutService = new WePay.WePayCheckoutService(user.AccessToken);
-                var checkout = wePayCheckoutService.Create(new WePayCheckoutCreateArguments
+                var checkout = wePayCheckoutService.Create(new CheckoutCreateArguments
                 {
                     AccountId = account.AccountId,
                     ShortDescription = "Test a checkout",
@@ -228,7 +239,7 @@ namespace Controllers
                     PaymentMethodType = "credit_card"
                 });
 
-                var checkoutCancel = wePayCheckoutService.Create(new WePayCheckoutCreateArguments
+                var checkoutCancel = wePayCheckoutService.Create(new CheckoutCreateArguments
                 {
                     AccountId = account.AccountId,
                     ShortDescription = "Test a checkout",
@@ -244,7 +255,7 @@ namespace Controllers
                     PaymentMethodType = "credit_card"
                 });
 
-                var checkoutRefund = wePayCheckoutService.Create(new WePayCheckoutCreateArguments
+                var checkoutRefund = wePayCheckoutService.Create(new CheckoutCreateArguments
                 {
                     AccountId = account.AccountId,
                     ShortDescription = "Test a checkout",
@@ -263,7 +274,7 @@ namespace Controllers
                 #region Subscription Plan
 
                 var wePaySubscriptionPlanService = new WePay.WePaySubscriptionPlanService(user.AccessToken);
-                var SubsPlan = wePaySubscriptionPlanService.Create(new WePaySubscriptionPlanCreateArguments
+                var SubsPlan = wePaySubscriptionPlanService.Create(new SubscriptionPlanCreateArguments
                 {
                     AccountId = account.AccountId,
                     ShortDescription = "Test a Subscription Plan",
@@ -275,7 +286,7 @@ namespace Controllers
                     SetupFee = (decimal)0.50
                 });
 
-                var SubsPlanDelete = wePaySubscriptionPlanService.Create(new WePaySubscriptionPlanCreateArguments
+                var SubsPlanDelete = wePaySubscriptionPlanService.Create(new SubscriptionPlanCreateArguments
                 {
                     AccountId = account.AccountId,
                     ShortDescription = "Test a Subscription Plan delete",
@@ -292,14 +303,14 @@ namespace Controllers
                 #region Subscription
 
                 var wePaySubscriptionService = new WePay.WePaySubscriptionService(user.AccessToken);
-                var Subs = wePaySubscriptionService.Create(new WePaySubscriptionCreateArguments
+                var Subs = wePaySubscriptionService.Create(new SubscriptionCreateArguments
                 {
                     SubscriptionPlanId = SubsPlan.SubscriptionPlanId,
                     PaymentMethodId = CreditCard.CreditCardId,
                     PaymentMethodType = "credit_card"
                 });
 
-                var SubsCancel = wePaySubscriptionService.Create(new WePaySubscriptionCreateArguments
+                var SubsCancel = wePaySubscriptionService.Create(new SubscriptionCreateArguments
                 {
                     SubscriptionPlanId = SubsPlanDelete.SubscriptionPlanId,
                     PaymentMethodId = CreditCard.CreditCardId,
@@ -312,7 +323,7 @@ namespace Controllers
                 #region Subscription Charge
 
                 var wePaySubscriptionChargeService = new WePay.WePaySubscriptionChargeService(user.AccessToken);
-                var SubsCharge = wePaySubscriptionChargeService.Find(new WePaySubscriptionChargeFindArguments
+                var SubsCharge = wePaySubscriptionChargeService.Find(new SubscriptionChargeFindArguments
                 {
                     SubscriptionId = Subs.SubscriptionId
                 });
@@ -323,7 +334,7 @@ namespace Controllers
                 WePayWithdrawalCreated withdrawal = new WePayWithdrawalCreated();
                     try { 
                         var wePayWithdrawalService = new WePay.WePayWithdrawalService(user.AccessToken);
-                        withdrawal = wePayWithdrawalService.Create(new WePayWithdrawalCreateArguments
+                        withdrawal = wePayWithdrawalService.Create(new WithdrawalCreateArguments
                         {
                             AccountId = account.AccountId 
                         });
@@ -344,69 +355,69 @@ namespace Controllers
                 #region BatchArguments
 
                     #region User
-                    var UserSendConfirmation = new WePayUserSendConfirmationArguments { EmailMessage = "Test From Wepay SDK. Made by Pay it Square team." };
-                    var UserModify = new WePayUserModifyArguments { CallbackUri = callbackUri };
+                    var UserSendConfirmation = new UserSendConfirmationArguments { EmailMessage = "Test From Wepay SDK. Made by Pay it Square team." };
+                    var UserModify = new UserModifyArguments { CallbackUri = callbackUri };
                     #endregion
 
                     #region App
-                    var AppParameters = new WePayAppArguments { ClientId = clientId, ClientSecret = clientSecret };
-                    var AppsModify = new WePayAppModifyArguments { ClientId = clientId, ClientSecret = clientSecret};
+                    var AppParameters = new AppArguments { ClientId = clientId, ClientSecret = clientSecret };
+                    var AppsModify = new AppModifyArguments { ClientId = clientId, ClientSecret = clientSecret};
                     #endregion
 
                     #region Account
-                    var AccountParameters = new WePayAccountArguments { AccountId = account.AccountId };
-                    var AccountFindParameters = new WePayFindAccountArguments { SortOrder = "ASC" };
-                    var AccountModifyParameters = new WePayModifyAccountArguments { AccountId = account.AccountId, Description = "SDK test modify" };
-                    var AccountGetReserveDetailsParameters = new WePayGetReserveDetailsAccountArguments { AccountId = account.AccountId };
-                    var AccountUpdateUriParameters = new WePayGetUpdateUriAccountArguments { AccountId = account.AccountId };
-                    var AccountDeleteParameters = new WePayDeleteAccountArguments { AccountId = accountDelete.AccountId, Reason = "Test for delete" };
+                    var AccountParameters = new AccountArguments { AccountId = account.AccountId };
+                    var AccountFindParameters = new AccountFindArguments { SortOrder = "ASC" };
+                    var AccountModifyParameters = new AccountModifyArguments { AccountId = account.AccountId, Description = "SDK test modify" };
+                    var AccountGetReserveDetailsParameters = new AccountGetReserveDetailsArguments { AccountId = account.AccountId };
+                    var AccountUpdateUriParameters = new AccountGetUpdateUriArguments { AccountId = account.AccountId };
+                    var AccountDeleteParameters = new AccountDeleteArguments { AccountId = accountDelete.AccountId, Reason = "Test for delete" };
                     #endregion
 
                     #region CreditCard
-                    var CreditCardParameters = new WePayCreditCardArguments { ClientId = clientId, ClientSecret = clientSecret, CreditCardId = CreditCard.CreditCardId };
-                    var CreditCardFindParameters = new WePayCreditCardFindArguments { ClientId = clientId, ClientSecret = clientSecret };
-                    var CreditCardAuthorizeParameters = new WePayCreditCardArguments { ClientId = clientId, ClientSecret = clientSecret, CreditCardId = CreditCardAuthorize.CreditCardId };
-                    var CreditCardDeleteParameters = new WePayCreditCardArguments { ClientId = clientId, ClientSecret = clientSecret, CreditCardId = CreditCardDelete.CreditCardId };
+                    var CreditCardParameters = new CreditCardArguments { ClientId = clientId, ClientSecret = clientSecret, CreditCardId = CreditCard.CreditCardId };
+                    var CreditCardFindParameters = new CreditCardFindArguments { ClientId = clientId, ClientSecret = clientSecret };
+                    var CreditCardAuthorizeParameters = new CreditCardArguments { ClientId = clientId, ClientSecret = clientSecret, CreditCardId = CreditCardAuthorize.CreditCardId };
+                    var CreditCardDeleteParameters = new CreditCardArguments { ClientId = clientId, ClientSecret = clientSecret, CreditCardId = CreditCardDelete.CreditCardId };
                     #endregion
 
                     #region preapproval
-                    var PreapprovalParameters = new WePayPreapprovalArguments { PreapprovalId = Preapproval.PreapprovalId };
-                    var PreapprovalFindParameters = new WePayPreapprovalFindArguments { AccountId = account.AccountId };
-                    var PreapprovalModifyParameters = new WePayPreapprovalModifyArguments { PreapprovalId = Preapproval.PreapprovalId };
-                    var PreapprovalCancelParameters = new WePayPreapprovalArguments { PreapprovalId = PreapprovalCancel.PreapprovalId };
+                    var PreapprovalParameters = new PreapprovalArguments { PreapprovalId = Preapproval.PreapprovalId };
+                    var PreapprovalFindParameters = new PreapprovalFindArguments { AccountId = account.AccountId };
+                    var PreapprovalModifyParameters = new PreapprovalModifyArguments { PreapprovalId = Preapproval.PreapprovalId };
+                    var PreapprovalCancelParameters = new PreapprovalArguments { PreapprovalId = PreapprovalCancel.PreapprovalId };
                     #endregion
 
                     #region Checkout
-                    var CheckoutParameters = new WePayCheckoutArguments { CheckoutId = checkout.CheckoutId };
-                    var CheckoutFindParameters = new WePayCheckoutFindArguments { AccountId = account.AccountId };
-                    var CheckoutModifyParameters = new WePayCheckoutModifyArguments { CheckoutId = checkout.CheckoutId };
-                    var CheckoutCancelParameters = new WePayCheckoutCancelArguments { CheckoutId = checkoutCancel.CheckoutId, CancelReason = "To test the sdk" };
-                    var CheckoutRefundParameters = new WePayCheckoutRefundArguments { CheckoutId = checkoutRefund.CheckoutId };
+                    var CheckoutParameters = new CheckoutArguments { CheckoutId = checkout.CheckoutId };
+                    var CheckoutFindParameters = new CheckoutFindArguments { AccountId = account.AccountId };
+                    var CheckoutModifyParameters = new CheckoutModifyArguments { CheckoutId = checkout.CheckoutId };
+                    var CheckoutCancelParameters = new CheckoutCancelArguments { CheckoutId = checkoutCancel.CheckoutId, CancelReason = "To test the sdk" };
+                    var CheckoutRefundParameters = new CheckoutRefundArguments { CheckoutId = checkoutRefund.CheckoutId };
                     #endregion
 
                     #region Subscription Plan
-                    var SubPlanParameters = new WePaySubscriptionPlanArguments { SubscriptionPlanId = SubsPlan.SubscriptionPlanId };
-                    var SubPlanFindParameters = new WePaySubscriptionPlanFindArguments { AccountId = account.AccountId };
-                    var SubPlanModifyParameters = new WePaySubscriptionPlanModifyeArguments { SubscriptionPlanId = SubsPlan.SubscriptionPlanId };
-                    var SubPlanDeleteParameters = new WePaySubscriptionPlanDeleteArguments { SubscriptionPlanId = SubsPlanDelete.SubscriptionPlanId, reason = "Test the delete." };
+                    var SubPlanParameters = new SubscriptionPlanArguments { SubscriptionPlanId = SubsPlan.SubscriptionPlanId };
+                    var SubPlanFindParameters = new SubscriptionPlanFindArguments { AccountId = account.AccountId };
+                    var SubPlanModifyParameters = new SubscriptionPlanModifyeArguments { SubscriptionPlanId = SubsPlan.SubscriptionPlanId };
+                    var SubPlanDeleteParameters = new SubscriptionPlanDeleteArguments { SubscriptionPlanId = SubsPlanDelete.SubscriptionPlanId, reason = "Test the delete." };
                     #endregion
 
                     #region Subscription
-                    var SubParameters = new WePaySubscriptionArguments { SubscriptionId = Subs.SubscriptionId };
-                    var SubFindParameters = new WePaySubscriptionFindArguments { SubscriptionPlanId = SubsPlan.SubscriptionPlanId };
-                    var SubModifyParameters = new WePaySubscriptionModifyArguments { SubscriptionId = Subs.SubscriptionId };
-                    var SubCancelParameters = new WePaySubscriptionCancelArguments { SubscriptionId = SubsCancel.SubscriptionId, Reason = "Testing the Cancel" };
+                    var SubParameters = new SubscriptionArguments { SubscriptionId = Subs.SubscriptionId };
+                    var SubFindParameters = new SubscriptionFindArguments { SubscriptionPlanId = SubsPlan.SubscriptionPlanId };
+                    var SubModifyParameters = new SubscriptionModifyArguments { SubscriptionId = Subs.SubscriptionId };
+                    var SubCancelParameters = new SubscriptionCancelArguments { SubscriptionId = SubsCancel.SubscriptionId, Reason = "Testing the Cancel" };
                     #endregion
 
                     #region Subscription Charge
-                    var SubChargeParameters = new WePaySubscriptionChargeArguments { subscriptionChargeId = SubsCharge[0].SubscriptionChargeId };
-                    var SubChargeRefundParameters = new WePaySubscriptionChargeRefundArguments { SubscriptionChargeId = SubsCharge[0].SubscriptionChargeId, Reason = "Test the Refund" };
+                    var SubChargeParameters = new SubscriptionChargeArguments { subscriptionChargeId = SubsCharge[0].SubscriptionChargeId };
+                    var SubChargeRefundParameters = new SubscriptionChargeRefundArguments { SubscriptionChargeId = SubsCharge[0].SubscriptionChargeId, Reason = "Test the Refund" };
                     #endregion
 
                     #region Withdrawal
-                    var WithdrawalParameters = new WePayWithdrawalArguments { WithdrawalId = withdrawal.WithdrawalId };
-                    var WithdrawalFindParameters = new WePayWithdrawalFindArguments { AccountId = account.AccountId };
-                    var WithdrawalModifyParameters = new WePayWithdrawalModifyArguments { WithdrawalId = withdrawal.WithdrawalId };
+                    var WithdrawalParameters = new WithdrawalArguments { WithdrawalId = withdrawal.WithdrawalId };
+                    var WithdrawalFindParameters = new WithdrawalFindArguments { AccountId = account.AccountId };
+                    var WithdrawalModifyParameters = new WithdrawalModifyArguments { WithdrawalId = withdrawal.WithdrawalId };
                     #endregion
 
                 #endregion

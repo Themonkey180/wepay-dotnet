@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using WePay.App;
 using WePay.Entities;
 using WePay.Infrastructure;
 using WePay.Services;
@@ -16,7 +12,7 @@ namespace WePay
     {
         public WePayAppService(string accessToken = null, long? clientId = null, string ClientSecret = null) : base(accessToken, clientId, ClientSecret) { }
 
-        public virtual WepayApp Get(WePayAppArguments arguments)
+        public virtual WepayApp Get(AppArguments arguments)
         {
             arguments.ClientId = arguments.ClientId.Equals(null) ? (ClientId == null ? WePayConfiguration.GetClientId() : ClientId) : arguments.ClientId;
             arguments.ClientSecret = string.IsNullOrWhiteSpace(arguments.ClientSecret) ? (string.IsNullOrWhiteSpace(ClientSecret) ? WePayConfiguration.GetClientSecret() : ClientSecret) : arguments.ClientSecret;
@@ -27,7 +23,7 @@ namespace WePay
             return Mapper<WepayApp>.MapFromJson(response);
         }
 
-        public virtual WepayAppModify Modify(WePayUserRegisterArguments arguments)
+        public virtual WepayAppModify Modify(AppModifyArguments arguments)
         {
             arguments.ClientId = arguments.ClientId.Equals(null) ? (ClientId == null ? WePayConfiguration.GetClientId() : ClientId) : arguments.ClientId;
             arguments.ClientSecret = string.IsNullOrWhiteSpace(arguments.ClientSecret) ? (string.IsNullOrWhiteSpace(ClientSecret) ? WePayConfiguration.GetClientSecret() : ClientSecret) : arguments.ClientSecret;

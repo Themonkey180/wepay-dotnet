@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WePay.Entities;
+﻿using WePay.Entities;
 using WePay.Infrastructure;
 using WePay.Services;
+using WePay.SubscriptionPlan;
 
 namespace WePay
 {
@@ -16,7 +12,7 @@ namespace WePay
     {
         public WePaySubscriptionPlanService(string accessToken = null) : base(accessToken) { }
 
-        public virtual WePaySubscriptionPlan Get(WePaySubscriptionPlanArguments arguments)
+        public virtual WePaySubscriptionPlan Get(SubscriptionPlanArguments arguments)
         {
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.SubscriptionPlan, AccessToken, parameters);
@@ -24,7 +20,7 @@ namespace WePay
             return Mapper<WePaySubscriptionPlan>.MapFromJson(response);
         }
 
-        public virtual WePaySubscriptionPlan[] Find(WePaySubscriptionPlanFindArguments arguments)
+        public virtual WePaySubscriptionPlan[] Find(SubscriptionPlanFindArguments arguments)
         {
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.SubscriptionPlanFind, AccessToken, parameters);
@@ -32,7 +28,7 @@ namespace WePay
             return Mapper<WePaySubscriptionPlan[]>.MapFromJson(response);
         }
 
-        public virtual WePaySubscriptionPlan Create(WePaySubscriptionPlanCreateArguments arguments)
+        public virtual WePaySubscriptionPlan Create(SubscriptionPlanCreateArguments arguments)
         {
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.SubscriptionPlanCreate, AccessToken, parameters);
@@ -40,7 +36,7 @@ namespace WePay
             return Mapper<WePaySubscriptionPlan>.MapFromJson(response);
         }
 
-        public virtual WePaySubscriptionPlan Modify(WePaySubscriptionPlanModifyeArguments arguments)
+        public virtual WePaySubscriptionPlan Modify(SubscriptionPlanModifyeArguments arguments)
         {
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.SubscriptionPlanModify, AccessToken, parameters);
@@ -48,7 +44,7 @@ namespace WePay
             return Mapper<WePaySubscriptionPlan>.MapFromJson(response);
         }
 
-        public virtual WePaySubscriptionPlanState Delete(WePaySubscriptionPlanDeleteArguments arguments)
+        public virtual WePaySubscriptionPlanState Delete(SubscriptionPlanDeleteArguments arguments)
         {
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.SubscriptionPlanDelete, AccessToken, parameters);

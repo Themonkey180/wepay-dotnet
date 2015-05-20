@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace WePay
+namespace WePay.Batch
 {
     /// <summary>
     /// https://www.wepay.com/developer/reference/batch#create

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using WePay.Batch;
 using WePay.Entities;
 using WePay.Infrastructure;
 using WePay.Services;
@@ -10,7 +7,7 @@ using WePay.Services;
 namespace WePay
 {
     /// <summary>
-    /// https://www.wepay.com/developer/reference/oauth2
+    /// https://www.wepay.com/developer/reference/batch
     /// </summary>
     public class WePayBatchService : WepayService
     {
