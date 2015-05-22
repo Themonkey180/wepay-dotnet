@@ -27,7 +27,14 @@ namespace WePay.Infrastructure
 
         internal async static Task<WebRequest> GetWebRequestAsync(string url, string method, string json, string AccessToken = null, bool useBearer = false)
         {
-            return await Task.Run(() => GetWebRequest(url, method, json, AccessToken, useBearer));
+            try
+            {
+                return await Task.Run(() => GetWebRequest(url, method, json, AccessToken, useBearer)).ConfigureAwait(false);
+            }
+            catch
+            {
+                throw;
+            }
         }
 
         internal static WebRequest GetWebRequest(string url, string method, string json, string AccessToken = null, bool useBearer = false)
@@ -64,7 +71,14 @@ namespace WePay.Infrastructure
 
         private async static Task<string> ExecuteWebRequestAsync(WebRequest webRequest)
         {
-            return await Task.Run(() => ExecuteWebRequest(webRequest));
+            try
+            {
+                return await Task.Run(() => ExecuteWebRequest(webRequest)).ConfigureAwait(false);
+            }
+            catch
+            {
+                throw;
+            }
         }
 
         private static string ExecuteWebRequest(WebRequest webRequest)
@@ -73,7 +87,7 @@ namespace WePay.Infrastructure
             {
                 using (var response = webRequest.GetResponse())
                 {
-                    return ReadStreamAsync(response.GetResponseStream()).Result;
+                    return ReadStream(response.GetResponseStream());
                 }
             }
             catch (WebException webException)
@@ -91,11 +105,6 @@ namespace WePay.Infrastructure
 
                 throw;
             }
-        }
-
-        private async static Task<string> ReadStreamAsync(Stream stream)
-        {
-            return await Task.Run(() => ReadStream(stream));
         }
 
         private static string ReadStream(Stream stream)

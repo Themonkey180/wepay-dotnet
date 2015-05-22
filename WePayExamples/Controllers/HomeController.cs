@@ -49,7 +49,7 @@ namespace Controllers
             long.TryParse(Request.Form["AccountId"], out AccountId);
             WePay.WePayConfiguration.SetAccessToken(accessToken);
             var wePayAccountService = new WePay.WePayAccountrService(accessToken);
-            var wePayAccount = wePayAccountService.Get(new WePayAccountArguments { AccountId = AccountId });
+            var wePayAccount = wePayAccountService.Get(new AccountArguments { AccountId = AccountId });
 
             return View(wePayAccount);
         }
@@ -79,6 +79,25 @@ namespace Controllers
             var wePayAccount = wePayAccountService.Find(new AccountFindArguments { Name = name, ReferenceId = referenceId, SortOrder = sortOrder });
 
             return View(wePayAccount);
+        }
+
+         public ActionResult TestBatch()
+        {
+            WePayBatchService wePayBatchService = new WePay.WePayBatchService("STAGE_93be63f0c6f9683877a74b310fbb9387e5ed9c73b49e35d3e7d6576d2882c0ec", 133882, "a8d34318c6");
+
+            var AccountParameters = new AccountArguments { AccountId = 234018316 };
+            var AccountFindParameters = new AccountFindArguments { SortOrder = "ASC" };
+
+            var batchCalls = wePayBatchService.Create(new BatchArguments
+              {
+                  Calls = new BatchCallsArguments[2] { 
+                        new BatchCallsArguments { Call = AccountParameters.BatchUrl(), Authorization = "STAGE_93be63f0c6f9683877a74b310fbb9387e5ed9c73b49e35d3e7d6576d2882c0ec", ReferenceId = "6", Parameters = AccountParameters }, 
+                        new BatchCallsArguments { Call = AccountFindParameters.BatchUrl(), ReferenceId = "7", Authorization = "STAGE_93be63f0c6f9683877a74b310fbb9387e5ed9c73b49e35d3e7d6576d2882c0ec", Parameters = AccountFindParameters },
+                    }
+              }); ;
+
+
+            return View(batchCalls);
         }
 
         public ActionResult TestAll()
@@ -111,7 +130,7 @@ namespace Controllers
                     ClientId = clientId, 
                     ClientSecret = clientSecret, 
                     Email = email,
-                    Scope = "manage_accounts,collect_payments,view_user,preapprove_payments,manage_subscriptions,send_money",
+                    Scope = (WepayPermissions.collect_payments | WepayPermissions.manage_accounts | WepayPermissions.manage_subscriptions | WepayPermissions.preapprove_payments | WepayPermissions.send_money | WepayPermissions.view_user).ToString(),
                     FirstName = firstName,
                     LastName = lastName,
                     OriginalIp = IPAddress,

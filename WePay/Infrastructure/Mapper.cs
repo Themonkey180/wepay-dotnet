@@ -24,27 +24,32 @@ namespace WePay.Infrastructure
         {
             public async static Task<List<WepayBatch>> MapBatchFromJson(string json)
             {
-                dynamic frist = JsonConvert.DeserializeObject<dynamic>(json);
+                //Sets up the json to be in a list.
+                dynamic fristPass = JsonConvert.DeserializeObject<dynamic>(json);
                 List<WepayBatch> list = new List<WepayBatch>();
-                foreach (var a in await Task.WhenAll(frist.calls))
-                {
-                    var temp = a.response.ToString();
-                    if (temp.Contains("error_code"))
-                    {
-                        WePayError error = JsonConvert.DeserializeObject<WePayError>(temp);
-                        error.BatchCall = a.call;
-                        error.BatchReferenceId = a.reference_id ?? "";
-                        list.Add(error);
-                    }
-                    else
-                    {
-                        var referenceId = a.reference_id.ToString() ?? "";
-                        var call = a.call.ToString() ?? "";
-                        list.Add(WepayType(call, referenceId, temp));
-                    }
 
-                }
+                //This makes a async call that is a Parallel foreach loop that adds the batch response to the list.
+                var tasks = await Task.Run(() => Parallel.ForEach((IEnumerable<dynamic>)fristPass.calls, call => list.Add(MapBatchInnerLoop(call)))).ConfigureAwait(false);
+
                 return list;
+            }
+
+            public static WepayBatch MapBatchInnerLoop(dynamic JsonCall)
+            {
+                var temp = JsonCall.response.ToString();
+                if (temp.Contains("error_code"))
+                {
+                    WePayError error = JsonConvert.DeserializeObject<WePayError>(temp);
+                    error.BatchCall = JsonCall.call;
+                    error.BatchReferenceId = JsonCall.reference_id ?? "";
+                    return error;
+                }
+                else
+                {
+                    var referenceId = JsonCall.reference_id.ToString() ?? "";
+                    var call = JsonCall.call.ToString() ?? "";
+                    return WepayType(call, referenceId, temp);
+                }
             }
 
             public static WepayBatch WepayType(string call, string referenceId, string json)
