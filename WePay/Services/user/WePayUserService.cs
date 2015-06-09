@@ -31,6 +31,10 @@ namespace WePay
             arguments.ClientId = arguments.ClientId.Equals(null) ? (ClientId == null ? WePayConfiguration.GetClientId() : ClientId) : arguments.ClientId;
             arguments.ClientSecret = string.IsNullOrWhiteSpace(arguments.ClientSecret) ? (string.IsNullOrWhiteSpace(ClientSecret) ? WePayConfiguration.GetClientSecret() : ClientSecret) : arguments.ClientSecret;
 
+            if(string.IsNullOrWhiteSpace(arguments.Scope)){
+                arguments.Scope = "collect_payments,manage_accounts,manage_subscriptions,preapprove_payments,send_money,view_user";
+            }
+             
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostString(Urls.UserRegister, parameters);
 
