@@ -8,7 +8,7 @@ namespace WePay.SubscriptionPlan
     public class SubscriptionPlanFindArguments
     {
         [JsonProperty("account_id")]
-        public long AccountId { get; set; }
+        public long? AccountId { get; set; }
 
         [JsonProperty("start")]
         public long start { get; set; }

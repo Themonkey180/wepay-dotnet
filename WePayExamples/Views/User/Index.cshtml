@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Test Page";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <h1>User Examples</h1>
+    </div>
+    <div class="col-md-6">
+        <h3><a href="/">back</a></h3>
+    </div>
+</div>
+
+<div class="well">
+    <h3>#1 Get User Info (by AccessToken)</h3>
+    <form action="/user/get" method="post">
+        <div class="row">
+            <div class="col-md-6">
+                <input id="accessToken" placeholder="enter access token" type="text" name="accessToken" value="" />
+            </div>
+            <div class="col-md-6">
+                <input class="btn" id="submit" type="submit" value="submit" />
+            </div>
+        </div>
+    </form>
+</div>
+

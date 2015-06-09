@@ -9,7 +9,7 @@ namespace WePay.Account
         /// https://www.wepay.com/developer/reference/account#modify
         /// </summary>
         [JsonProperty("account_id", Required = Required.Always)]
-        public long AccountId { get; set; }
+        public long? AccountId { get; set; }
 
         [JsonProperty("description")]
         public string Description { get; set; }

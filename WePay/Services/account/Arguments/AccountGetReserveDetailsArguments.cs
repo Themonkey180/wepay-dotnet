@@ -9,7 +9,7 @@ namespace WePay.Account
     public class AccountGetReserveDetailsArguments
     {
         [JsonProperty("account_id", Required = Required.Always)]
-        public long AccountId { get; set; }
+        public long? AccountId { get; set; }
 
         [JsonProperty("currency")]
         public string Currency { get; set; }

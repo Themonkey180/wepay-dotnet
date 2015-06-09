@@ -10,15 +10,15 @@ namespace WePay
         private static string _ClientSecret;
         private static long _ClientId;
         private static string _AccessToken;
-        private static string _authScope = "manage_accounts,collect_payments,view_user,preapprove_payments,manage_subscriptions,send_money";
-
+        private static long _AccountId;
+ 
         static WePayConfiguration()
         {
             ApiVersion = SupportedApiVersion;
         }
 
         #region ClientSecret
-        internal static string GetClientSecret()
+        public static string GetClientSecret()
         {
             if (string.IsNullOrEmpty(_ClientSecret))
                 _ClientSecret = ConfigurationManager.AppSettings["WepayClientSecret"];
@@ -33,9 +33,10 @@ namespace WePay
         #endregion
 
         #region ClientId
-        internal static long GetClientId()
+        public static long GetClientId()
         {
-            if (string.IsNullOrEmpty(_ClientSecret))
+
+            if (_ClientId == null || _ClientId == 0)
                 long.TryParse(ConfigurationManager.AppSettings["WepayClientId"], out _ClientId);
 
             return _ClientId;
@@ -48,9 +49,9 @@ namespace WePay
          #endregion
 
         #region AccessToken
-        internal static string GetAccessToken()
+        public static string GetAccessToken()
         {
-            if (string.IsNullOrEmpty(_ClientSecret))
+            if (string.IsNullOrEmpty(_AccessToken))
                 _AccessToken = ConfigurationManager.AppSettings["WepayAccessToken"];
 
             return _AccessToken;
@@ -62,8 +63,23 @@ namespace WePay
         }
         #endregion
 
+        #region AccountId
+        public static long GetAccountId()
+        {
+            if (_AccountId == null || _AccountId == 0)
+                long.TryParse(ConfigurationManager.AppSettings["WepayAccountId"], out _AccountId);
+
+            return _AccountId;
+        }
+
+        public static void SetAccountId(long newAccountId)
+        {
+            _AccountId = newAccountId;
+        }
+        #endregion
+
         #region ProductionMode
-        internal static bool GetProductionMode()
+        public static bool GetProductionMode()
         {
             if (string.IsNullOrEmpty(_ClientSecret))
                 bool.TryParse(ConfigurationManager.AppSettings["ProductionMode"], out _ProductionMode);

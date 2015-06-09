@@ -10,7 +10,7 @@ namespace WePay
     /// </summary>
     public class WePayWithdrawalService : WepayService
     {
-        public WePayWithdrawalService(string accessToken = null) : base(accessToken) { }
+        public WePayWithdrawalService(string accessToken = null, long? accountId = null) : base(accessToken, accountId) { }
 
         public virtual WePayWithdrawal Get(WithdrawalArguments arguments)
         {
@@ -22,6 +22,8 @@ namespace WePay
 
         public virtual WePayWithdrawal[] Find(WithdrawalFindArguments arguments)
         {
+            arguments.AccountId = arguments.AccountId.Equals(null) ? (AccountId == null ? WePayConfiguration.GetAccountId() : AccountId) : arguments.AccountId;
+
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.WithdrawalFind, AccessToken, parameters);
 
@@ -30,6 +32,8 @@ namespace WePay
 
         public virtual WePayWithdrawalCreated Create(WithdrawalCreateArguments arguments)
         {
+            arguments.AccountId = arguments.AccountId.Equals(null) ? (AccountId == null ? WePayConfiguration.GetAccountId() : AccountId) : arguments.AccountId;
+
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.WithdrawalCreate, AccessToken, parameters);
 

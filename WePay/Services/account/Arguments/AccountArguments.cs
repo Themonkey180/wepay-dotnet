@@ -8,7 +8,7 @@ namespace WePay.Account
     public class AccountArguments
     {
         [JsonProperty("account_id", Required = Required.Always)]
-        public long AccountId { get; set; }
+        public long? AccountId { get; set; }
 
         public string BatchUrl() { return "/account"; }
     }

@@ -9,7 +9,7 @@ namespace WePay.SubscriptionPlan
     public class SubscriptionPlanCreateArguments
     {
         [JsonProperty("account_id", Required = Required.Always)]
-        public long AccountId { get; set; }
+        public long? AccountId { get; set; }
 
         [JsonProperty("name", Required = Required.Always)]
         public string Name { get; set; }

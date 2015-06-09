@@ -10,7 +10,7 @@ namespace WePay
     /// </summary>
     public class WePaySubscriptionPlanService : WepayService
     {
-        public WePaySubscriptionPlanService(string accessToken = null) : base(accessToken) { }
+        public WePaySubscriptionPlanService(string accessToken = null, long? accountId = null) : base(accessToken, accountId) { }
 
         public virtual WePaySubscriptionPlan Get(SubscriptionPlanArguments arguments)
         {
@@ -22,6 +22,8 @@ namespace WePay
 
         public virtual WePaySubscriptionPlan[] Find(SubscriptionPlanFindArguments arguments)
         {
+            arguments.AccountId = arguments.AccountId.Equals(null) ? (AccountId == null ? WePayConfiguration.GetAccountId() : AccountId) : arguments.AccountId;
+
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.SubscriptionPlanFind, AccessToken, parameters);
 
@@ -30,6 +32,8 @@ namespace WePay
 
         public virtual WePaySubscriptionPlan Create(SubscriptionPlanCreateArguments arguments)
         {
+            arguments.AccountId = arguments.AccountId.Equals(null) ? (AccountId == null ? WePayConfiguration.GetAccountId() : AccountId) : arguments.AccountId;
+
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.SubscriptionPlanCreate, AccessToken, parameters);
 

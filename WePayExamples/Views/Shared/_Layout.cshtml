@@ -1,25 +1,98 @@
 ﻿<!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8" />
-    <title>@ViewBag.Title</title>
-    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
-     <link href="@Url.Content("~/Content/bootstrap/css/bootstrap.min.css")" rel="stylesheet" type="text/css" />
-    <script src="@Url.Content("~/Content/bootstrap/js/jquery.min.js")" type="text/javascript"></script>
-    <script src="@Url.Content("~/Content/bootstrap/js/bootstrap.min.js")" type="text/javascript"></script>
-    <style type="text/css">
-       body{ margin-top:50px;}
-    </style>
-</head>
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title</title>
+        <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+        <link href="@Url.Content("~/Content/bootstrap/css/bootstrap.min.css")" rel="stylesheet" type="text/css" />
+        @RenderSection("header", required: false)
+    </head>
 
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
             <a class="navbar-brand" href="/">WePay SDK for ASP.Net</a>
         </div>
-    </div>
-  <div class="container">
-    @RenderBody()
-  </div>
-</body>
+        <div class="container">
+            <div class="well">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h2>WePay config</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p>Access Token:<span id="accessToken"> @ViewBag.accessToken</span></p>
+                            <input class="form-control" id="accessTokenInput" placeholder="Access Token" type="text" name="accessToken" value="" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <p>Account Id:<span id="accountId"> @ViewBag.accountId</span></p>
+                            <input class="form-control" id="accountIdInput" placeholder="Account Id" type="text" name="accountId" value="" />
+                        </div>
+                        <div class="col-sm-3">
+                            <p>client Id:<span id="clientId"> @ViewBag.clientId</span></p>
+                            <input class="form-control" id="clientIdInput" placeholder="client Id" type="text" name="clientId" value="" />
+                        </div>
+                        <div class="col-sm-3">
+                            <p>Client Secret:<span id="clientSecret"> @ViewBag.clientSecret</span></p>
+                            <input class="form-control" id="clientSecretInput" placeholder="client Secret" type="text" name="clientSecret" value="" />
+                        </div>
+                        <div class="col-sm-1">
+                            <input class="btn setInfoButton" id="setInfoButton" type="submit" value="submit" />
+                        </div>
+                    </div>
+            </div>
+                @RenderBody()
+            </div>
+
+            <script src="@Url.Content("~/Content/bootstrap/js/jquery.min.js")" type="text/javascript"></script>
+            <script src="@Url.Content("~/Content/bootstrap/js/bootstrap.min.js")" type="text/javascript" async></script>
+            <script type="text/javascript">
+                @RenderSection("javascript", required: false)
+
+                function SetInfo() {
+                    $.ajax({
+                        url: '/info/set',
+                        method: 'POST',
+                        data: {
+                            accessToken: $('#accessTokenInput').val(),
+                            accountId: $('#accountIdInput').val(),
+                            clientId: $('#clientIdInput').val(),
+                            clientSecret: $('#clientSecretInput').val()
+                        },
+                        success: function (result) {
+                            var x;
+                            for (x in result) {
+                                var temp = result[x].Value;
+                                switch(result[x].Key) {
+                                    case 'accessToken':
+                                        $('#accessToken').text(result[x].Value);
+                                        break;
+                                    case 'accountId':
+                                        $('#accountId').text(result[x].Value);
+                                        break;
+                                    case 'clientId':
+                                        $('#clientId').text(result[x].Value);
+                                        break;
+                                    case 'clientSecret':
+                                        $('#clientSecret').text(result[x].Value);
+                                        break;
+                                }
+                                $('#accessTokenInput').val('');
+                                $('#accountIdInput').val('');
+                                $('#clientIdInput').val('');
+                                $('#clientSecretInput').val('');
+                            }
+                            
+                        },
+                        error: function () {
+
+                        }
+                    });
+                }
+                $('#setInfoButton').click(SetInfo);
+
+            </script>
+    </body>
 </html>

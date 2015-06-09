@@ -8,7 +8,7 @@ namespace WePay.Withdrawal
     public class WithdrawalFindArguments
     {
         [JsonProperty("account_id", Required = Required.Always)]
-        public long AccountId { get; set; }
+        public long? AccountId { get; set; }
 
         [JsonProperty("limit")]
         public string Limit { get; set; }

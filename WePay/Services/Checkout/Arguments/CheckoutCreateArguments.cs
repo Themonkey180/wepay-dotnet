@@ -11,7 +11,7 @@ namespace WePay.Checkout
     public class CheckoutCreateArguments
     {
         [JsonProperty("account_id", Required = Required.Always)]
-        public long AccountId { get; set; }
+        public long? AccountId { get; set; }
 
         [JsonProperty("short_description", Required = Required.Always)]
         public string ShortDescription { get; set; }

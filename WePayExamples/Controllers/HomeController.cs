@@ -25,80 +25,22 @@ using WePay.Withdrawal;
 
 namespace Controllers
 {
+    [RouteArea("Home")]
+    [RoutePrefix("Home")]
+    [Route("{action=index}")]
     public class HomeController : Controller
     {
+        [Route("~/")]
         public ActionResult Index()
         {
+            ViewBag.accessToken = WePayConfiguration.GetAccessToken();
+            ViewBag.clientId = WePayConfiguration.GetClientId();
+            ViewBag.clientSecret = WePayConfiguration.GetClientSecret();
+            ViewBag.accountId = WePayConfiguration.GetAccountId();
             return View();
         }
 
-        public ActionResult GetUser()
-        {
-            var accessToken = Request.Form["accessToken"];
-            WePay.WePayConfiguration.SetAccessToken(accessToken);
-            var wePayUserService = new WePay.WePayUserService(accessToken);
-            var wePayUser = wePayUserService.Get();
-
-            return View(wePayUser);
-        }
-
-        public ActionResult GetAccount()
-        {
-            long AccountId = 0;
-            var accessToken = Request.Form["accessToken"];
-            long.TryParse(Request.Form["AccountId"], out AccountId);
-            WePay.WePayConfiguration.SetAccessToken(accessToken);
-            var wePayAccountService = new WePay.WePayAccountrService(accessToken);
-            var wePayAccount = wePayAccountService.Get(new AccountArguments { AccountId = AccountId });
-
-            return View(wePayAccount);
-        }
-
-        public ActionResult GetApp()
-        {
-            long clientId = 0;
-            var accessToken = Request.Form["accessToken"];
-            var clientSecret = Request.Form["ClientSecret"];
-            long.TryParse(Request.Form["clientId"], out clientId);
-                
-            WePay.WePayConfiguration.SetAccessToken(accessToken);
-            var WePayAppService = new WePay.WePayAppService(accessToken, clientId, clientSecret);
-            var wePayApp = WePayAppService.Get(new AppArguments { });
-
-            return View(wePayApp);
-        }
-
-        public ActionResult FindAccount()
-        {
-            var name = Request.Form["name"];
-            var referenceId = Request.Form["referenceId"];
-            var sortOrder = Request.Form["sortOrder"];
-            var accessToken = Request.Form["accessToken"];
-
-            var wePayAccountService = new WePay.WePayAccountrService(accessToken);
-            var wePayAccount = wePayAccountService.Find(new AccountFindArguments { Name = name, ReferenceId = referenceId, SortOrder = sortOrder });
-
-            return View(wePayAccount);
-        }
-
-         public ActionResult TestBatch()
-        {
-            WePayBatchService wePayBatchService = new WePay.WePayBatchService("STAGE_93be63f0c6f9683877a74b310fbb9387e5ed9c73b49e35d3e7d6576d2882c0ec", 133882, "a8d34318c6");
-
-            var AccountParameters = new AccountArguments { AccountId = 234018316 };
-            var AccountFindParameters = new AccountFindArguments { SortOrder = "ASC" };
-
-            var batchCalls = wePayBatchService.Create(new BatchArguments
-              {
-                  Calls = new BatchCallsArguments[2] { 
-                        new BatchCallsArguments { Call = AccountParameters.BatchUrl(), Authorization = "STAGE_93be63f0c6f9683877a74b310fbb9387e5ed9c73b49e35d3e7d6576d2882c0ec", ReferenceId = "6", Parameters = AccountParameters }, 
-                        new BatchCallsArguments { Call = AccountFindParameters.BatchUrl(), ReferenceId = "7", Authorization = "STAGE_93be63f0c6f9683877a74b310fbb9387e5ed9c73b49e35d3e7d6576d2882c0ec", Parameters = AccountFindParameters },
-                    }
-              }); ;
-
-
-            return View(batchCalls);
-        }
+        
 
         public ActionResult TestAll()
         {

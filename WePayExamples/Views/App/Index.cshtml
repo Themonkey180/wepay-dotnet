@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Test Page";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <h1>App Examples</h1>
+    </div>
+    <div class="col-md-6">
+        <h3><a href="/">back</a></h3>
+    </div>
+</div>
+
+<div class="well">
+    <h3>Get</h3>
+    <form action="/Home/GetApp" method="post">
+        <div class="row">
+            <div class="col-xs-4">
+                <input class="form-control" placeholder="enter access token" type="text" name="accessToken" value="" />
+            </div>
+            <div class="col-xs-4">
+                <input class="form-control" placeholder="enter access token" type="text" name="ClientSecret" value="" />
+            </div>
+            <div class="col-xs-4">
+                <input class="form-control" placeholder="enter access token" type="text" name="clientId" value="" />
+            </div>
+        </div>
+        <div class="row" style="padding-top:10px;">
+            <div class="col-xs-4">
+                <input class="btn" id="submit" type="submit" value="submit" />
+            </div>
+        </div>
+    </form>
+</div>
+

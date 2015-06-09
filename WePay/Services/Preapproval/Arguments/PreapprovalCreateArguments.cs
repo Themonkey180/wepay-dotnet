@@ -11,7 +11,7 @@ namespace WePay.Preapproval
     public class PreapprovalCreateArguments
     {
         [JsonProperty("account_id")]
-        public long AccountId { get; set; }
+        public long? AccountId { get; set; }
 
         [JsonProperty("amount")]
         public decimal Amount { get; set; }

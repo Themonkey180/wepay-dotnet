@@ -10,7 +10,7 @@ namespace WePay.Checkout
     public class CheckoutFindArguments
     {
         [JsonProperty("account_id", Required = Required.Always)]
-        public long AccountId { get; set; }
+        public long? AccountId { get; set; }
 
         [JsonProperty("start")]
         public long Start { get; set; }

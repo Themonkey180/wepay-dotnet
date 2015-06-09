@@ -10,7 +10,7 @@ namespace WePay
     /// </summary>
     public class WePayCheckoutService : WepayService
     {
-        public WePayCheckoutService(string accessToken = null) : base(accessToken) { }
+        public WePayCheckoutService(string accessToken = null, long? accountId = null) : base(accessToken, accountId) { }
 
         public virtual WePayCheckout Get(CheckoutArguments arguments)
         {
@@ -22,6 +22,7 @@ namespace WePay
 
         public virtual WePayCheckout[] Find(CheckoutFindArguments arguments)
         {
+            arguments.AccountId = arguments.AccountId.Equals(null) ? (AccountId == null ? WePayConfiguration.GetAccountId() : AccountId) : arguments.AccountId;
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.CheckoutFind, AccessToken, parameters);
 
@@ -30,6 +31,7 @@ namespace WePay
 
         public virtual WePayCheckout Create(CheckoutCreateArguments arguments)
         {
+            arguments.AccountId = arguments.AccountId.Equals(null) ? (AccountId == null ? WePayConfiguration.GetAccountId() : AccountId) : arguments.AccountId;
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.CheckoutCreate, AccessToken, parameters);
 

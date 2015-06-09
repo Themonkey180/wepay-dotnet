@@ -5,7 +5,7 @@ namespace WePay.Preapproval
     public class PreapprovalFindArguments
     {
         [JsonProperty("account_id")]
-        public long AccountId { get; set; }
+        public long? AccountId { get; set; }
 
         [JsonProperty("state")]
         public long State { get; set; }

@@ -10,10 +10,12 @@ namespace WePay
     /// </summary>
     public class WePayAccountrService : WepayService
     {
-        public WePayAccountrService(string accessToken = null) : base(accessToken) { }
+        public WePayAccountrService(string accessToken = null, long? accountId = null) : base(accessToken, accountId) { }
 
         public virtual WepayAccount Get(AccountArguments arguments)
         {
+            arguments.AccountId = arguments.AccountId.Equals(null) ? (AccountId == null ? WePayConfiguration.GetAccountId() : AccountId) : arguments.AccountId;
+           
             var url = Urls.Account;
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(url, AccessToken, parameters);
@@ -41,6 +43,8 @@ namespace WePay
 
         public virtual WepayAccount Modify(AccountModifyArguments arguments)
         {
+            arguments.AccountId = arguments.AccountId.Equals(null) ? (AccountId == null ? WePayConfiguration.GetAccountId() : AccountId) : arguments.AccountId;
+           
             var url = Urls.AccountModify;
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(url, AccessToken, parameters);
@@ -50,6 +54,8 @@ namespace WePay
 
         public virtual WePayAccountState Delete(AccountDeleteArguments arguments)
         {
+            arguments.AccountId = arguments.AccountId.Equals(null) ? (AccountId == null ? WePayConfiguration.GetAccountId() : AccountId) : arguments.AccountId;
+           
             var url = Urls.AccountModify;
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(url, AccessToken, parameters);
@@ -59,6 +65,8 @@ namespace WePay
 
         public virtual WepayAccountUpdatedUri GetUpdateUri(AccountGetUpdateUriArguments arguments)
         {
+            arguments.AccountId = arguments.AccountId.Equals(null) ? (AccountId == null ? WePayConfiguration.GetAccountId() : AccountId) : arguments.AccountId;
+           
             var url = Urls.AccountModify;
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(url, AccessToken, parameters);
@@ -68,6 +76,8 @@ namespace WePay
 
         public virtual WepayAccountReserveDetails GetReserveDetails(AccountGetReserveDetailsArguments arguments)
         {
+            arguments.AccountId = arguments.AccountId.Equals(null) ? (AccountId == null ? WePayConfiguration.GetAccountId() : AccountId) : arguments.AccountId;
+           
             var url = Urls.AccountModify;
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(url, AccessToken, parameters);

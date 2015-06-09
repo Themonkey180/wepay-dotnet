@@ -35,6 +35,7 @@ C:\Users\petersj\Documents\wepay-dotnet\WePayExamples\bin\System.Web.WebPages.Ra
 C:\Users\petersj\Documents\wepay-dotnet\WePayExamples\bin\WePay.dll
 C:\Users\petersj\Documents\wepay-dotnet\WePayExamples\bin\WePay.pdb
 C:\Users\petersj\Documents\wepay-dotnet\WePayExamples\bin\Microsoft.Web.Infrastructure.xml
+C:\Users\petersj\Documents\wepay-dotnet\WePayExamples\bin\Newtonsoft.Json.xml
 C:\Users\petersj\Documents\wepay-dotnet\WePayExamples\bin\System.Web.Helpers.xml
 C:\Users\petersj\Documents\wepay-dotnet\WePayExamples\bin\System.Web.Mvc.xml
 C:\Users\petersj\Documents\wepay-dotnet\WePayExamples\bin\System.Web.Razor.xml
@@ -44,4 +45,3 @@ C:\Users\petersj\Documents\wepay-dotnet\WePayExamples\bin\System.Web.WebPages.Ra
 C:\Users\petersj\Documents\wepay-dotnet\WePayExamples\obj\Debug\WePayExamples.csprojResolveAssemblyReference.cache
 C:\Users\petersj\Documents\wepay-dotnet\WePayExamples\obj\Debug\WePayExamplesMVC.dll
 C:\Users\petersj\Documents\wepay-dotnet\WePayExamples\obj\Debug\WePayExamplesMVC.pdb
-C:\Users\petersj\Documents\wepay-dotnet\WePayExamples\bin\Newtonsoft.Json.xml

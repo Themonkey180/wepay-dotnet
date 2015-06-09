@@ -10,7 +10,7 @@ namespace WePay
     /// </summary>
     public class WePayPreapprovalService : WepayService
     {
-        public WePayPreapprovalService(string accessToken = null) : base(accessToken) { }
+        public WePayPreapprovalService(string accessToken = null, long? accountId = null) : base(accessToken, accountId) { }
 
         public virtual WePayPreapproval Get(PreapprovalArguments arguments)
         {
@@ -22,6 +22,8 @@ namespace WePay
 
         public virtual WePayPreapproval[] Find(PreapprovalFindArguments arguments)
         {
+            arguments.AccountId = arguments.AccountId.Equals(null) ? (AccountId == null ? WePayConfiguration.GetAccountId() : AccountId) : arguments.AccountId;
+
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.PreapprovalFind, AccessToken, parameters);
 
@@ -30,6 +32,8 @@ namespace WePay
 
         public virtual WePayPreapprovalCreate Create(PreapprovalCreateArguments arguments)
         {
+            arguments.AccountId = arguments.AccountId.Equals(null) ? (AccountId == null ? WePayConfiguration.GetAccountId() : AccountId) : arguments.AccountId;
+
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.PreapprovalCreate, AccessToken, parameters);
 

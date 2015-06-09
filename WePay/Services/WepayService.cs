@@ -11,6 +11,7 @@ namespace WePay.Services
         public string AccessToken { get; set; }
         public string ClientSecret { get; set; }
         public long? ClientId { get; set; }
+        public long? AccountId { get; set; }
 
         public WepayService(string accessToken,long? clientId,string clientSecret)
         {
@@ -23,6 +24,12 @@ namespace WePay.Services
         {
             ClientId = clientId;
             ClientSecret = clientSecret;
+        }
+
+        public WepayService(string accessToken, long? accountId)
+        {
+            AccountId = accountId;
+            AccessToken = accessToken;
         }
 
         public WepayService(string accessToken)
