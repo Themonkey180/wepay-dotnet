@@ -39,7 +39,7 @@ namespace WePay.Infrastructure
 
         internal static WebRequest GetWebRequest(string url, string method, string json, string AccessToken = null, bool useBearer = false)
         {
-            AccessToken = AccessToken ?? WePayConfiguration.GetAccessToken();
+            AccessToken = string.IsNullOrWhiteSpace(AccessToken) ? WePayConfiguration.GetAccessToken() : AccessToken;
 
             var request = (HttpWebRequest)WebRequest.Create(url);
             request.Method = method;
