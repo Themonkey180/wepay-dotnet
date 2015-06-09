@@ -56,7 +56,7 @@ namespace Controllers
             var callbackUri = Request.Form["callbackUri"];
 
             var userAgent = Request.UserAgent;
-            var IPAddress = GetIPAddress();
+            var IPAddress = Request.UserHostAddress;
 
            WepayAddress Address1 = new WepayAddress { Address1 = "605 Seward Ave NW", City="Grand Rapids", State="MI", Zip="49504", Country="US" };
 
@@ -465,21 +465,5 @@ namespace Controllers
             return View(batchCalls);
         }
 
-        protected string GetIPAddress()
-        {
-            System.Web.HttpContext context = System.Web.HttpContext.Current;
-            string ipAddress = context.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
-
-            if (!string.IsNullOrEmpty(ipAddress))
-            {
-                string[] addresses = ipAddress.Split(',');
-                if (addresses.Length != 0)
-                {
-                    return addresses[0];
-                }
-            }
-
-            return context.Request.ServerVariables["REMOTE_ADDR"];
-        }
     }
 }

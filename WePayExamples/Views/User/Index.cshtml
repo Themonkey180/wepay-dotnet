@@ -6,7 +6,7 @@
     <div class="col-md-6">
         <h1>User Examples</h1>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 col-md-push-5">
         <h3><a href="/">back</a></h3>
     </div>
 </div>
@@ -16,9 +16,45 @@
     <form action="/user/get" method="post">
         <div class="row">
             <div class="col-md-6">
-                <input id="accessToken" placeholder="enter access token" type="text" name="accessToken" value="" />
+                <input class="form-control" placeholder="enter access token" type="text" name="accessToken" value="" />
             </div>
             <div class="col-md-6">
+                <input class="btn" id="submit" type="submit" value="submit" />
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="well">
+    <h3>#2 Register User</h3>
+    <form action="/user/register" method="post">
+        <div class="row">
+            <div class="col-md-4">
+                <input class="form-control" placeholder="enter client id" type="text" name="clientid" value="" />
+            </div>
+            <div class="col-md-4">
+                <input class="form-control" placeholder="enter client secret" type="text" name="clientsecret" value="" />
+            </div>
+        </div>
+        <div class="row" style="padding-top:10px;">
+            <div class="col-md-4">
+                <input class="btn" id="submit" type="submit" value="submit" />
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="well">
+    <h3>#3 Modify User(by AccessToken)</h3>
+    <form action="/user/modify" method="post">
+        <div class="row">
+            <div class="col-md-4">
+                <input class="form-control" placeholder="enter access token" type="text" name="accessToken" value="" />
+            </div>
+            <div class="col-md-4">
+                <input class="form-control" placeholder="enter callback uri" type="text" name="callbackUri" value="" />
+            </div>
+            <div class="col-md-4">
                 <input class="btn" id="submit" type="submit" value="submit" />
             </div>
         </div>
