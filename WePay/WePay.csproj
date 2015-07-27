@@ -50,11 +50,21 @@
   <ItemGroup>
     <Compile Include="Entities\Structure\WepayAccountBalance.cs" />
     <Compile Include="Entities\Structure\WepayAddress.cs" />
+    <Compile Include="Entities\Structure\WepayMFAAuthenticator.cs" />
+    <Compile Include="Entities\Structure\WepayMembershipAdminContext.cs" />
+    <Compile Include="Entities\Structure\WepayMFAChallengeData.cs" />
+    <Compile Include="Entities\Structure\WepayMFAConfirmChallenge.cs" />
     <Compile Include="Entities\Structure\WepayShippingAddress.cs" />
     <Compile Include="Entities\Structure\WepayStatuses.cs" />
     <Compile Include="Entities\Structure\WepayPrefillInfo.cs" />
+    <Compile Include="Entities\Structure\WepayMFASetupData.cs" />
     <Compile Include="Entities\Structure\WepayTheme.cs" />
     <Compile Include="Entities\Structure\WithdrawalsSchedule.cs" />
+    <Compile Include="Entities\WepayAccountMembership.cs" />
+    <Compile Include="Entities\WepayMFAFind.cs" />
+    <Compile Include="Entities\WepayMFAValidateCookie.cs" />
+    <Compile Include="Entities\WepayMFA.cs" />
+    <Compile Include="Entities\WepayMFACreate.cs" />
     <Compile Include="Entities\WePaySubscriptionChargeFind.cs" />
     <Compile Include="Entities\WePaySubscriptionFind.cs" />
     <Compile Include="Entities\WePaySubscriptionPlanFind.cs" />
@@ -102,6 +112,10 @@
     <Compile Include="Infrastructure\WePayDateTimeConverter.cs" />
     <Compile Include="Infrastructure\WePayException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AccountMembership\Arguments\AccountMembershipCreateArgument.cs" />
+    <Compile Include="Services\AccountMembership\Arguments\AccountMembershipRemoveArguments.cs" />
+    <Compile Include="Services\AccountMembership\Arguments\AccountMembershipModifyArguments.cs" />
+    <Compile Include="Services\AccountMembership\WePayAccountMembershipService.cs" />
     <Compile Include="Services\Account\Arguments\AccountCreateArgument.cs" />
     <Compile Include="Services\Account\Arguments\AccountDeleteArguments.cs" />
     <Compile Include="Services\Account\Arguments\AccountGetReserveDetailsArguments.cs" />
@@ -146,6 +160,14 @@
     <Compile Include="Services\SubscriptionPlan\Arguments\SubscriptionPlanCreateArguments.cs" />
     <Compile Include="Services\SubscriptionPlan\Arguments\SubscriptionPlanFindArguments.cs" />
     <Compile Include="Services\SubscriptionPlan\WePaySubscriptionPlanService.cs" />
+    <Compile Include="Services\UserMFA\Arguments\UserMFAModify.cs" />
+    <Compile Include="Services\UserMFA\Arguments\UserMFAFind.cs" />
+    <Compile Include="Services\UserMFA\Arguments\UserMFAConfirmArguments.cs" />
+    <Compile Include="Services\UserMFA\Arguments\UserMFASendDefaultChallengeArguments.cs" />
+    <Compile Include="Services\UserMFA\Arguments\UserMFASendChallengeArguments.cs" />
+    <Compile Include="Services\UserMFA\Arguments\UserMFAValidateCookieArguments.cs" />
+    <Compile Include="Services\UserMFA\Arguments\UserMFACreateArguments.cs" />
+    <Compile Include="Services\UserMFA\WePayUserMFAService.cs" />
     <Compile Include="Services\User\Arguments\UserArguments.cs" />
     <Compile Include="Services\User\Arguments\UserSendConfirmationArguments.cs" />
     <Compile Include="Services\User\Arguments\UserRegisterArguments.cs" />

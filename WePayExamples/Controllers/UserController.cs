@@ -62,6 +62,13 @@ namespace Controllers
 
             return View("Get", wePayUser);
         }
-        
+
+        public ActionResult SendConfirmation()
+        {
+            var wePayUserService = new WePay.WePayUserService(Request.Form["accessToken"]);
+            var wePayUser = wePayUserService.SendConfirmation(new UserSendConfirmationArguments { EmailMessage = Request.Form["emailMessage"] });
+
+            return View("Get", wePayUser);
+        }
     }
 }

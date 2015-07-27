@@ -13,10 +13,11 @@
 
 <div class="well">
     <h3>#1 Get User Info (by AccessToken)</h3>
+    <p>* required</p>
     <form action="/user/get" method="post">
         <div class="row">
             <div class="col-md-6">
-                <input class="form-control" placeholder="enter access token" type="text" name="accessToken" value="" />
+                <input class="form-control" placeholder="access token" type="text" name="accessToken" value="" />
             </div>
             <div class="col-md-6">
                 <input class="btn" id="submit" type="submit" value="submit" />
@@ -27,13 +28,33 @@
 
 <div class="well">
     <h3>#2 Register User</h3>
+    <p>* required</p>
     <form action="/user/register" method="post">
         <div class="row">
+            <div class="col-md-6">
+                <input class="form-control" placeholder="client id" type="text" name="clientid" value="" />
+            </div>
+            <div class="col-md-6">
+                <input class="form-control" placeholder="client secret" type="text" name="clientsecret" value="" />
+            </div>
+        </div>
+        <div class="row" style="padding-top:10px;">
             <div class="col-md-4">
-                <input class="form-control" placeholder="enter client id" type="text" name="clientid" value="" />
+                <input class="form-control" placeholder="email *" type="text" name="email" value="" />
             </div>
             <div class="col-md-4">
-                <input class="form-control" placeholder="enter client secret" type="text" name="clientsecret" value="" />
+                <input class="form-control" placeholder="first name *" type="text" name="firstName" value="" />
+            </div>
+            <div class="col-md-4">
+                <input class="form-control" placeholder="last name *" type="text" name="lastName" value="" />
+            </div>
+        </div>
+        <div class="row " style="padding-top:10px;">
+            <div class="col-md-6">
+                <input class="form-control" placeholder="redirect Uri" type="text" name="redirectUri" value="" />
+            </div>
+            <div class="col-md-6">
+                <input class="form-control" placeholder="callback Uri" type="text" name="callbackUri" value="" />
             </div>
         </div>
         <div class="row" style="padding-top:10px;">
@@ -46,13 +67,14 @@
 
 <div class="well">
     <h3>#3 Modify User(by AccessToken)</h3>
+    <p>* required</p>
     <form action="/user/modify" method="post">
         <div class="row">
             <div class="col-md-4">
-                <input class="form-control" placeholder="enter access token" type="text" name="accessToken" value="" />
+                <input class="form-control" placeholder="access token" type="text" name="accessToken" value="" />
             </div>
             <div class="col-md-4">
-                <input class="form-control" placeholder="enter callback uri" type="text" name="callbackUri" value="" />
+                <input class="form-control" placeholder="callback uri" type="text" name="callbackUri" value="" />
             </div>
             <div class="col-md-4">
                 <input class="btn" id="submit" type="submit" value="submit" />
@@ -61,3 +83,20 @@
     </form>
 </div>
 
+<div class="well">
+    <h3>#4 Send confirmation email to User(by AccessToken)</h3>
+    <p>* required</p>
+    <form action="/user/sendConfirmation" method="post">
+        <div class="row">
+            <div class="col-md-6">
+                <textarea class="form-control" rows="3" placeholder="email message HTML" name="emailMessage"></textarea>
+            </div>
+            <div class="col-md-4">
+                <input class="form-control" placeholder="access token" type="text" name="accessToken" value="" />
+            </div>
+            <div class="col-md-2">
+                <input class="btn" id="submit" type="submit" value="submit" />
+            </div>
+        </div>
+    </form>
+</div>

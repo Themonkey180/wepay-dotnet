@@ -17,12 +17,13 @@ namespace Controllers
 
         public ActionResult Get()
         {
-            long AccountId = 0;
+            long temp;
+            long? accountId = null;
             var accessToken = Request.Form["accessToken"];
-            long.TryParse(Request.Form["AccountId"], out AccountId);
-            WePay.WePayConfiguration.SetAccessToken(accessToken);
+            if (long.TryParse(Request.Form["AccountId"], out temp)) AccountId = temp;
+
             var wePayAccountService = new WePay.WePayAccountrService(accessToken);
-            var wePayAccount = wePayAccountService.Get(new AccountArguments { AccountId = AccountId });
+            var wePayAccount = wePayAccountService.Get(new AccountArguments { AccountId = accountId });
 
             return View(wePayAccount);
         }
