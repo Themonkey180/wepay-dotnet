@@ -243,6 +243,56 @@ namespace WePay.Infrastructure
             get { return BaseUrl + "subscription_charge/refund"; }
         }
 
+        public static string AccountMembershipCreate
+        {
+            get { return BaseUrl + "account/membership/create"; }
+        }
+
+        public static string AccountMembershipModify
+        {
+            get { return BaseUrl + "account/membership/modify"; }
+        }
+
+        public static string AccountMembershipRemove
+        {
+            get { return BaseUrl + "account/membership/remove"; }
+        }
+
+        public static string UserMfaCreate
+        {
+            get { return BaseUrl + "user/mfa/create"; }
+        }
+
+        public static string UserMfacreateValidateCookie
+        {
+            get { return BaseUrl + "user/mfa/validate_cookie"; }
+        }
+
+        public static string UserMfaSendChallenge
+        {
+            get { return BaseUrl + "user/mfa/send_challenge"; }
+        }
+
+        public static string UserMfaSendDefaultChallenge
+        {
+            get { return BaseUrl + "user/mfa/SendDefaultChallenge"; }
+        }
+
+        public static string UserMfaConfirm
+        {
+            get { return BaseUrl + "user/mfa/confirm"; }
+        }
+
+        public static string UserMfaFind
+        {
+            get { return BaseUrl + "user/mfa/find"; }
+        }
+
+        public static string UserMfaModify
+        {
+            get { return BaseUrl + "user/mfa/modify"; }
+        }
+
         public static string Oauth2Token
         {
             get { return BaseUrl + "oauth2/token"; }

@@ -15,7 +15,7 @@ namespace WePay
         public virtual WepayAccountMembership Create(AccountMembershipCreateArgument arguments)
         {
             arguments.AccountId = arguments.AccountId.Equals(null) ? (AccountId == null ? WePayConfiguration.GetAccountId() : AccountId) : arguments.AccountId;
-            var url = Urls.AccountCreate;
+            var url = Urls.AccountMembershipCreate;
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(url, AccessToken, parameters);
 
@@ -25,7 +25,7 @@ namespace WePay
         public virtual WepayAccountMembership Modify(AccountMembershipModifyArguments arguments)
         {
             arguments.AccountId = arguments.AccountId.Equals(null) ? (AccountId == null ? WePayConfiguration.GetAccountId() : AccountId) : arguments.AccountId;
-            var url = Urls.AccountModify;
+            var url = Urls.AccountMembershipModify;
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(url, AccessToken, parameters);
 
@@ -35,7 +35,7 @@ namespace WePay
         public virtual WepayAccountMembership Remove(AccountMembershipRemoveArguments arguments)
         {
             arguments.AccountId = arguments.AccountId.Equals(null) ? (AccountId == null ? WePayConfiguration.GetAccountId() : AccountId) : arguments.AccountId;
-            var url = Urls.AccountModify;
+            var url = Urls.AccountMembershipRemove;
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(url, AccessToken, parameters);
 
