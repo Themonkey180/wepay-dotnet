@@ -48,6 +48,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\RbitsProperties\RbitBusinessReport.cs" />
+    <Compile Include="Entities\RbitsProperties\RbitBusinessLegal.cs" />
+    <Compile Include="Entities\RbitsProperties\RbitConversation.cs" />
+    <Compile Include="Entities\RbitsProperties\RbitComment.cs" />
+    <Compile Include="Entities\RbitsProperties\RbitDeviceInfo.cs" />
+    <Compile Include="Entities\RbitsProperties\RbitRevenue.cs" />
+    <Compile Include="Entities\RbitsProperties\RbitAddress.cs" />
+    <Compile Include="Entities\RbitsProperties\RbitOtherWebContent.cs" />
+    <Compile Include="Entities\RbitsProperties\RbitExternalAccount.cs" />
+    <Compile Include="Entities\RbitsProperties\RbitBusinessDescription.cs" />
+    <Compile Include="Entities\RbitsProperties\RbitIndustryCode.cs" />
+    <Compile Include="Entities\RbitsProperties\RbitEmployment.cs" />
+    <Compile Include="Entities\RbitsProperties\RbitEditorialReview.cs" />
+    <Compile Include="Entities\RbitsProperties\RbitOtherDocument.cs" />
+    <Compile Include="Entities\RbitsProperties\RbitWebsiteUri.cs" />
+    <Compile Include="Entities\RbitsProperties\RbitTaxId.cs" />
+    <Compile Include="Entities\RbitsProperties\RbitPhone.cs" />
+    <Compile Include="Entities\RbitsProperties\RbitBusinessName.cs" />
+    <Compile Include="Entities\RbitsProperties\RbitEmail.cs" />
+    <Compile Include="Entities\RbitsProperties\RbitPerson.cs" />
+    <Compile Include="Entities\RbitsProperties\WepayRbitBase.cs" />
     <Compile Include="Entities\Structure\WepayAccountBalance.cs" />
     <Compile Include="Entities\Structure\WepayAddress.cs" />
     <Compile Include="Entities\Structure\WepayMFAAuthenticator.cs" />
@@ -101,6 +122,7 @@
     <Compile Include="Entities\WePayUserRegisterd.cs" />
     <Compile Include="Entities\WePayUserSendConfirmation.cs" />
     <Compile Include="Entities\WePayError.cs" />
+    <Compile Include="Infrastructure\Converters\WePayBirthDateConverter.cs" />
     <Compile Include="Infrastructure\WepayPermissions.cs" />
     <Compile Include="Infrastructure\BatchUrlType.cs" />
     <Compile Include="Infrastructure\EpochTime.cs" />
@@ -109,7 +131,7 @@
     <Compile Include="Infrastructure\Requestor.cs" />
     <Compile Include="Infrastructure\Urls.cs" />
     <Compile Include="Infrastructure\WePayConfiguration.cs" />
-    <Compile Include="Infrastructure\WePayDateTimeConverter.cs" />
+    <Compile Include="Infrastructure\Converters\WePayDateTimeConverter.cs" />
     <Compile Include="Infrastructure\WePayException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AccountMembership\Arguments\AccountMembershipCreateArgument.cs" />
@@ -144,6 +166,11 @@
     <Compile Include="Services\Preapproval\Arguments\PreapprovalFindArguments.cs" />
     <Compile Include="Services\Preapproval\Arguments\PreapprovalArguments.cs" />
     <Compile Include="Services\Preapproval\WePayPreapprovalService.cs" />
+    <Compile Include="Services\Rbit\Arguments\RbitGetArgument.cs" />
+    <Compile Include="Services\Rbit\Arguments\RbitCreateArgument.cs" />
+    <Compile Include="Services\Rbit\Arguments\RbitFindArgument.cs" />
+    <Compile Include="Services\Rbit\Arguments\AccountMembershipRemoveArguments.cs" />
+    <Compile Include="Services\Rbit\WePayRbitService.cs" />
     <Compile Include="Services\SubscriptionCharge\Arguments\SubscriptionChargeArguments.cs" />
     <Compile Include="Services\SubscriptionCharge\Arguments\SubscriptionChargeRefundArguments.cs" />
     <Compile Include="Services\SubscriptionCharge\Arguments\SubscriptionChargeFindArguments.cs" />
@@ -187,6 +214,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
