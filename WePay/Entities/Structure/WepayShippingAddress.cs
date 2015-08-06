@@ -2,7 +2,7 @@
 
 namespace WePay.Entities.Structure
 {
-    public class WepayAddress
+    public class WepayShippingAddress
     {
         [JsonProperty("address1")]
         public string Address1 { get; set; }
