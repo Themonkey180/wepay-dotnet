@@ -303,6 +303,27 @@ namespace WePay.Infrastructure
             get { return BaseUrl + "batch/create"; }
         }
 
+        public static string RbitGet
+        {
+            get { return BaseUrl + "rbit"; }
+        }
+
+        public static string RbitFind
+        {
+            get { return BaseUrl + "rbit/find"; }
+        }
+
+        public static string RbitCreate
+        {
+            get { return BaseUrl + "rbit/create"; }
+        }
+
+        public static string RbitDelete
+        {
+            get { return BaseUrl + "rbit/delete"; }
+        }
+
+
         private static string BaseUrl
         {
             get

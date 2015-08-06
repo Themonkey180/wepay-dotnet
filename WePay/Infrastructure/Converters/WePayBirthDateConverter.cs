@@ -9,7 +9,8 @@ namespace WePay.Infrastructure
     {
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            writer.WriteRawValue(((DateTime)value).ToString("yyyy-MM-dd"));
+            string bdate = "\"" + ((DateTime)value).ToString("yyyy-MM-dd") + "\"";
+            writer.WriteRawValue(bdate);
         }
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)

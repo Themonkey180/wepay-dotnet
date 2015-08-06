@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WePay.Entities;
 using WePay.Entities.Structure;
+using WePay.Entities.Rbits;
 
 namespace WePay.Infrastructure
 {
@@ -18,10 +19,140 @@ namespace WePay.Infrastructure
 
                 return JsonConvert.DeserializeObject<T>(jsonToParse);
             }
+
+            public static WepayRbit MapRbitsFromJson(string json, string parentToken = null)
+            {
+                var jsonToParse = string.IsNullOrEmpty(parentToken) ? json : JObject.Parse(json).SelectToken(parentToken).ToString();
+                WepayRbit model  = JsonConvert.DeserializeObject<WepayRbit>(jsonToParse);
+
+                string type = model.Type;
+
+                dynamic fristPass = JsonConvert.DeserializeObject<dynamic>(json);
+                var properties = fristPass.properties.ToString();
+
+                switch (type)
+                {
+                    case "person":
+                        model.Properties = JsonConvert.DeserializeObject<RbitPerson>(properties);
+                        break;
+                    case "email":
+                        model.Properties = JsonConvert.DeserializeObject<RbitEmail>(properties);
+                        break;
+                    case "business_name":
+                        model.Properties = JsonConvert.DeserializeObject<RbitBusinessName>(properties);                       
+                        break;
+                    case "address":
+                        model.Properties = JsonConvert.DeserializeObject<RbitAddress>(properties);                       
+                        break;
+                    case "phone":
+                        model.Properties = JsonConvert.DeserializeObject<RbitPhone>(properties);                       
+                        break;
+                    case "tax_id":
+                        model.Properties = JsonConvert.DeserializeObject<RbitTaxId>(properties);                       
+                        break;
+                    case "website_uri":
+                        model.Properties = JsonConvert.DeserializeObject<RbitWebsiteUri>(properties);                       
+                        break;
+                    case "employment":
+                        model.Properties = JsonConvert.DeserializeObject<RbitEmployment>(properties);                       
+                        break;
+                    case "industry_code":
+                        model.Properties = JsonConvert.DeserializeObject<RbitIndustryCode>(properties);                      
+                        break;
+                    case "business_description":
+                        model.Properties = JsonConvert.DeserializeObject<RbitBusinessDescription>(properties);                        
+                        break;
+                    case "risk_score":
+                        model.Properties = JsonConvert.DeserializeObject<RbitRiskScore>(properties);                        
+                        break;
+                    case "comment":
+                        model.Properties = JsonConvert.DeserializeObject<RbitComment>(properties);                        
+                        break;
+                    case "project":
+                        model.Properties = JsonConvert.DeserializeObject<RbitProject>(properties);                       
+                        break;
+                    case "fundraising_event":
+                        model.Properties = JsonConvert.DeserializeObject<RbitFundraisingEvent>(properties);                        
+                        break;
+                    case "fundraising_team":
+                        model.Properties = JsonConvert.DeserializeObject<RbitFundraisingTeam>(properties);                       
+                        break;
+                    case "acquisition_channel":
+                        model.Properties = JsonConvert.DeserializeObject<RbitAcquisitionChannel>(properties);                       
+                        break;
+                    case "partner_service":
+                        model.Properties = JsonConvert.DeserializeObject<RbitPartnerService>(properties);                       
+                        break;
+                    case "member_to_member_message":
+                        model.Properties = JsonConvert.DeserializeObject<RbitMemberToMemberMessage>(properties);                       
+                        break;
+                    case "external_account":
+                        model.Properties = JsonConvert.DeserializeObject<RbitExternalAccount>(properties);                       
+                        break;
+                    case "editorial_review":
+                        model.Properties = JsonConvert.DeserializeObject<RbitEditorialReview>(properties);                       
+                        break;
+                    case "other_web_content":
+                        model.Properties = JsonConvert.DeserializeObject<RbitOtherWebContent>(properties);                      
+                        break;
+                    case "revenue":
+                        model.Properties = JsonConvert.DeserializeObject<RbitRevenue>(properties);                        
+                        break;
+                    case "conversation":
+                        model.Properties = JsonConvert.DeserializeObject<RbitConversation>(properties);                      
+                        break;
+                    case "business_legal":
+                        model.Properties = JsonConvert.DeserializeObject<RbitBusinessLegal>(properties);                       
+                        break;
+                    case "business_report":
+                        model.Properties = JsonConvert.DeserializeObject<RbitBusinessReport>(properties);                       
+                        break;
+                    case "other_document":
+                        model.Properties = JsonConvert.DeserializeObject<RbitOtherDocument>(properties);                      
+                        break;
+                    case "device_info":
+                        model.Properties = JsonConvert.DeserializeObject<RbitDeviceInfo>(properties);                      
+                        break;
+                    case "control_verification":
+                        model.Properties = JsonConvert.DeserializeObject<RbitControlVerification>(properties);                      
+                        break;
+                    case "risk_review":
+                        model.Properties = JsonConvert.DeserializeObject<RbitRiskReview>(properties);                      
+                        break;
+                    case "risk_review_steps":
+                        model.Properties = JsonConvert.DeserializeObject<RbitRiskReviewSteps>(properties);                      
+                        break;
+                    case "transaction_details":
+                        model.Properties = JsonConvert.DeserializeObject<RbitTransactionDetails>(properties);                      
+                        break;
+                    case "fundraising_campaign":
+                        model.Properties = JsonConvert.DeserializeObject<RbitFundraisingCampaign>(properties);                      
+                        break;
+                    case "fundraising_update":
+                        model.Properties = JsonConvert.DeserializeObject<RbitFundraisingUpdate>(properties);                      
+                        break;
+                    case "member_to_member_stats":
+                        model.Properties = JsonConvert.DeserializeObject<RbitMemberToMemberStats>(properties);                      
+                        break;
+                    case "social_media_shares":
+                        model.Properties = JsonConvert.DeserializeObject<RbitSocialMediaShares>(properties);                      
+                        break;
+                    case "fundraiser_beneficiary_relationship":
+                        model.Properties = JsonConvert.DeserializeObject<RbitFundraiserBeneficiaryRelationship>(properties);                      
+                        break;
+                    case "auto_billing":
+                        model.Properties = JsonConvert.DeserializeObject<RbitAutoBilling>(properties);                     
+                        break;
+                }
+
+                return model;
+            }
+
         }
 
         public static class Mapper
         {
+
             public async static Task<List<WepayBatch>> MapBatchFromJson(string json)
             {
                 //Sets up the json to be in a list.

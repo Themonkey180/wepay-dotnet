@@ -1,35 +1,36 @@
 ﻿using Newtonsoft.Json;
 using System;
-using WePay.Entities;
 using WePay.Entities.Rbits;
 using WePay.Entities.Structure;
 using WePay.Infrastructure;
 
-namespace WePay.Account
+namespace WePay.Entities
 {
     /// <summary>
-    /// https://stage.wepay.com/developer/reference/rbit#create
+    /// https://stage.wepay.com/developer/reference/rbit
     /// </summary>
-    public class RbitCreateArgument
+    public class WepayRbit : WepayBatch
     {
+        [JsonProperty("rbit_id")]
+        public long RbitId { get; set; }
 
-        [JsonProperty("associated_object_type", Required = Required.Always)]
+        [JsonProperty("associated_object_type")]
         public string AssociatedObjectType { get; set; }
 
-        [JsonProperty("associated_object_id", Required = Required.Always)]
-        public long? AssociatedObjectId { get; set; }
+        [JsonProperty("associated_object_id")]
+        public string AssociatedObjectId { get; set; }
 
-        [JsonProperty("type", Required = Required.Always)]
+        [JsonProperty("type")]
         public string Type { get; set; }
 
-        [JsonProperty("properties", Required = Required.Always)]
+        [JsonProperty("properties")]
         public WepayRbitBase Properties { get; set; }
 
-        [JsonProperty("receive_time", Required = Required.Always)]
+        [JsonProperty("receive_time")]
         [JsonConverter(typeof(WePayDateTimeConverter))]
         public DateTime? ReceiveTime { get; set; }
 
-        [JsonProperty("source", Required = Required.Always)]
+        [JsonProperty("source")]
         public string Source { get; set; }
 
         [JsonProperty("note")]
@@ -38,7 +39,6 @@ namespace WePay.Account
         [JsonProperty("related_rbits")]
         [JsonConverter(typeof(WePayRbitsConverter))]
         public WepayRbitStructure[] RelatedRbits { get; set; }
-
-        public string BatchUrl() { return "/rbit/create"; }
     }
 }
+

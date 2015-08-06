@@ -101,5 +101,11 @@ namespace WePay.Entities
 
         [JsonProperty("mode")]
         public string Mode { get; set; }
+
+        [JsonProperty("payer_rbits")]
+        public long[] PayerRbits { get; set; }
+
+        [JsonProperty("transaction_rbits")]
+        public long[] TransactionRbits { get; set; }
     }
 }

@@ -79,6 +79,14 @@ namespace WePay.Checkout
         [JsonProperty("payment_method_type")]
         public string PaymentMethodType { get; set; }
 
+        [JsonProperty("transaction_rbits")]
+        [JsonConverter(typeof(WePayRbitsConverter))]
+        public WepayRbitStructure[] TransactionRbits { get; set; }
+
+        [JsonProperty("payer_rbits")]
+        [JsonConverter(typeof(WePayRbitsConverter))]
+        public WepayRbitStructure[] PayerRbits { get; set; }
+
         public string BatchUrl() { return "/checkout/create"; }
     }
 }

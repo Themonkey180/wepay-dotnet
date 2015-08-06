@@ -62,6 +62,9 @@ namespace WePay.Entities
 
         [JsonProperty("currencies")]
         public string[] Currencies { get; set; }
+
+        [JsonProperty("rbits")]
+        public long[] Rbits { get; set; }
     }
 }
 

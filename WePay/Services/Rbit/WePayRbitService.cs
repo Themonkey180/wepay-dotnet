@@ -10,42 +10,45 @@ namespace WePay
     /// </summary>
     public class WePayRbitService : WepayService
     {
-        public WePayRbitService(string accessToken = null, long? accountId = null) : base(accessToken, accountId) { }
+        public WePayRbitService(string accessToken = null) : base(accessToken) { }
 
-        public virtual WepayAccountMembership Get(AccountMembershipCreateArgument arguments)
+        public virtual WepayRbit Get(RbitGetArgument arguments)
         {
-            var url = Urls.AccountMembershipCreate;
+
+            var url = Urls.RbitGet;
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(url, AccessToken, parameters);
 
-            return Mapper<WepayAccountMembership>.MapFromJson(response);
+            return Mapper<WepayRbit>.MapRbitsFromJson(response);
         }
 
-        public virtual WepayAccountMembership Create(AccountMembershipCreateArgument arguments)
+        public virtual WepayRbit Create(RbitCreateArgument arguments)
         {
-            var url = Urls.AccountMembershipCreate;
+
+            var url = Urls.RbitCreate;
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(url, AccessToken, parameters);
-
-            return Mapper<WepayAccountMembership>.MapFromJson(response);
+            return Mapper<WepayRbit>.MapRbitsFromJson(response);
         }
 
-        public virtual WepayAccountMembership Modify(AccountMembershipModifyArguments arguments)
+        public virtual WepayRbit Find(RbitFindArgument arguments)
         {
-            var url = Urls.AccountMembershipModify;
+
+            var url = Urls.RbitFind;
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(url, AccessToken, parameters);
 
-            return Mapper<WepayAccountMembership>.MapFromJson(response);
+            return Mapper<WepayRbit>.MapRbitsFromJson(response);
         }
 
-        public virtual WepayAccountMembership Remove(AccountMembershipRemoveArguments arguments)
+        public virtual WepayRbit Delete(RbitDeleteArgument arguments)
         {
-            var url = Urls.AccountMembershipRemove;
+
+            var url = Urls.RbitDelete;
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(url, AccessToken, parameters);
 
-            return Mapper<WepayAccountMembership>.MapFromJson(response);
+            return Mapper<WepayRbit>.MapRbitsFromJson(response);
         }
     }
 }

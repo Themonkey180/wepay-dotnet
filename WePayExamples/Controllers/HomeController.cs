@@ -22,6 +22,7 @@ using WePay.SubscriptionCharge;
 using WePay.SubscriptionPlan;
 using WePay.User;
 using WePay.Withdrawal;
+using WePay.Entities.Rbits;
 
 namespace Controllers
 {
@@ -39,8 +40,6 @@ namespace Controllers
             ViewBag.accountId = WePayConfiguration.GetAccountId();
             return View();
         }
-
-        
 
         public ActionResult TestAll()
         {

@@ -48,8 +48,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\RbitsProperties\RbitAutoBilling.cs" />
+    <Compile Include="Entities\RbitsProperties\RbitFundraiserBeneficiaryRelationship.cs" />
+    <Compile Include="Entities\RbitsProperties\RbitSocialMediaShares.cs" />
+    <Compile Include="Entities\RbitsProperties\RbitFundraisingUpdate.cs" />
+    <Compile Include="Entities\RbitsProperties\RbitFundraisingCampaign.cs" />
+    <Compile Include="Entities\RbitsProperties\RbitMemberToMemberStats.cs" />
+    <Compile Include="Entities\RbitsProperties\RbitTransactionDetails.cs" />
+    <Compile Include="Entities\RbitsProperties\RbitRiskReviewSteps.cs" />
+    <Compile Include="Entities\RbitsProperties\RbitRiskReview.cs" />
+    <Compile Include="Entities\RbitsProperties\RbitControlVerification.cs" />
+    <Compile Include="Entities\RbitsProperties\RbitPartnerService.cs" />
     <Compile Include="Entities\RbitsProperties\RbitBusinessReport.cs" />
     <Compile Include="Entities\RbitsProperties\RbitBusinessLegal.cs" />
+    <Compile Include="Entities\RbitsProperties\RbitAcquisitionChannel.cs" />
+    <Compile Include="Entities\RbitsProperties\RbitMemberToMemberMessage.cs" />
+    <Compile Include="Entities\RbitsProperties\RbitFundraisingTeam.cs" />
+    <Compile Include="Entities\RbitsProperties\RbitFundraisingEvent.cs" />
+    <Compile Include="Entities\RbitsProperties\RbitProject.cs" />
+    <Compile Include="Entities\RbitsProperties\RbitRiskScore.cs" />
     <Compile Include="Entities\RbitsProperties\RbitConversation.cs" />
     <Compile Include="Entities\RbitsProperties\RbitComment.cs" />
     <Compile Include="Entities\RbitsProperties\RbitDeviceInfo.cs" />
@@ -69,6 +86,9 @@
     <Compile Include="Entities\RbitsProperties\RbitEmail.cs" />
     <Compile Include="Entities\RbitsProperties\RbitPerson.cs" />
     <Compile Include="Entities\RbitsProperties\WepayRbitBase.cs" />
+    <Compile Include="Entities\Structure\WepayRbitStructure.cs" />
+    <Compile Include="Entities\Structure\WepayReceiptLineItem.cs" />
+    <Compile Include="Entities\Structure\WepayShipping.cs" />
     <Compile Include="Entities\Structure\WepayAccountBalance.cs" />
     <Compile Include="Entities\Structure\WepayAddress.cs" />
     <Compile Include="Entities\Structure\WepayMFAAuthenticator.cs" />
@@ -81,6 +101,7 @@
     <Compile Include="Entities\Structure\WepayMFASetupData.cs" />
     <Compile Include="Entities\Structure\WepayTheme.cs" />
     <Compile Include="Entities\Structure\WithdrawalsSchedule.cs" />
+    <Compile Include="Entities\WepayRbit.cs" />
     <Compile Include="Entities\WepayAccountMembership.cs" />
     <Compile Include="Entities\WepayMFAFind.cs" />
     <Compile Include="Entities\WepayMFAValidateCookie.cs" />
@@ -123,6 +144,7 @@
     <Compile Include="Entities\WePayUserSendConfirmation.cs" />
     <Compile Include="Entities\WePayError.cs" />
     <Compile Include="Infrastructure\Converters\WePayBirthDateConverter.cs" />
+    <Compile Include="Infrastructure\Converters\WePayRbitsConverter.cs" />
     <Compile Include="Infrastructure\WepayPermissions.cs" />
     <Compile Include="Infrastructure\BatchUrlType.cs" />
     <Compile Include="Infrastructure\EpochTime.cs" />
@@ -169,7 +191,7 @@
     <Compile Include="Services\Rbit\Arguments\RbitGetArgument.cs" />
     <Compile Include="Services\Rbit\Arguments\RbitCreateArgument.cs" />
     <Compile Include="Services\Rbit\Arguments\RbitFindArgument.cs" />
-    <Compile Include="Services\Rbit\Arguments\AccountMembershipRemoveArguments.cs" />
+    <Compile Include="Services\Rbit\Arguments\RbitDeleteArgument.cs" />
     <Compile Include="Services\Rbit\WePayRbitService.cs" />
     <Compile Include="Services\SubscriptionCharge\Arguments\SubscriptionChargeArguments.cs" />
     <Compile Include="Services\SubscriptionCharge\Arguments\SubscriptionChargeRefundArguments.cs" />

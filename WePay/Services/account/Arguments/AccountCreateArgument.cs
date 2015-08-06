@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using WePay.Entities.Structure;
+using WePay.Infrastructure;
 
 namespace WePay.Account
 {
@@ -40,6 +41,10 @@ namespace WePay.Account
 
         [JsonProperty("currencies")]
         public string[] currencies { get; set; }
+
+        [JsonProperty("rbits")]
+        [JsonConverter(typeof(WePayRbitsConverter))]
+        public WepayRbitStructure[] Rbits { get; set; }
 
         public string BatchUrl() { return "/account/create"; }
     }

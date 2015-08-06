@@ -8,6 +8,8 @@ namespace WePay.Account
         /// <summary>
         /// https://stage.wepay.com/developer/reference/rbit#find
         /// </summary>
+        /// 
+
         [JsonProperty("associated_object_type")]
         public string AssociatedObjectTtype { get; set; }
 
