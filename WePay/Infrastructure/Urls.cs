@@ -313,7 +313,7 @@ namespace WePay.Infrastructure
                 }
                 else
                 {
-                    return "https://wepayapi.com/v2/";
+                    return "https://stage.wepayapi.com/v2/";
                 }
             }
         }
