@@ -20,7 +20,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.CreditCard, AccessToken, parameters);
 
-            return Mapper<WePayCreditCard>.MapFromJson(response);
+            return WepayMapping<WePayCreditCard>.MapFromJson(response);
         }
 
         public virtual WePayCreditCard[] Find(CreditCardFindArguments arguments)
@@ -32,7 +32,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.CreditCardFind, AccessToken, parameters);
 
-            return Mapper<WePayCreditCard[]>.MapFromJson(response);
+            return WepayMapping<WePayCreditCard[]>.MapFromJson(response);
         }
 
         public virtual WePayCreditCardState Create(CreditCardCreateArguments arguments)
@@ -42,7 +42,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.CreditCardCreate, AccessToken, parameters);
 
-            return Mapper<WePayCreditCardState>.MapFromJson(response);
+            return WepayMapping<WePayCreditCardState>.MapFromJson(response);
         }
 
         public virtual WePayCreditCardState Authorize(CreditCardArguments arguments)
@@ -53,7 +53,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.CreditCardAuthorize, AccessToken, parameters);
 
-            return Mapper<WePayCreditCardState>.MapFromJson(response);
+            return WepayMapping<WePayCreditCardState>.MapFromJson(response);
         }
 
         public virtual WePayCreditCardState Delete(CreditCardArguments arguments)
@@ -65,7 +65,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.CreditCardDelete, AccessToken, parameters);
 
-            return Mapper<WePayCreditCardState>.MapFromJson(response);
+            return WepayMapping<WePayCreditCardState>.MapFromJson(response);
         }
 
     }

@@ -19,7 +19,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(url, AccessToken, parameters);
 
-            return Mapper<WepayAccountMembership>.MapFromJson(response);
+            return WepayMapping<WepayAccountMembership>.MapFromJson(response);
         }
 
         public virtual WepayAccountMembership Modify(AccountMembershipModifyArguments arguments)
@@ -29,7 +29,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(url, AccessToken, parameters);
 
-            return Mapper<WepayAccountMembership>.MapFromJson(response);
+            return WepayMapping<WepayAccountMembership>.MapFromJson(response);
         }
 
         public virtual WepayAccountMembership Remove(AccountMembershipRemoveArguments arguments)
@@ -39,7 +39,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(url, AccessToken, parameters);
 
-            return Mapper<WepayAccountMembership>.MapFromJson(response);
+            return WepayMapping<WepayAccountMembership>.MapFromJson(response);
         }
     }
 }

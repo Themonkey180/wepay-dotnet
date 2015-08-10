@@ -20,7 +20,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(url, AccessToken, parameters);
 
-            return Mapper<WepayAccount>.MapFromJson(response);
+            return WepayMapping<WepayAccount>.MapFromJson(response);
         }
 
         public virtual WepayAccount[] Find(AccountFindArguments arguments)
@@ -29,7 +29,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(url, AccessToken, parameters);
 
-            return Mapper<WepayAccount[]>.MapFromJson(response);
+            return WepayMapping<WepayAccount[]>.MapFromJson(response);
         }
 
         public virtual WepayAccount Create(AccountCreateArgument arguments)
@@ -38,7 +38,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(url, AccessToken, parameters);
 
-            return Mapper<WepayAccount>.MapFromJson(response);
+            return WepayMapping<WepayAccount>.MapFromJson(response);
         }
 
         public virtual WepayAccount Modify(AccountModifyArguments arguments)
@@ -49,7 +49,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(url, AccessToken, parameters);
 
-            return Mapper<WepayAccount>.MapFromJson(response);
+            return WepayMapping<WepayAccount>.MapFromJson(response);
         }
 
         public virtual WePayAccountState Delete(AccountDeleteArguments arguments)
@@ -60,7 +60,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(url, AccessToken, parameters);
 
-            return Mapper<WePayAccountState>.MapFromJson(response);
+            return WepayMapping<WePayAccountState>.MapFromJson(response);
         }
 
         public virtual WepayAccountUpdatedUri GetUpdateUri(AccountGetUpdateUriArguments arguments)
@@ -71,7 +71,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(url, AccessToken, parameters);
 
-            return Mapper<WepayAccountUpdatedUri>.MapFromJson(response);
+            return WepayMapping<WepayAccountUpdatedUri>.MapFromJson(response);
         }
 
         public virtual WepayAccountReserveDetails GetReserveDetails(AccountGetReserveDetailsArguments arguments)
@@ -82,7 +82,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(url, AccessToken, parameters);
 
-            return Mapper<WepayAccountReserveDetails>.MapFromJson(response);
+            return WepayMapping<WepayAccountReserveDetails>.MapFromJson(response);
         }
     }
 }

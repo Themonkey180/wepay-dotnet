@@ -98,7 +98,7 @@ namespace WePay.Infrastructure
 
                     var wePayError = new WePayError();
 
-                    wePayError = WePay.Infrastructure.Mapper<WePayError>.MapFromJson(ReadStream(webException.Response.GetResponseStream()));
+                    wePayError = WePay.Infrastructure.WepayMapping<WePayError>.MapFromJson(ReadStream(webException.Response.GetResponseStream()));
 
                     throw new WePayException(statusCode, wePayError, wePayError.ErrorDescription);
                 }

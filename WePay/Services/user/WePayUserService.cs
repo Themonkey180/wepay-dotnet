@@ -15,7 +15,7 @@ namespace WePay
         {
             var response = Requestor.PostStringBearer(Urls.User, AccessToken);
 
-            return Mapper<WePayUser>.MapFromJson(response);
+            return WepayMapping<WePayUser>.MapFromJson(response);
         }
 
         public virtual WePayUser Modify(UserModifyArguments arguments)
@@ -23,7 +23,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.UserModify, AccessToken, parameters);
 
-            return Mapper<WePayUser>.MapFromJson(response);
+            return WepayMapping<WePayUser>.MapFromJson(response);
         }
 
         public virtual WePayUserRegisterd Register(UserRegisterArguments arguments)
@@ -38,7 +38,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostString(Urls.UserRegister, parameters);
 
-            return Mapper<WePayUserRegisterd>.MapFromJson(response);
+            return WepayMapping<WePayUserRegisterd>.MapFromJson(response);
         }
 
         public virtual WePayUserSendConfirmation SendConfirmation(UserSendConfirmationArguments arguments)
@@ -46,7 +46,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.UserSendConfirmation, AccessToken, parameters);
 
-            return Mapper<WePayUserSendConfirmation>.MapFromJson(response);
+            return WepayMapping<WePayUserSendConfirmation>.MapFromJson(response);
         }
     }
 }

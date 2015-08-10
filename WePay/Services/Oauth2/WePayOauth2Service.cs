@@ -20,7 +20,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostString(Urls.Oauth2Token, parameters);
 
-            return Mapper<WePayUserRegisterd>.MapFromJson(response);
+            return WepayMapping<WePayUserRegisterd>.MapFromJson(response);
         }
     }
 }

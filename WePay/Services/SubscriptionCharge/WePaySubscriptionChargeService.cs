@@ -17,7 +17,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.SubscriptionCharge, AccessToken, parameters);
 
-            return Mapper<WePaySubscriptionCharge>.MapFromJson(response);
+            return WepayMapping<WePaySubscriptionCharge>.MapFromJson(response);
         }
 
         public virtual WePaySubscriptionCharge[] Find(SubscriptionChargeFindArguments arguments)
@@ -25,7 +25,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.SubscriptionChargeFind, AccessToken, parameters);
 
-            return Mapper<WePaySubscriptionCharge[]>.MapFromJson(response);
+            return WepayMapping<WePaySubscriptionCharge[]>.MapFromJson(response);
         }
 
         public virtual WePaySubscriptionChargeState Refund(SubscriptionChargeRefundArguments arguments)
@@ -33,7 +33,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.SubscriptionChargeRefund, AccessToken, parameters);
 
-            return Mapper<WePaySubscriptionChargeState>.MapFromJson(response);
+            return WepayMapping<WePaySubscriptionChargeState>.MapFromJson(response);
         }
     }
 }

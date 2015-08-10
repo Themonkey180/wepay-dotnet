@@ -20,7 +20,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostString(Urls.App, parameters);
 
-            return Mapper<WepayApp>.MapFromJson(response);
+            return WepayMapping<WepayApp>.MapFromJson(response);
         }
 
         public virtual WepayAppModify Modify(AppModifyArguments arguments)
@@ -31,7 +31,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostString(Urls.AppModify, parameters);
 
-            return Mapper<WepayAppModify>.MapFromJson(response);
+            return WepayMapping<WepayAppModify>.MapFromJson(response);
         }
     }
 }

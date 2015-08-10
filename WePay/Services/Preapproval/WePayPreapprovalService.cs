@@ -17,7 +17,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.Preapproval, AccessToken, parameters);
 
-            return Mapper<WePayPreapproval>.MapFromJson(response);
+            return WepayMapping<WePayPreapproval>.MapFromJson(response);
         }
 
         public virtual WePayPreapproval[] Find(PreapprovalFindArguments arguments)
@@ -27,7 +27,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.PreapprovalFind, AccessToken, parameters);
 
-            return Mapper<WePayPreapproval[]>.MapFromJson(response);
+            return WepayMapping<WePayPreapproval[]>.MapFromJson(response);
         }
 
         public virtual WePayPreapprovalCreate Create(PreapprovalCreateArguments arguments)
@@ -37,7 +37,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.PreapprovalCreate, AccessToken, parameters);
 
-            return Mapper<WePayPreapprovalCreate>.MapFromJson(response);
+            return WepayMapping<WePayPreapprovalCreate>.MapFromJson(response);
         }
 
         public virtual WePayPreapprovalState Cancel(PreapprovalArguments arguments)
@@ -45,7 +45,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.PreapprovalCancel, AccessToken, parameters);
 
-            return Mapper<WePayPreapprovalState>.MapFromJson(response);
+            return WepayMapping<WePayPreapprovalState>.MapFromJson(response);
         }
 
         public virtual WePayPreapproval Modify(PreapprovalModifyArguments arguments)
@@ -53,7 +53,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.PreapprovalModify, AccessToken, parameters);
 
-            return Mapper<WePayPreapproval>.MapFromJson(response);
+            return WepayMapping<WePayPreapproval>.MapFromJson(response);
         }
        
     }
