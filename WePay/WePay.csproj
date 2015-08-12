@@ -104,7 +104,7 @@
     <Compile Include="Infrastructure\WepayPermissions.cs" />
     <Compile Include="Infrastructure\BatchUrlType.cs" />
     <Compile Include="Infrastructure\EpochTime.cs" />
-    <Compile Include="Infrastructure\Mapper.cs" />
+    <Compile Include="Infrastructure\WepayMapping.cs" />
     <Compile Include="Infrastructure\ParameterBuilder.cs" />
     <Compile Include="Infrastructure\Requestor.cs" />
     <Compile Include="Infrastructure\Urls.cs" />
