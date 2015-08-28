@@ -17,7 +17,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.Subscription, AccessToken, parameters);
 
-            return Mapper<WePaySubscription>.MapFromJson(response);
+            return WepayMapping<WePaySubscription>.MapFromJson(response);
         }
 
         public virtual WePaySubscription[] Find(SubscriptionFindArguments arguments)
@@ -25,7 +25,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.SubscriptionFind, AccessToken, parameters);
 
-            return Mapper<WePaySubscription[]>.MapFromJson(response);
+            return WepayMapping<WePaySubscription[]>.MapFromJson(response);
         }
 
         public virtual WePaySubscriptionCreate Create(SubscriptionCreateArguments arguments)
@@ -33,7 +33,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.SubscriptionCreate, AccessToken, parameters);
 
-            return Mapper<WePaySubscriptionCreate>.MapFromJson(response);
+            return WepayMapping<WePaySubscriptionCreate>.MapFromJson(response);
         }
 
         public virtual WePaySubscription Modify(SubscriptionModifyArguments arguments)
@@ -41,7 +41,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.SubscriptionModify, AccessToken, parameters);
 
-            return Mapper<WePaySubscription>.MapFromJson(response);
+            return WepayMapping<WePaySubscription>.MapFromJson(response);
         }
 
         public virtual WePaySubscriptionState Cancel(SubscriptionCancelArguments arguments)
@@ -49,7 +49,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.SubscriptionCancel, AccessToken, parameters);
 
-            return Mapper<WePaySubscriptionState>.MapFromJson(response);
+            return WepayMapping<WePaySubscriptionState>.MapFromJson(response);
         }
 
     }

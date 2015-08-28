@@ -14,7 +14,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.UserMfaCreate, AccessToken, parameters);
 
-            return Mapper<WepayMFACreate>.MapFromJson(response);
+            return WepayMapping<WepayMFACreate>.MapFromJson(response);
         }
 
         public virtual WepayMFAValidateCookie ValidateCookie(UserMFAValidateCookieArguments arguments)
@@ -22,7 +22,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.UserMfacreateValidateCookie, AccessToken, parameters);
 
-            return Mapper<WepayMFAValidateCookie>.MapFromJson(response);
+            return WepayMapping<WepayMFAValidateCookie>.MapFromJson(response);
         }
 
         public virtual WepayMFA SendChallenge(UserMFASendChallengeArguments arguments)
@@ -30,14 +30,14 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.UserMfaSendChallenge, AccessToken, parameters);
 
-            return Mapper<WepayMFA>.MapFromJson(response);
+            return WepayMapping<WepayMFA>.MapFromJson(response);
         }
 
         public virtual WepayMFA SendDefaultChallenge()
         {
             var response = Requestor.PostStringBearer(Urls.UserMfaSendDefaultChallenge, AccessToken);
 
-            return Mapper<WepayMFA>.MapFromJson(response);
+            return WepayMapping<WepayMFA>.MapFromJson(response);
         }
 
         public virtual WepayMFA Confirm(UserMFAConfirmArguments arguments)
@@ -45,7 +45,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.UserMfaConfirm, AccessToken, parameters);
 
-            return Mapper<WepayMFA>.MapFromJson(response);
+            return WepayMapping<WepayMFA>.MapFromJson(response);
         }
 
         public virtual WepayMFAFind Find(UserMFAFind arguments)
@@ -53,7 +53,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.UserMfaFind, AccessToken, parameters);
 
-            return Mapper<WepayMFAFind>.MapFromJson(response);
+            return WepayMapping<WepayMFAFind>.MapFromJson(response);
         }
 
         public virtual WepayMFA Modify(UserMFAModify arguments)
@@ -61,7 +61,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.UserMfaModify, AccessToken, parameters);
 
-            return Mapper<WepayMFA>.MapFromJson(response);
+            return WepayMapping<WepayMFA>.MapFromJson(response);
         }
     }
 }

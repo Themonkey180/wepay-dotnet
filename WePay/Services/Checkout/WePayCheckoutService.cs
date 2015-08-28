@@ -17,7 +17,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.Checkout, AccessToken, parameters);
 
-            return Mapper<WePayCheckout>.MapFromJson(response);
+            return WepayMapping<WePayCheckout>.MapFromJson(response);
         }
 
         public virtual WePayCheckout[] Find(CheckoutFindArguments arguments)
@@ -26,7 +26,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.CheckoutFind, AccessToken, parameters);
 
-            return Mapper<WePayCheckout[]>.MapFromJson(response);
+            return WepayMapping<WePayCheckout[]>.MapFromJson(response);
         }
 
         public virtual WePayCheckout Create(CheckoutCreateArguments arguments)
@@ -35,7 +35,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.CheckoutCreate, AccessToken, parameters);
 
-            return Mapper<WePayCheckout>.MapFromJson(response);
+            return WepayMapping<WePayCheckout>.MapFromJson(response);
         }
 
         public virtual WePayCheckoutState Cancel(CheckoutCancelArguments arguments)
@@ -43,7 +43,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.CheckoutCancel, AccessToken, parameters);
 
-            return Mapper<WePayCheckoutState>.MapFromJson(response);
+            return WepayMapping<WePayCheckoutState>.MapFromJson(response);
         }
 
         public virtual WePayCheckoutState Refund(CheckoutCancelArguments arguments)
@@ -51,7 +51,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.CheckoutRefund, AccessToken, parameters);
 
-            return Mapper<WePayCheckoutState>.MapFromJson(response);
+            return WepayMapping<WePayCheckoutState>.MapFromJson(response);
         }
 
         public virtual WePayCheckoutState Capture(CheckoutCancelArguments arguments)
@@ -59,7 +59,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.CheckoutCapture, AccessToken, parameters);
 
-            return Mapper<WePayCheckoutState>.MapFromJson(response);
+            return WepayMapping<WePayCheckoutState>.MapFromJson(response);
         }
 
         public virtual WePayCheckout Modify(CheckoutCreateArguments arguments)
@@ -67,7 +67,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.CheckoutModify, AccessToken, parameters);
 
-            return Mapper<WePayCheckout>.MapFromJson(response);
+            return WepayMapping<WePayCheckout>.MapFromJson(response);
         }
     }
 }

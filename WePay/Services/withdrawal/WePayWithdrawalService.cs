@@ -17,7 +17,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.Withdrawal, AccessToken, parameters);
 
-            return Mapper<WePayWithdrawal>.MapFromJson(response);
+            return WepayMapping<WePayWithdrawal>.MapFromJson(response);
         }
 
         public virtual WePayWithdrawal[] Find(WithdrawalFindArguments arguments)
@@ -27,7 +27,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.WithdrawalFind, AccessToken, parameters);
 
-            return Mapper<WePayWithdrawal[]>.MapFromJson(response);
+            return WepayMapping<WePayWithdrawal[]>.MapFromJson(response);
         }
 
         public virtual WePayWithdrawalCreated Create(WithdrawalCreateArguments arguments)
@@ -37,7 +37,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.WithdrawalCreate, AccessToken, parameters);
 
-            return Mapper<WePayWithdrawalCreated>.MapFromJson(response);
+            return WepayMapping<WePayWithdrawalCreated>.MapFromJson(response);
         }
 
         public virtual WePayWithdrawal Modify(WithdrawalModifyArguments arguments)
@@ -45,7 +45,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.WithdrawalModify, AccessToken, parameters);
 
-            return Mapper<WePayWithdrawal>.MapFromJson(response);
+            return WepayMapping<WePayWithdrawal>.MapFromJson(response);
         }
 
     }

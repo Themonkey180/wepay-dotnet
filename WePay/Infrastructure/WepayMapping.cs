@@ -11,7 +11,7 @@ using WePay.Entities.Rbits;
 
 namespace WePay.Infrastructure
 {
-        public static class Mapper<T>
+        public static class WepayMapping<T>
         {
             public static T MapFromJson(string json, string parentToken = null)
             {
@@ -150,7 +150,7 @@ namespace WePay.Infrastructure
 
         }
 
-        public static class Mapper
+        public static class WepayMapping
         {
 
             public async static Task<List<WepayBatch>> MapBatchFromJson(string json)

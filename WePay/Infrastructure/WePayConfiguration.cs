@@ -81,17 +81,32 @@ namespace WePay
         #region ProductionMode
         public static bool GetProductionMode()
         {
-            if (string.IsNullOrEmpty(_ClientSecret))
-                bool.TryParse(ConfigurationManager.AppSettings["ProductionMode"], out _ProductionMode);
+            if (_ProductionMode == null)
+            {
+                string value = ConfigurationManager.AppSettings["WepayProductionMode"];
 
-            return _ProductionMode;
+                if (!string.IsNullOrWhiteSpace(value))
+                {
+                    bool answer;
+                    if (bool.TryParse(value, out answer))
+                    {
+                        _ProductionMode = answer;
+                    }
+                    else
+                    {
+                        _ProductionMode = false;
+                    }
+                }
+            }
+
+            return (bool)_ProductionMode;
         }
 
-        public static void SetClientId(bool newProductionMode)
+        public static void SetProductionMode(bool newProductionMode)
         {
             _ProductionMode = newProductionMode;
         }
-         #endregion
+        #endregion
 
         public static string ApiVersion { get; internal set; }
     }
