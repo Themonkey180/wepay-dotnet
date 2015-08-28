@@ -46,7 +46,7 @@ namespace WePay
             return WepayMapping<WePayCheckoutState>.MapFromJson(response);
         }
 
-        public virtual WePayCheckoutState Refund(CheckoutCancelArguments arguments)
+        public virtual WePayCheckoutState Refund(CheckoutRefundArguments arguments)
         {
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.CheckoutRefund, AccessToken, parameters);

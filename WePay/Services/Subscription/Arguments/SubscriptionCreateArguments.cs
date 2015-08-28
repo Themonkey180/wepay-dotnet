@@ -9,7 +9,7 @@ namespace WePay.Subscription
     public class SubscriptionCreateArguments
     {
         [JsonProperty("subscription_plan_id", Required = Required.Always)]
-        public long SubscriptionPlanId { get; set; }
+        public long? SubscriptionPlanId { get; set; }
 
         [JsonProperty("redirect_uri")]
         public string RedirectUri { get; set; }
@@ -18,7 +18,7 @@ namespace WePay.Subscription
         public string CallbackUri { get; set; }
 
         [JsonProperty("payment_method_id")]
-        public long PaymentMethodId { get; set; }
+        public long? PaymentMethodId { get; set; }
 
         [JsonProperty("payment_method_type")]
         public string PaymentMethodType { get; set; }
@@ -27,7 +27,7 @@ namespace WePay.Subscription
         public string Mode { get; set; }
 
         [JsonProperty("quantity")]
-        public long Quantity { get; set; }
+        public long? Quantity { get; set; }
 
         [JsonProperty("reference_id")]
         public string ReferenceId { get; set; }

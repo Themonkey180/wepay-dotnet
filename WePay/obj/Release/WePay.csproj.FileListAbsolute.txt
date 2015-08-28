@@ -1,0 +1,7 @@
+C:\Users\petersj\Documents\payitsquare\wepay-dotnet\WePay\bin\Release\WePay.dll
+C:\Users\petersj\Documents\payitsquare\wepay-dotnet\WePay\bin\Release\WePay.pdb
+C:\Users\petersj\Documents\payitsquare\wepay-dotnet\WePay\bin\Release\Newtonsoft.Json.dll
+C:\Users\petersj\Documents\payitsquare\wepay-dotnet\WePay\bin\Release\Newtonsoft.Json.xml
+C:\Users\petersj\Documents\payitsquare\wepay-dotnet\WePay\obj\Release\WePay.dll
+C:\Users\petersj\Documents\payitsquare\wepay-dotnet\WePay\obj\Release\WePay.pdb
+C:\Users\petersj\Documents\payitsquare\wepay-dotnet\WePay\obj\Release\WePay.csprojResolveAssemblyReference.cache

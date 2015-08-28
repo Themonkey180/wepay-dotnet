@@ -8,25 +8,25 @@ namespace WePay.Preapproval
         public long? AccountId { get; set; }
 
         [JsonProperty("state")]
-        public long State { get; set; }
+        public long? State { get; set; }
 
         [JsonProperty("reference_id")]
-        public long ReferenceId { get; set; }
+        public long? ReferenceId { get; set; }
 
         [JsonProperty("start")]
-        public long Start { get; set; }
+        public long? Start { get; set; }
 
         [JsonProperty("limit")]
-        public long Limit { get; set; }
+        public long? Limit { get; set; }
 
         [JsonProperty("sort_order")]
-        public long SortOrder { get; set; }
+        public long? SortOrder { get; set; }
 
         [JsonProperty("last_checkout_id")]
-        public long LastCheckoutId { get; set; }
+        public long? LastCheckoutId { get; set; }
 
         [JsonProperty("shipping_fee")]
-        public long ShippingFee { get; set; }
+        public long? ShippingFee { get; set; }
 
         public string BatchUrl() { return "/preapproval/find"; }
     }

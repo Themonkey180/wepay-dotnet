@@ -31,7 +31,7 @@ namespace WePay.Account
         public WepayTheme Theme { get; set; }
 
         [JsonProperty("callback_uri")]
-        public WepayTheme CallbackUri { get; set; }
+        public string CallbackUri { get; set; }
 
         [JsonProperty("rbits")]
         [JsonConverter(typeof(WePayRbitsConverter))]

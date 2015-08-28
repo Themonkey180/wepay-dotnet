@@ -5,7 +5,7 @@ using WePay.Entities;
 namespace WePay.Infrastructure
 {
     [Serializable]
-    class WePayException : ApplicationException
+    public class WePayException : ApplicationException
     {
         public HttpStatusCode HttpStatusCode { get; set; }
         public WePayError WePayError { get; set; }

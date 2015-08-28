@@ -11,10 +11,10 @@ namespace WePay.SubscriptionPlan
         public long? AccountId { get; set; }
 
         [JsonProperty("start")]
-        public long start { get; set; }
+        public long? start { get; set; }
 
         [JsonProperty("limit")]
-        public long Limit { get; set; }
+        public long? Limit { get; set; }
 
         [JsonProperty("state")]
         public string State { get; set; }

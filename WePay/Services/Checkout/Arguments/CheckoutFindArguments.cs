@@ -13,10 +13,10 @@ namespace WePay.Checkout
         public long? AccountId { get; set; }
 
         [JsonProperty("start")]
-        public long Start { get; set; }
+        public long? Start { get; set; }
 
         [JsonProperty("limit")]
-        public long Limit { get; set; }
+        public long? Limit { get; set; }
 
         [JsonProperty("reference_id")]
         public string ReferenceId { get; set; }
@@ -25,7 +25,7 @@ namespace WePay.Checkout
         public string State { get; set; }
 
         [JsonProperty("preapproval_id")]
-        public long PreapprovalId { get; set; }
+        public long? PreapprovalId { get; set; }
 
         [JsonProperty("start_time")]
         [JsonConverter(typeof(WePayDateTimeConverter))]
@@ -39,7 +39,7 @@ namespace WePay.Checkout
         public string SortOrder { get; set; }
 
         [JsonProperty("shipping_fee")]
-        public decimal ShippingFee { get; set; }
+        public decimal? ShippingFee { get; set; }
 
         public string BatchUrl() { return "/checkout/find"; }
     }

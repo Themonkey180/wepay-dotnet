@@ -8,7 +8,7 @@ namespace WePay.Withdrawal
     public class WithdrawalModifyArguments
     {
         [JsonProperty("withdrawal_id", Required = Required.Always)]
-        public long WithdrawalId { get; set; }
+        public long? WithdrawalId { get; set; }
 
         [JsonProperty("callback_uri")]
         public string CallbackUri { get; set; }

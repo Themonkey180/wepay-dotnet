@@ -8,7 +8,7 @@ namespace WePay.Preapproval
     public class PreapprovalModifyArguments
     {
         [JsonProperty("preapproval_id", Required = Required.Always)]
-        public long PreapprovalId { get; set; }
+        public long? PreapprovalId { get; set; }
 
         [JsonProperty("callback_uri")]
         public string callback_uri { get; set; }

@@ -9,7 +9,7 @@ namespace WePay.SubscriptionPlan
     public class SubscriptionPlanModifyeArguments
     {
         [JsonProperty("subscription_plan_id", Required = Required.Always)]
-        public long SubscriptionPlanId { get; set; }
+        public long? SubscriptionPlanId { get; set; }
 
         [JsonProperty("name", Required = Required.Always)]
         public string Name { get; set; }
@@ -18,25 +18,25 @@ namespace WePay.SubscriptionPlan
         public string ShortDescription { get; set; }
 
         [JsonProperty("amount", Required = Required.Always)]
-        public decimal Amount { get; set; }
+        public decimal? Amount { get; set; }
 
         [JsonProperty("app_fee")]
-        public decimal AppFee { get; set; }
+        public decimal? AppFee { get; set; }
 
         [JsonProperty("callback_uri")]
         public string CallbackUri { get; set; }
 
         [JsonProperty("trial_length")]
-        public long TrialLength { get; set; }
+        public long? TrialLength { get; set; }
 
         [JsonProperty("setup_fee")]
-        public decimal SetupFee { get; set; }
+        public decimal? SetupFee { get; set; }
 
         [JsonProperty("update_subscriptions")]
         public string UpdateSubscriptions { get; set; }
 
         [JsonProperty("transition_expire_days")]
-        public long TransitionExpireDays { get; set; }
+        public long? TransitionExpireDays { get; set; }
 
         [JsonProperty("reference_id")]
         public string ReferenceId { get; set; }

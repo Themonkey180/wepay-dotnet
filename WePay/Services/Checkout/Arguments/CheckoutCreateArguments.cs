@@ -20,7 +20,7 @@ namespace WePay.Checkout
         public string Type { get; set; }
 
         [JsonProperty("amount", Required = Required.Always)]
-        public decimal Amount { get; set; }
+        public decimal? Amount { get; set; }
 
         [JsonProperty("currency")]
         public string Currency { get; set; }
@@ -38,7 +38,7 @@ namespace WePay.Checkout
         public string ReferenceId { get; set; }
 
         [JsonProperty("app_fee")]
-        public decimal AppFee { get; set; }
+        public decimal? AppFee { get; set; }
 
         [JsonProperty("fee_payer")]
         public string FeePayer { get; set; }
@@ -59,13 +59,13 @@ namespace WePay.Checkout
         public bool? RequireShipping { get; set; }
 
         [JsonProperty("shipping_fee")]
-        public decimal ShippingFee { get; set; }
+        public decimal? ShippingFee { get; set; }
 
         [JsonProperty("mode")]
         public string Mode { get; set; }
 
         [JsonProperty("preapproval_id")]
-        public long PreapprovalId { get; set; }
+        public long? PreapprovalId { get; set; }
 
         [JsonProperty("prefill_info")]
         public WepayPrefillInfo PrefillInfo { get; set; }
@@ -74,7 +74,7 @@ namespace WePay.Checkout
         public string FundingSources { get; set; }
 
         [JsonProperty("payment_method_id")]
-        public long PaymentMethodId { get; set; }
+        public long? PaymentMethodId { get; set; }
 
         [JsonProperty("payment_method_type")]
         public string PaymentMethodType { get; set; }

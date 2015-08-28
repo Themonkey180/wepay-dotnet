@@ -18,7 +18,7 @@ namespace WePay.SubscriptionPlan
         public string ShortDescription { get; set; }
 
         [JsonProperty("amount", Required = Required.Always)]
-        public decimal Amount { get; set; }
+        public decimal? Amount { get; set; }
 
         [JsonProperty("period", Required = Required.Always)]
         public string Period { get; set; }
@@ -27,16 +27,16 @@ namespace WePay.SubscriptionPlan
         public string Currency { get; set; }
 
         [JsonProperty("app_fee")]
-        public decimal AppFee { get; set; }
+        public decimal? AppFee { get; set; }
 
         [JsonProperty("callback_uri")]
         public string CallbackUri { get; set; }
 
         [JsonProperty("trial_length")]
-        public long TrialLength { get; set; }
+        public long? TrialLength { get; set; }
 
         [JsonProperty("setup_fee")]
-        public decimal SetupFee { get; set; }
+        public decimal? SetupFee { get; set; }
 
         [JsonProperty("reference_id")]
         public string ReferenceId { get; set; }

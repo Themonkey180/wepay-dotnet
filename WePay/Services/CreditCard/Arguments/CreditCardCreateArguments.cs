@@ -15,13 +15,13 @@ namespace WePay.CreditCard
         public string CCnumber { get; set; }
 
         [JsonProperty("cvv", Required = Required.Always)]
-        public int CVV { get; set; }
+        public int? CVV { get; set; }
 
         [JsonProperty("expiration_month", Required = Required.Always)]
-        public int ExpirationMonth { get; set; }
+        public int? ExpirationMonth { get; set; }
 
         [JsonProperty("expiration_year", Required = Required.Always)]
-        public int ExpirationYear { get; set; }
+        public int? ExpirationYear { get; set; }
 
         [JsonProperty("user_name", Required = Required.Always)]
         public string FullName { get; set; }

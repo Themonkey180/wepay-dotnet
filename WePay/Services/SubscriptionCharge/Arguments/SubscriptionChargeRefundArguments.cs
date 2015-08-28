@@ -8,7 +8,7 @@ namespace WePay.SubscriptionCharge
     public class SubscriptionChargeRefundArguments
     {
         [JsonProperty("subscription_charge_id", Required = Required.Always)]
-        public long SubscriptionChargeId { get; set; }
+        public long? SubscriptionChargeId { get; set; }
 
         [JsonProperty("refund_reason")]
         public string Reason { get; set; }

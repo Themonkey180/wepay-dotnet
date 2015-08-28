@@ -10,13 +10,13 @@ namespace WePay.SubscriptionCharge
     public class SubscriptionChargeFindArguments
     {
         [JsonProperty("subscription_id", Required = Required.Always)]
-        public long SubscriptionId { get; set; }
+        public long? SubscriptionId { get; set; }
 
         [JsonProperty("start")]
-        public long Start { get; set; }
+        public long? Start { get; set; }
 
         [JsonProperty("limit")]
-        public long Limit { get; set; }
+        public long? Limit { get; set; }
 
         [JsonProperty("start_time")]
         [JsonConverter(typeof(WePayDateTimeConverter))]
@@ -30,7 +30,7 @@ namespace WePay.SubscriptionCharge
         public string Type { get; set; }
 
         [JsonProperty("amount")]
-        public decimal Amount { get; set; }
+        public decimal? Amount { get; set; }
 
         [JsonProperty("state")]
         public string State { get; set; }

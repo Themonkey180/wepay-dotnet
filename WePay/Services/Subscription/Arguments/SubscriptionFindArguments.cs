@@ -10,13 +10,13 @@ namespace WePay.Subscription
     public class SubscriptionFindArguments
     {
         [JsonProperty("subscription_plan_id")]
-        public long SubscriptionPlanId { get; set; }
+        public long? SubscriptionPlanId { get; set; }
 
         [JsonProperty("start")]
-        public long start { get; set; }
+        public long? start { get; set; }
 
         [JsonProperty("limit")]
-        public long Limit { get; set; }
+        public long? Limit { get; set; }
 
         [JsonProperty("start_time")]
         [JsonConverter(typeof(WePayDateTimeConverter))]

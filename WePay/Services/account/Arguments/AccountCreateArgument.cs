@@ -31,7 +31,7 @@ namespace WePay.Account
         public WepayTheme Theme { get; set; }
 
         [JsonProperty("mcc")]
-        public long mcc { get; set; }
+        public long? mcc { get; set; }
 
         [JsonProperty("callback_uri")]
         public string CallbackUri { get; set; }

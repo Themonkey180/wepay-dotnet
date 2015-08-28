@@ -10,10 +10,10 @@ namespace WePay.Checkout
     public class CheckoutModifyArguments
     {
         [JsonProperty("checkout_id", Required = Required.Always)]
-        public long CheckoutId { get; set; }
+        public long? CheckoutId { get; set; }
 
         [JsonProperty("callback_uri")]
-        public long CallbackUri { get; set; }
+        public long? CallbackUri { get; set; }
 
         [JsonProperty("transaction_rbits")]
         [JsonConverter(typeof(WePayRbitsConverter))]
