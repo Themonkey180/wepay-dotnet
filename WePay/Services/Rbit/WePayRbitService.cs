@@ -19,7 +19,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(url, AccessToken, parameters);
 
-            return Mapper<WepayRbit>.MapRbitsFromJson(response);
+            return WepayMapping<WepayRbit>.MapRbitsFromJson(response);
         }
 
         public virtual WepayRbit Create(RbitCreateArgument arguments)
@@ -28,7 +28,7 @@ namespace WePay
             var url = Urls.RbitCreate;
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(url, AccessToken, parameters);
-            return Mapper<WepayRbit>.MapRbitsFromJson(response);
+            return WepayMapping<WepayRbit>.MapRbitsFromJson(response);
         }
 
         public virtual WepayRbit Find(RbitFindArgument arguments)
@@ -38,7 +38,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(url, AccessToken, parameters);
 
-            return Mapper<WepayRbit>.MapRbitsFromJson(response);
+            return WepayMapping<WepayRbit>.MapRbitsFromJson(response);
         }
 
         public virtual WepayRbit Delete(RbitDeleteArgument arguments)
@@ -48,7 +48,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(url, AccessToken, parameters);
 
-            return Mapper<WepayRbit>.MapRbitsFromJson(response);
+            return WepayMapping<WepayRbit>.MapRbitsFromJson(response);
         }
     }
 }
