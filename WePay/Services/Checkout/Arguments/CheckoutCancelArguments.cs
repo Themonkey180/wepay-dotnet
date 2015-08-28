@@ -8,7 +8,7 @@ namespace WePay.Checkout
     public class CheckoutCancelArguments
     {
         [JsonProperty("checkout_id", Required = Required.Always)]
-        public long CheckoutId { get; set; }
+        public long? CheckoutId { get; set; }
 
         [JsonProperty("cancel_reason", Required = Required.Always)]
         public string CancelReason { get; set; }

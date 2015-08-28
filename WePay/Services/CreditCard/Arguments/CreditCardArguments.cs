@@ -19,7 +19,7 @@ namespace WePay.CreditCard
         public string ClientSecret { get; set; }
 
         [JsonProperty("credit_card_id", Required = Required.Always)]
-        public long CreditCardId { get; set; }
+        public long? CreditCardId { get; set; }
 
         public string BatchUrl(BatchUrlType type)
         {

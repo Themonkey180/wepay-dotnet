@@ -6,7 +6,7 @@ namespace WePay
     public static class WePayConfiguration
     {
         internal const string SupportedApiVersion = "2014-01-08";
-        private static bool _ProductionMode = false;
+        private static bool? _ProductionMode;
         private static string _ClientSecret;
         private static long _ClientId;
         private static string _AccessToken;
@@ -90,7 +90,7 @@ namespace WePay
                     bool answer;
                     if (bool.TryParse(value, out answer))
                     {
-                        _ProductionMode = answer;
+                       _ProductionMode = answer;
                     }
                     else
                     {
@@ -106,7 +106,7 @@ namespace WePay
         {
             _ProductionMode = newProductionMode;
         }
-        #endregion
+         #endregion
 
         public static string ApiVersion { get; internal set; }
     }

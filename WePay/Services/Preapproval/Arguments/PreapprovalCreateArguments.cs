@@ -14,7 +14,7 @@ namespace WePay.Preapproval
         public long? AccountId { get; set; }
 
         [JsonProperty("amount")]
-        public decimal Amount { get; set; }
+        public decimal? Amount { get; set; }
 
         [JsonProperty("currency")]
         public string Currency { get; set; }
@@ -29,7 +29,7 @@ namespace WePay.Preapproval
         public string ReferenceId { get; set; }
 
         [JsonProperty("app_fee")]
-        public decimal AppFee { get; set; }
+        public decimal? AppFee { get; set; }
 
         [JsonProperty("fee_payer")]
         public string FeePayer { get; set; }
@@ -47,7 +47,7 @@ namespace WePay.Preapproval
         public bool? RequireShipping { get; set; }
 
         [JsonProperty("shipping_fee")]
-        public decimal ShippingFee { get; set; }
+        public decimal? ShippingFee { get; set; }
 
         [JsonProperty("payer_email_message")]
         public string PayerEmailMessage { get; set; }
@@ -56,7 +56,7 @@ namespace WePay.Preapproval
         public string LongDescription { get; set; }
 
         [JsonProperty("frequency")]
-        public long Frequency { get; set; }
+        public long? Frequency { get; set; }
 
         [JsonProperty("start_time")]
         [JsonConverter(typeof(WePayDateTimeConverter))]
@@ -79,7 +79,7 @@ namespace WePay.Preapproval
         public string FundingSources { get; set; }
 
         [JsonProperty("payment_method_id")]
-        public long PaymentMethodId { get; set; }
+        public long? PaymentMethodId { get; set; }
 
         [JsonProperty("payment_method_type")]
         public string PaymentMethodType { get; set; }

@@ -11,6 +11,7 @@ namespace WePay
     public class WePayAccountrService : WepayService
     {
         public WePayAccountrService(string accessToken = null, long? accountId = null) : base(accessToken, accountId) { }
+        public WePayAccountrService(string accessToken = null) : base(accessToken) { }
 
         public virtual WepayAccount Get(AccountArguments arguments)
         {

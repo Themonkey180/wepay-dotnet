@@ -11,7 +11,7 @@ namespace WePay.Preapproval
     public class PreapprovalArguments
     {
         [JsonProperty("preapproval_id", Required = Required.Always)]
-        public long PreapprovalId { get; set; }
+        public long? PreapprovalId { get; set; }
 
         public string BatchUrl(BatchUrlType type)
         {

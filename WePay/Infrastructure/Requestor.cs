@@ -13,16 +13,30 @@ namespace WePay.Infrastructure
     {
         public static string PostStringBearer(string url, string AccessToken = null, string json = null)
         {
-            var wr = GetWebRequestAsync(url, "POST", json, AccessToken, true).Result;
+            var wr = GetWebRequest(url, "POST", json, AccessToken, true);
 
-            return ExecuteWebRequestAsync(wr).Result; 
+            return ExecuteWebRequest(wr); 
         }
 
         public  static string PostString(string url, string json = null)
         {
+            var wr = GetWebRequest(url, "POST", json);
+
+            return ExecuteWebRequest(wr);
+        }
+
+        public static Task<string> PostStringBearerAsync(string url, string AccessToken = null, string json = null)
+        {
+            var wr = GetWebRequestAsync(url, "POST", json, AccessToken, true).Result;
+
+            return ExecuteWebRequestAsync(wr);
+        }
+
+        public static Task<string> PostStringAsync(string url, string json = null)
+        {
             var wr = GetWebRequestAsync(url, "POST", json).Result;
 
-            return ExecuteWebRequestAsync(wr).Result;
+            return ExecuteWebRequestAsync(wr);
         }
 
         internal async static Task<WebRequest> GetWebRequestAsync(string url, string method, string json, string AccessToken = null, bool useBearer = false)
@@ -102,8 +116,10 @@ namespace WePay.Infrastructure
 
                     throw new WePayException(statusCode, wePayError, wePayError.ErrorDescription);
                 }
-
-                throw;
+                else
+                {
+                    throw webException;
+                }
             }
         }
 

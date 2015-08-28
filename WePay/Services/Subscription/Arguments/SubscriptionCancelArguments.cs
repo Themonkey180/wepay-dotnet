@@ -8,7 +8,7 @@ namespace WePay.Subscription
     public class SubscriptionCancelArguments
     {
         [JsonProperty("subscription_id", Required = Required.Always)]
-        public long SubscriptionId { get; set; }
+        public long? SubscriptionId { get; set; }
 
         [JsonProperty("reason")]
         public string Reason { get; set; }
