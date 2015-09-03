@@ -42,6 +42,12 @@ namespace WePay.Account
         [JsonProperty("currencies")]
         public string[] currencies { get; set; }
 
+        [JsonProperty("country_options")]
+        public WepayCountryOptions CountryOptions { get; set; }
+
+        [JsonProperty("fee_schedule_slot")]
+        public long? FeeScheduleSlot { get; set; }
+
         [JsonProperty("rbits")]
         [JsonConverter(typeof(WePayRbitsConverter))]
         public WepayRbitStructure[] Rbits { get; set; }

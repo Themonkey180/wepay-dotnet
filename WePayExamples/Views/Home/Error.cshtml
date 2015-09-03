@@ -1,0 +1,11 @@
+﻿@model WePay.Infrastructure.WePayException
+
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Error</h2>
+
+<p>@Model.WePayError.Error (@Model.WePayError.ErrorDescription) - @Model.WePayError.ErrorCode</p>
+

@@ -33,7 +33,13 @@ namespace WePay.Account
         [JsonProperty("callback_uri")]
         public string CallbackUri { get; set; }
 
-        [JsonProperty("rbits")]
+        [JsonProperty("country_options")]
+        public WepayCountryOptions CountryOptions { get; set; }
+
+        [JsonProperty("fee_schedule_slot")]
+        public long? FeeScheduleSlot { get; set; }
+
+	[JsonProperty("rbits")]
         [JsonConverter(typeof(WePayRbitsConverter))]
         public WepayRbitStructure[] Rbits { get; set; }
 

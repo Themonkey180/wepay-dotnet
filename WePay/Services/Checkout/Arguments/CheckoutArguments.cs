@@ -11,7 +11,7 @@ namespace WePay.Checkout
     public class CheckoutArguments
     {
         [JsonProperty("checkout_id", Required = Required.Always)]
-        public long CheckoutId { get; set; }
+        public long? CheckoutId { get; set; }
 
         public string BatchUrl(BatchUrlType type) { if (type == BatchUrlType.Capture) { return "/checkout/capture"; } else { return "/checkout"; } }
     }

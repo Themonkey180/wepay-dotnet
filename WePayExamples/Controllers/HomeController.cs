@@ -71,222 +71,391 @@ namespace Controllers
                     ClientId = clientId, 
                     ClientSecret = clientSecret, 
                     Email = email,
-                    Scope = (WepayPermissions.collect_payments | WepayPermissions.manage_accounts | WepayPermissions.manage_subscriptions | WepayPermissions.preapprove_payments | WepayPermissions.send_money | WepayPermissions.view_user).ToString(),
                     FirstName = firstName,
                     LastName = lastName,
                     OriginalIp = IPAddress,
                     OriginalDevice = userAgent,
                     TOSAcceptanceTime = DateTime.Now
                 };
+                WePayUserRegisterd user = null;
 
-                WePayUserRegisterd user = wePayUserService.Register(ParametersRegister);
+                try
+                {
+                    user = wePayUserService.Register(ParametersRegister);
+                }
+                catch (WePayException ex)
+                {
+                    return View("Error", ex);
+                }
                 #endregion
 
                 #region Accounts
 
                 var wePayAccountService = new WePay.WePayAccountrService(user.AccessToken);
-                WepayAccount account = wePayAccountService.Create(new AccountCreateArgument
+                WepayAccount account = null;
+                try
                 {
-                    Name = "SDK Test",
-                    Description = "An account that is a test made one.",
-                    ReferenceId = "abc123",
-                    Type = "personal",
-                    ImageUri = "http://www.payitsquare.com/content/img/design/logo.png",
-                    mcc = 7299,
-                    Country = "US",
-                    currencies = new string[] { "USD" }
-                });
+                    account = wePayAccountService.Create(new AccountCreateArgument
+                    {
+                        Name = "SDK Test",
+                        Description = "An account that is a test made one.",
+                        ReferenceId = "abc123",
+                        Type = "personal",
+                        ImageUri = "http://www.payitsquare.com/content/img/design/logo.png",
+                        mcc = 7299,
+                        Country = "US",
+                        currencies = new string[] { "USD" }
+                    });
+                }
+                catch (WePayException ex)
+                {
+                    return View("Error", ex);
+                }
 
-                WepayAccount accountDelete = wePayAccountService.Create(new AccountCreateArgument { Name = "SDK Test delete", Description = "An account that is a test made one to delete." });
+            WepayAccount accountDelete = null;
+            try
+            {
+                accountDelete = wePayAccountService.Create(new AccountCreateArgument { Name = "SDK Test delete", Description = "An account that is a test made one to delete." });
+            }
+            catch (WePayException ex)
+            {
+                return View("Error", ex);
+            }
                 #endregion
 
                 #region CreditCard
+            WePayCreditCardState CreditCard = null;
+            WePayCreditCardState CreditCardDelete = null;
+            WePayCreditCardState CreditCardAuthorize = null;
 
                 var wePayCreditCardService = new WePay.WePayCreditCardService(user.AccessToken);
-                var CreditCard = wePayCreditCardService.Create(new CreditCardCreateArguments
+                try
                 {
-                    ClientId = clientId,
-                    CCnumber = "4003830171874018",
-                    CVV = 123,
-                    ExpirationMonth = 12,
-                    ExpirationYear = 25,
-                    FullName = "John Smith",
-                    Email = "Test@test.com",
-                    Address = Address1,
-                    OriginalIp = IPAddress,
-                    OriginalDevice = userAgent
-                });
+                    CreditCard = wePayCreditCardService.Create(new CreditCardCreateArguments
+                    {
+                        ClientId = clientId,
+                        CCnumber = "4003830171874018",
+                        CVV = 123,
+                        ExpirationMonth = 12,
+                        ExpirationYear = 25,
+                        FullName = "John Smith",
+                        Email = "Test@test.com",
+                        Address = Address1,
+                        OriginalIp = IPAddress,
+                        OriginalDevice = userAgent
+                    });
+                }
+                catch (WePayException ex)
+                {
+                    return View("Error", ex);
+                }
 
-                var CreditCardDelete = wePayCreditCardService.Create(new CreditCardCreateArguments
-                {
-                    ClientId = clientId,
-                    CCnumber = "5496198584584769",
-                    CVV = 123,
-                    ExpirationMonth = 12,
-                    ExpirationYear = 25,
-                    FullName = "Jan Smith",
-                    Email = "Test@test.com",
-                    Address = Address1,
-                    OriginalIp = IPAddress,
-                    OriginalDevice = userAgent
-                });
+                 try
+                 {
+                     CreditCardDelete = wePayCreditCardService.Create(new CreditCardCreateArguments
+                     {
+                         ClientId = clientId,
+                         CCnumber = "5496198584584769",
+                         CVV = 123,
+                         ExpirationMonth = 12,
+                         ExpirationYear = 25,
+                         FullName = "Jan Smith",
+                         Email = "Test@test.com",
+                         Address = Address1,
+                         OriginalIp = IPAddress,
+                         OriginalDevice = userAgent
+                     });
+                 }
+                 catch (WePayException ex)
+                 {
+                     return View("Error", ex);
+                 }
 
-                 var CreditCardAuthorize = wePayCreditCardService.Create(new CreditCardCreateArguments
-                {
-                    ClientId = clientId,
-                    CCnumber = "5496198584584769",
-                    CVV = 123,
-                    ExpirationMonth = 12,
-                    ExpirationYear = 25,
-                    FullName = "Jim Smith",
-                    Email = "Test@test.com",
-                    Address = Address1,
-                    OriginalIp = IPAddress,
-                    OriginalDevice = userAgent
-                });
+                 try
+                 {
+                     CreditCardAuthorize = wePayCreditCardService.Create(new CreditCardCreateArguments
+                    {
+                        ClientId = clientId,
+                        CCnumber = "5496198584584769",
+                        CVV = 123,
+                        ExpirationMonth = 12,
+                        ExpirationYear = 25,
+                        FullName = "Jim Smith",
+                        Email = "Test@test.com",
+                        Address = Address1,
+                        OriginalIp = IPAddress,
+                        OriginalDevice = userAgent
+                    });
+                 }
+                 catch (WePayException ex)
+                 {
+                     return View("Error", ex);
+                 }
                 #endregion
 
                 #region Preapproval
 
+                 WePayPreapprovalCreate Preapproval = null;
+                 WePayPreapprovalCreate PreapprovalCancel = null;
+
                 var wePayPreapprovalService = new WePay.WePayPreapprovalService(user.AccessToken);
-                var Preapproval = wePayPreapprovalService.Create(new PreapprovalCreateArguments
-                {
-                    AccountId = account.AccountId,
-                    ShortDescription = "Test a checkout Preapproval",
-                    Amount = (decimal)100.75,
-                    Currency = "USD",
-                    AppFee = (decimal)3.02,
-                    Period = "once",
-                    Frequency = 1,
-                    FeePayer = "payee",
-                    PayerEmailMessage = "Thank you for the money.",
-                    PaymentMethodId = CreditCard.CreditCardId,
-                    PaymentMethodType = "credit_card"
-                });
 
-                var PreapprovalCancel = wePayPreapprovalService.Create(new PreapprovalCreateArguments
+                try
                 {
-                    AccountId = account.AccountId,
-                    ShortDescription = "Test a checkout Preapproval Cancel",
-                    Amount = (decimal)100.75,
-                    Currency = "USD",
-                    AppFee = (decimal)3.02,
-                    Period = "once",
-                    Frequency = 1,
-                    FeePayer = "payee",
-                    PayerEmailMessage = "Thank you for the money.",
-                    PaymentMethodId = CreditCard.CreditCardId,
-                    PaymentMethodType = "credit_card"
-                });
+                    Preapproval = wePayPreapprovalService.Create(new PreapprovalCreateArguments
+                    {
+                        AccountId = account.AccountId,
+                        ShortDescription = "Test a checkout Preapproval",
+                        Amount = (decimal)100.75,
+                        Currency = "USD",
+                        AppFee = (decimal)3.02,
+                        Period = "once",
+                        Frequency = 1,
+                        FeePayer = "payee",
+                        PayerEmailMessage = "Thank you for the money.",
+                        PaymentMethodId = CreditCard.CreditCardId,
+                        PaymentMethodType = "credit_card"
+                    });
+                }
+                catch (WePayException ex)
+                {
+                    return View("Error", ex);
+                }
 
+                try
+                {
+                    PreapprovalCancel = wePayPreapprovalService.Create(new PreapprovalCreateArguments
+                    {
+                        AccountId = account.AccountId,
+                        ShortDescription = "Test a checkout Preapproval Cancel",
+                        Amount = (decimal)100.75,
+                        Currency = "USD",
+                        AppFee = (decimal)3.02,
+                        Period = "once",
+                        Frequency = 1,
+                        FeePayer = "payee",
+                        PayerEmailMessage = "Thank you for the money.",
+                        PaymentMethodId = CreditCard.CreditCardId,
+                        PaymentMethodType = "credit_card"
+                    });
+                }
+                catch (WePayException ex)
+                {
+                    return View("Error", ex);
+                }
                 #endregion
 
                 #region Checkout
 
+                WePayCheckout checkout = null;
+                WePayCheckout checkoutCancel = null;
+                WePayCheckout checkoutRefund = null;
+
                 var wePayCheckoutService = new WePay.WePayCheckoutService(user.AccessToken);
-                var checkout = wePayCheckoutService.Create(new CheckoutCreateArguments
-                {
-                    AccountId = account.AccountId,
-                    ShortDescription = "Test a checkout",
-                    Type = "PERSONAL",
-                    Amount = (decimal)100.75,
-                    Currency = "USD",
-                    AppFee = (decimal)3.02,
-                    FeePayer = "payee",
-                    PayeeEmailMessage = "You have just got money.",
-                    PayerEmailMessage = "Thank you for the money.",
-                    PaymentMethodId = CreditCard.CreditCardId,
-                    PaymentMethodType = "credit_card"
-                });
 
-                var checkoutCancel = wePayCheckoutService.Create(new CheckoutCreateArguments
+                try
                 {
-                    AccountId = account.AccountId,
-                    ShortDescription = "Test a checkout",
-                    Type = "PERSONAL",
-                    Amount = (decimal)100.75,
-                    Currency = "USD",
-                    AppFee = (decimal)3.02,
-                    FeePayer = "payee",
-                    PayeeEmailMessage = "You have just got money.",
-                    PayerEmailMessage = "Thank you for the money.",
-                    PreapprovalId = Preapproval.PreapprovalId,
-                    PaymentMethodId = CreditCard.CreditCardId,
-                    PaymentMethodType = "credit_card"
-                });
+                    checkout = wePayCheckoutService.Create(new CheckoutCreateArguments
+                    {
+                        AccountId = account.AccountId,
+                        ShortDescription = "Test a checkout",
+                        Type = "personal",
+                        Amount = (decimal)100.75,
+                        Currency = "USD",
+                        Fee = new WepayFee
+                        {
+                            AppFee = (decimal)3.02,
+                            FeePayer = "payee"
+                        },
+                        EmailMessage = new WepayEmailMessage
+                        {
+                            ToPayee = "You have just got money.",
+                            ToPayer = "Thank you for the money.",
+                        },
+                        PaymentMethod = new WepayPaymentMethod
+                        {
+                            Type = "credit_card",
+                            CreditCard = new WepayCreditCardInfo
+                            {
+                                Id = CreditCard.CreditCardId
+                            }
+                        }
+                    });
+                }
+                catch (WePayException ex)
+                {
+                    return View("Error", ex);
+                }
 
-                var checkoutRefund = wePayCheckoutService.Create(new CheckoutCreateArguments
+                try
                 {
-                    AccountId = account.AccountId,
-                    ShortDescription = "Test a checkout",
-                    Type = "PERSONAL",
-                    Amount = (decimal)100.75,
-                    Currency = "USD",
-                    AppFee = (decimal)3.02,
-                    FeePayer = "payee",
-                    PayeeEmailMessage = "You have just got money.",
-                    PayerEmailMessage = "Thank you for the money.",
-                    PaymentMethodId = CreditCard.CreditCardId,
-                    PaymentMethodType = "credit_card"
-                });
+                    checkoutCancel = wePayCheckoutService.Create(new CheckoutCreateArguments
+                    {
+                        AccountId = account.AccountId,
+                        ShortDescription = "Test a checkout",
+                        Type = "personal",
+                        Amount = (decimal)100.75,
+                        Currency = "USD",
+                        Fee = new WepayFee
+                        {
+                            AppFee = (decimal)3.02,
+                            FeePayer = "payee"
+                        },
+                        EmailMessage = new WepayEmailMessage
+                        {
+                            ToPayee = "You have just got money.",
+                            ToPayer = "Thank you for the money.",
+                        },
+                        PaymentMethod = new WepayPaymentMethod
+                        {
+                            Type = "credit_card",
+                            CreditCard = new WepayCreditCardInfo
+                            {
+                                Id = CreditCard.CreditCardId
+                            }
+                        }
+                    });
+                }
+                catch (WePayException ex)
+                {
+                    return View("Error", ex);
+                }
+
+                try
+                {
+                    checkoutRefund = wePayCheckoutService.Create(new CheckoutCreateArguments
+                    {
+                        AccountId = account.AccountId,
+                        ShortDescription = "Test a checkout",
+                        Type = "personal",
+                        Amount = (decimal)100.75,
+                        Currency = "USD",
+                        Fee = new WepayFee
+                        {
+                            AppFee = (decimal)3.02,
+                            FeePayer = "payee"
+                        },
+                        EmailMessage = new WepayEmailMessage
+                        {
+                            ToPayee = "You have just got money.",
+                            ToPayer = "Thank you for the money.",
+                        },
+                        PaymentMethod = new WepayPaymentMethod
+                        {
+                            Type = "credit_card",
+                            CreditCard = new WepayCreditCardInfo
+                            {
+                                Id = CreditCard.CreditCardId
+                            }
+                        }
+                    });
+                }
+                catch (WePayException ex)
+                {
+                    return View("Error", ex);
+                }
                 #endregion
 
                 #region Subscription Plan
 
-                var wePaySubscriptionPlanService = new WePay.WePaySubscriptionPlanService(user.AccessToken);
-                var SubsPlan = wePaySubscriptionPlanService.Create(new SubscriptionPlanCreateArguments
-                {
-                    AccountId = account.AccountId,
-                    ShortDescription = "Test a Subscription Plan",
-                    Name = "Test a Subscription Plan",
-                    Amount = (decimal)100.75,
-                    Currency = "USD",
-                    AppFee = (decimal)3.02,
-                    Period = "monthly",
-                    SetupFee = (decimal)0.50
-                });
+                WePaySubscriptionPlan SubsPlan = null;
+                WePaySubscriptionPlan SubsPlanDelete = null;
 
-                var SubsPlanDelete = wePaySubscriptionPlanService.Create(new SubscriptionPlanCreateArguments
+                var wePaySubscriptionPlanService = new WePay.WePaySubscriptionPlanService(user.AccessToken);
+
+                try
                 {
-                    AccountId = account.AccountId,
-                    ShortDescription = "Test a Subscription Plan delete",
-                    Name = "Test a Subscription Plan delete",
-                    Amount = (decimal)100.75,
-                    Currency = "USD",
-                    AppFee = (decimal)3.02,
-                    Period = "monthly",
-                    SetupFee = (decimal)0.50
-                });
+                    SubsPlan = wePaySubscriptionPlanService.Create(new SubscriptionPlanCreateArguments
+                    {
+                        AccountId = account.AccountId,
+                        ShortDescription = "Test a Subscription Plan",
+                        Name = "Test a Subscription Plan",
+                        Amount = (decimal)100.75,
+                        Currency = "USD",
+                        AppFee = (decimal)3.02,
+                        Period = "monthly",
+                        SetupFee = (decimal)0.50
+                    });
+                }
+                catch (WePayException ex)
+                {
+                    return View("Error", ex);
+                }
+
+                try
+                {
+                    SubsPlanDelete = wePaySubscriptionPlanService.Create(new SubscriptionPlanCreateArguments
+                    {
+                        AccountId = account.AccountId,
+                        ShortDescription = "Test a Subscription Plan delete",
+                        Name = "Test a Subscription Plan delete",
+                        Amount = (decimal)100.75,
+                        Currency = "USD",
+                        AppFee = (decimal)3.02,
+                        Period = "monthly",
+                        SetupFee = (decimal)0.50
+                    });
+                }
+                catch (WePayException ex)
+                {
+                    return View("Error", ex);
+                }
 
                 #endregion
 
                 #region Subscription
 
+                WePaySubscriptionCreate Subs = null;
+                WePaySubscriptionCreate SubsCancel = null;
+
                 var wePaySubscriptionService = new WePay.WePaySubscriptionService(user.AccessToken);
-                var Subs = wePaySubscriptionService.Create(new SubscriptionCreateArguments
-                {
-                    SubscriptionPlanId = SubsPlan.SubscriptionPlanId,
-                    PaymentMethodId = CreditCard.CreditCardId,
-                    PaymentMethodType = "credit_card"
-                });
 
-                var SubsCancel = wePaySubscriptionService.Create(new SubscriptionCreateArguments
+                try
                 {
-                    SubscriptionPlanId = SubsPlanDelete.SubscriptionPlanId,
-                    PaymentMethodId = CreditCard.CreditCardId,
-                    PaymentMethodType = "credit_card"
+                    Subs = wePaySubscriptionService.Create(new SubscriptionCreateArguments
+                    {
+                        SubscriptionPlanId = SubsPlan.SubscriptionPlanId,
+                        PaymentMethodId = CreditCard.CreditCardId,
+                        PaymentMethodType = "credit_card"
+                    });
+                }
+                catch (WePayException ex)
+                {
+                    return View("Error", ex);
+                }
 
-                });
+                try
+                {
+                    SubsCancel = wePaySubscriptionService.Create(new SubscriptionCreateArguments
+                    {
+                        SubscriptionPlanId = SubsPlanDelete.SubscriptionPlanId,
+                        PaymentMethodId = CreditCard.CreditCardId,
+                        PaymentMethodType = "credit_card"
+
+                    });
+                }
+                catch (WePayException ex)
+                {
+                    return View("Error", ex);
+                }
 
                 #endregion
 
                 #region Subscription Charge
 
+                WePaySubscriptionCharge[] SubsCharge = null;
                 var wePaySubscriptionChargeService = new WePay.WePaySubscriptionChargeService(user.AccessToken);
-                var SubsCharge = wePaySubscriptionChargeService.Find(new SubscriptionChargeFindArguments
+                try
                 {
-                    SubscriptionId = Subs.SubscriptionId
-                });
+                    SubsCharge = wePaySubscriptionChargeService.Find(new SubscriptionChargeFindArguments
+                    {
+                        SubscriptionId = Subs.SubscriptionId
+                    });
+                }
+                catch (WePayException ex)
+                {
+                    return View("Error", ex);
+                }
 
                 #endregion
 
@@ -348,7 +517,7 @@ namespace Controllers
                     #endregion
 
                     #region Checkout
-                    var CheckoutParameters = new CheckoutArguments { CheckoutId = checkout.CheckoutId };
+                    var CheckoutParameters = new CheckoutArguments { CheckoutId = checkout.CheckoutId ?? 0 };
                     var CheckoutFindParameters = new CheckoutFindArguments { AccountId = account.AccountId };
                     var CheckoutModifyParameters = new CheckoutModifyArguments { CheckoutId = checkout.CheckoutId };
                     var CheckoutCancelParameters = new CheckoutCancelArguments { CheckoutId = checkoutCancel.CheckoutId, CancelReason = "To test the sdk" };
@@ -383,10 +552,11 @@ namespace Controllers
                 #endregion
 
                 #region BatchCalls
-
-                var batchCalls = wePayBatchService.Create(new BatchArguments 
-                {
-                    Calls = new BatchCallsArguments[37] { 
+                    try
+                    {
+                        var batchCalls = wePayBatchService.Create(new BatchArguments
+                        {
+                            Calls = new BatchCallsArguments[37] { 
 
                         #region User
                         new BatchCallsArguments { Call = "/user", Authorization = user.AccessToken, ReferenceId = "1" }, 
@@ -455,13 +625,18 @@ namespace Controllers
                         new BatchCallsArguments { Call = WithdrawalModifyParameters.BatchUrl(), ReferenceId = "37", Authorization = user.AccessToken, Parameters = WithdrawalModifyParameters }
                         #endregion
                     }
-                });
+                        });
 
+                        return View(batchCalls);
+                    }
+                    catch (WePayException ex)
+                    {
+                        return View("Error", ex);
+                    }
                 #endregion
 
             #endregion
 
-            return View(batchCalls);
         }
 
     }

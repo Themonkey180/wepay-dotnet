@@ -2,40 +2,24 @@
 
 namespace WePay.Entities.Structure
 {
-    /// <summary>
-    /// https://www.wepay.com/developer/reference/structures#checkout_prefill_info
-    /// </summary>
-    public class WepayPrefillInfo
+    public class WepayTheme
     {
+        [JsonProperty("theme_id")]
+        public long ThemeId { get; set; }
+
         [JsonProperty("name")]
         public string Name { get; set; }
 
-        [JsonProperty("email")]
-        public string Email { get; set; }
+        [JsonProperty("primary_color")]
+        public string PrimaryColor { get; set; }
 
-        [JsonProperty("phone_number")]
-        public string PhoneNumber { get; set; }
+        [JsonProperty("secondary_color")]
+        public string SecondaryColor { get; set; }
 
-        [JsonProperty("address")]
-        public string Address { get; set; }
+        [JsonProperty("background_color")]
+        public string BackgroundColor { get; set; }
 
-        [JsonProperty("city")]
-        public string City { get; set; }
-
-        [JsonProperty("state")]
-        public string State { get; set; }
-
-        [JsonProperty("region")]
-        public string Region { get; set; }
-
-        [JsonProperty("zip")]
-        public string Zip { get; set; }
-
-        [JsonProperty("postcode")]
-        public string Postcode { get; set; }
-
-        [JsonProperty("country")]
-        public string Country { get; set; }
-
+        [JsonProperty("button_color")]
+        public string ButtonColor { get; set; }
     }
 }

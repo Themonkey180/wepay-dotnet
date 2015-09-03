@@ -33,7 +33,7 @@ namespace WePay.Subscription
         public string ReferenceId { get; set; }
 
         [JsonProperty("prefill_info")]
-        public WepayPrefillInfo PrefillInfo { get; set; }
+        public WepayPaymentsPrefillInfo PrefillInfo { get; set; }
 
         public string BatchUrl() { return "/subscription/create"; }
     }
