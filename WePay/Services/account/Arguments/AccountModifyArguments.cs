@@ -32,6 +32,12 @@ namespace WePay.Account
         [JsonProperty("callback_uri")]
         public string CallbackUri { get; set; }
 
+        [JsonProperty("country_options")]
+        public WepayCountryOptions CountryOptions { get; set; }
+
+        [JsonProperty("fee_schedule_slot")]
+        public long? FeeScheduleSlot { get; set; }
+
         public string BatchUrl() { return "/account/modify"; }
     }
 }

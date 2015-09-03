@@ -20,7 +20,7 @@ namespace Controllers
             long temp;
             long? accountId = null;
             var accessToken = Request.Form["accessToken"];
-            if (long.TryParse(Request.Form["AccountId"], out temp)) AccountId = temp;
+            if (long.TryParse(Request.Form["AccountId"], out temp)) accountId = temp;
 
             var wePayAccountService = new WePay.WePayAccountrService(accessToken);
             var wePayAccount = wePayAccountService.Get(new AccountArguments { AccountId = accountId });

@@ -73,7 +73,7 @@ namespace WePay.Preapproval
         public string Mode { get; set; }
 
         [JsonProperty("prefill_info")]
-        public WepayPrefillInfo PrefillInfo { get; set; }
+        public WepayPaymentsPrefillInfo PrefillInfo { get; set; }
 
         [JsonProperty("funding_sources")]
         public string FundingSources { get; set; }

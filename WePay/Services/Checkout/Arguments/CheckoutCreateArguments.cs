@@ -28,56 +28,32 @@ namespace WePay.Checkout
         [JsonProperty("long_description")]
         public string LongDescription { get; set; }
 
-        [JsonProperty("payer_email_message")]
-        public string PayerEmailMessage { get; set; }
+        [JsonProperty("email_message")]
+        public WepayEmailMessage EmailMessage { get; set; }
 
-        [JsonProperty("payee_email_message")]
-        public string PayeeEmailMessage { get; set; }
-
-        [JsonProperty("reference_id")]
-        public string ReferenceId { get; set; }
-
-        [JsonProperty("app_fee")]
-        public decimal? AppFee { get; set; }
-
-        [JsonProperty("fee_payer")]
-        public string FeePayer { get; set; }
-
-        [JsonProperty("redirect_uri")]
-        public string RedirectUri { get; set; }
+        [JsonProperty("fee")]
+        public WepayFee Fee { get; set; }
 
         [JsonProperty("callback_uri")]
         public string CallbackUri { get; set; }
 
-        [JsonProperty("fallback_uri")]
-        public string FallbackUri { get; set; }
-
         [JsonProperty("auto_capture")]
         public bool? AutoCapture { get; set; }
 
-        [JsonProperty("require_shipping")]
-        public bool? RequireShipping { get; set; }
+        [JsonProperty("reference_id")]
+        public string ReferenceId { get; set; }
 
-        [JsonProperty("shipping_fee")]
-        public decimal? ShippingFee { get; set; }
+        [JsonProperty("unique_id")]
+        public string UniqueId { get; set; }
 
-        [JsonProperty("mode")]
-        public string Mode { get; set; }
+        [JsonProperty("hosted_checkout")]
+        public WepayHostedCheckout HostedCheckout { get; set; }
 
-        [JsonProperty("preapproval_id")]
-        public long? PreapprovalId { get; set; }
+        [JsonProperty("payment_method")]
+        public WepayPaymentMethod PaymentMethod { get; set; }
 
-        [JsonProperty("prefill_info")]
-        public WepayPrefillInfo PrefillInfo { get; set; }
-
-        [JsonProperty("funding_sources")]
-        public string FundingSources { get; set; }
-
-        [JsonProperty("payment_method_id")]
-        public long? PaymentMethodId { get; set; }
-
-        [JsonProperty("payment_method_type")]
-        public string PaymentMethodType { get; set; }
+        [JsonProperty("delivery_type")]
+        public string DeliveryType { get; set; }
 
         public string BatchUrl() { return "/checkout/create"; }
     }

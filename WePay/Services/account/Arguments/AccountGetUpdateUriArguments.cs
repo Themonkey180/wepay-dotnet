@@ -17,6 +17,9 @@ namespace WePay.Account
         [JsonProperty("redirect_uri")]
         public string RedirectUri { get; set; }
 
+        [JsonProperty("prefill_info")]
+        public WepayKYCPrefillInfo PrefillInfo { get; set; }
+
         public string BatchUrl() { return "/account/get_update_uri"; }
     }
 }

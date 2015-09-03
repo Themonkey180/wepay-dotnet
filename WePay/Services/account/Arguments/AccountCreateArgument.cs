@@ -41,6 +41,12 @@ namespace WePay.Account
         [JsonProperty("currencies")]
         public string[] currencies { get; set; }
 
+        [JsonProperty("country_options")]
+        public WepayCountryOptions CountryOptions { get; set; }
+
+        [JsonProperty("fee_schedule_slot")]
+        public long? FeeScheduleSlot { get; set; }
+
         public string BatchUrl() { return "/account/create"; }
     }
 }
