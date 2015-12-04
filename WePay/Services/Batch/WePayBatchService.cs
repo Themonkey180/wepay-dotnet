@@ -21,7 +21,7 @@ namespace WePay
             var parameters = ParameterBuilder.ApplyParameters(arguments);
             var response = Requestor.PostStringBearer(Urls.BatchCreate, AccessToken, parameters);
 
-            return WepayMapping.MapBatchFromJson(response).Result;
+            return WepayMapping<List<WepayBatch>>.AsyncMapBatchFromJson(response).Result;
         }
     }
 }
