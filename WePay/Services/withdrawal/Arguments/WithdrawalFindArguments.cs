@@ -11,10 +11,10 @@ namespace WePay.Withdrawal
         public long? AccountId { get; set; }
 
         [JsonProperty("limit")]
-        public string Limit { get; set; }
+        public long? Limit { get; set; }
 
         [JsonProperty("start")]
-        public string Start { get; set; }
+        public long? Start { get; set; }
 
         [JsonProperty("sort_order")]
         public string SortOrder { get; set; }

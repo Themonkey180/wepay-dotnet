@@ -95,6 +95,9 @@
     <Compile Include="Entities\RbitsProperties\RbitEmail.cs" />
     <Compile Include="Entities\RbitsProperties\RbitPerson.cs" />
     <Compile Include="Entities\RbitsProperties\WepayRbitBase.cs" />
+    <Compile Include="Entities\Structure\Response\WepayCheckDataResponse.cs" />
+    <Compile Include="Entities\Structure\Response\WepayWithdrawalDataResponse.cs" />
+    <Compile Include="Entities\Structure\Response\WepayBankDataResponse.cs" />
     <Compile Include="Entities\Structure\WepayRbitStructure.cs" />
     <Compile Include="Entities\Structure\WepayReceiptLineItem.cs" />
     <Compile Include="Entities\Structure\WepayShipping.cs" />
@@ -143,7 +146,6 @@
     <Compile Include="Entities\Subscription\WePaySubscriptionPlan.cs" />
     <Compile Include="Entities\CreditCard\WePayCreditCard.cs" />
     <Compile Include="Entities\CreditCard\WePayCreditCardState.cs" />
-    <Compile Include="Entities\Withdraw\WePayWithdrawalCreated.cs" />
     <Compile Include="Entities\Preapproval\WePayPreapprovalState.cs" />
     <Compile Include="Entities\Preapproval\WePayPreapprovalCreate.cs" />
     <Compile Include="Entities\Preapproval\WePayPreapproval.cs" />
@@ -243,7 +245,6 @@
     <Compile Include="Services\CreditCard\WePayCreditCardService.cs" />
     <Compile Include="Services\Withdrawal\Arguments\WithdrawalFindArguments.cs" />
     <Compile Include="Services\Withdrawal\Arguments\WithdrawalModifyArguments.cs" />
-    <Compile Include="Services\Withdrawal\Arguments\WithdrawalCreateArguments.cs" />
     <Compile Include="Services\Withdrawal\Arguments\WithdrawalArguments.cs" />
     <Compile Include="Services\Withdrawal\WePayWithdrawalService.cs" />
   </ItemGroup>

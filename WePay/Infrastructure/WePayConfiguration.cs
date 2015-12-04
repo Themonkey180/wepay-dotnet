@@ -5,7 +5,7 @@ namespace WePay
 {
     public static class WePayConfiguration
     {
-        internal const string SupportedApiVersion = "2015-08-15";
+        internal const string SupportedApiVersion = "2015-09-09";
         private static bool? _ProductionMode;
         private static string _ClientSecret;
         private static long _ClientId;

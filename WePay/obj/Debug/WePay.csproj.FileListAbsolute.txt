@@ -12,3 +12,10 @@ C:\Users\petersj\Documents\wepay-dotnet\WePay\bin\Debug\Newtonsoft.Json.xml
 C:\Users\petersj\Documents\wepay-dotnet\WePay\obj\Debug\WePay.dll
 C:\Users\petersj\Documents\wepay-dotnet\WePay\obj\Debug\WePay.pdb
 C:\Users\petersj\Documents\wepay-dotnet\WePay\obj\Debug\WePay.csprojResolveAssemblyReference.cache
+C:\Users\jpmon\OneDrive\Documents\wepay-dotnet\WePay\obj\Debug\WePay.csprojResolveAssemblyReference.cache
+C:\Users\jpmon\OneDrive\Documents\wepay-dotnet\WePay\obj\Debug\WePay.dll
+C:\Users\jpmon\OneDrive\Documents\wepay-dotnet\WePay\obj\Debug\WePay.pdb
+C:\Users\jpmon\OneDrive\Documents\wepay-dotnet\WePay\bin\Debug\WePay.dll
+C:\Users\jpmon\OneDrive\Documents\wepay-dotnet\WePay\bin\Debug\WePay.pdb
+C:\Users\jpmon\OneDrive\Documents\wepay-dotnet\WePay\bin\Debug\Newtonsoft.Json.dll
+C:\Users\jpmon\OneDrive\Documents\wepay-dotnet\WePay\bin\Debug\Newtonsoft.Json.xml

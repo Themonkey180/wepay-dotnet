@@ -1,8 +1,5 @@
 ﻿using System.Web.Mvc;
 using WePay;
-using WePay.Infrastructure;
-using WePay.Entities;
-using WePay.App;
 
 namespace Controllers
 {

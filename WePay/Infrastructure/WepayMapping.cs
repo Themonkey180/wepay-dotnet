@@ -342,11 +342,6 @@ namespace WePay.Infrastructure
                         };
                         return withdrawalFind;
 
-                    case "/withdrawal/create":
-                        WePayWithdrawalCreated withdrawalCreate = JsonConvert.DeserializeObject<WePayWithdrawalCreated>(json);
-                        withdrawalCreate.BatchCall = call;
-                        withdrawalCreate.BatchReferenceId = referenceId;
-                        return withdrawalCreate;
                     #endregion
 
                     #region CreditCard

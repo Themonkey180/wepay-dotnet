@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using WePay.Entities.Structure;
 using WePay.Infrastructure;
 
 namespace WePay.Entities
@@ -18,39 +19,22 @@ namespace WePay.Entities
         [JsonProperty("state")]
         public string State { get; set; }
 
-        [JsonProperty("withdrawal_uri")]
-        public string WithdrawalUri { get; set; }
-
-        [JsonProperty("redirect_uri")]
-        public string RedirectUri { get; set; }
-
-        [JsonProperty("callback_uri")]
-        public string CallbackUri { get; set; }
-
         [JsonProperty("amount")]
         public decimal Amount { get; set; }
 
         [JsonProperty("currency")]
         public string Currency { get; set; }
 
-        [JsonProperty("note")]
-        public string Note { get; set; }
-
-        [JsonProperty("recipient_name")]
-        public string RecipientName { get; set; }
-
-        [JsonProperty("recipient_confirmed")]
-        public bool? RecipientConfirmed { get; set; }
-
         [JsonProperty("type")]
         public string Type { get; set; }
 
-        [JsonProperty("create_time")]
-        [JsonConverter(typeof(WePayDateTimeConverter))]
-        public DateTime? CreateTime { get; set; }
+        [JsonProperty("bank_data")]
+        public WepayBankDataResponse BankData { get; set; }
 
-        [JsonProperty("capture_time")]
-        [JsonConverter(typeof(WePayDateTimeConverter))]
-        public DateTime? CaptureTime { get; set; }
+        [JsonProperty("check_data")]
+        public WepayBankDataResponse CheckData { get; set; }
+
+        [JsonProperty("withdrawal_data")]
+        public WepayBankDataResponse WithdrawalData { get; set; }
     }
 }

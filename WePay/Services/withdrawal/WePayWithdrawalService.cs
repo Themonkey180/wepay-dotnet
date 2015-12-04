@@ -30,16 +30,6 @@ namespace WePay
             return WepayMapping<WePayWithdrawal[]>.MapFromJson(response);
         }
 
-        public virtual WePayWithdrawalCreated Create(WithdrawalCreateArguments arguments)
-        {
-            arguments.AccountId = arguments.AccountId.Equals(null) ? (AccountId == null ? WePayConfiguration.GetAccountId() : AccountId) : arguments.AccountId;
-
-            var parameters = ParameterBuilder.ApplyParameters(arguments);
-            var response = Requestor.PostStringBearer(Urls.WithdrawalCreate, AccessToken, parameters);
-
-            return WepayMapping<WePayWithdrawalCreated>.MapFromJson(response);
-        }
-
         public virtual WePayWithdrawal Modify(WithdrawalModifyArguments arguments)
         {
             var parameters = ParameterBuilder.ApplyParameters(arguments);

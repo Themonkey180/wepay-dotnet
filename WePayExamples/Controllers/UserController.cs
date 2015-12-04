@@ -1,7 +1,5 @@
 ﻿using System.Web.Mvc;
 using WePay;
-using WePay.Infrastructure;
-using WePay.Entities;
 using WePay.User;
 using System;
 

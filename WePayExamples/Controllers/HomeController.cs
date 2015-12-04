@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using System.Net;
-using System.IO;
-using System.Text;
-using System.Configuration;
 using WePay;
 using WePay.Infrastructure;
 using WePay.Entities;
@@ -22,7 +15,6 @@ using WePay.SubscriptionCharge;
 using WePay.SubscriptionPlan;
 using WePay.User;
 using WePay.Withdrawal;
-using WePay.Entities.Rbits;
 
 namespace Controllers
 {
@@ -459,22 +451,6 @@ namespace Controllers
 
                 #endregion
 
-                #region Withdrawal
-                WePayWithdrawalCreated withdrawal = new WePayWithdrawalCreated();
-                    try { 
-                        var wePayWithdrawalService = new WePay.WePayWithdrawalService(user.AccessToken);
-                        withdrawal = wePayWithdrawalService.Create(new WithdrawalCreateArguments
-                        {
-                            AccountId = account.AccountId 
-                        });
-                    }
-                    catch
-                    {
-
-                    }
-
-                #endregion
-
             #endregion
 
             #region Batch
@@ -544,9 +520,7 @@ namespace Controllers
                     #endregion
 
                     #region Withdrawal
-                    var WithdrawalParameters = new WithdrawalArguments { WithdrawalId = withdrawal.WithdrawalId };
                     var WithdrawalFindParameters = new WithdrawalFindArguments { AccountId = account.AccountId };
-                    var WithdrawalModifyParameters = new WithdrawalModifyArguments { WithdrawalId = withdrawal.WithdrawalId };
                     #endregion
 
                 #endregion
@@ -556,7 +530,7 @@ namespace Controllers
                     {
                         var batchCalls = wePayBatchService.Create(new BatchArguments
                         {
-                            Calls = new BatchCallsArguments[37] { 
+                            Calls = new BatchCallsArguments[35] { 
 
                         #region User
                         new BatchCallsArguments { Call = "/user", Authorization = user.AccessToken, ReferenceId = "1" }, 
@@ -620,9 +594,7 @@ namespace Controllers
                         #endregion
 
                         #region Withdrawal
-                        new BatchCallsArguments { Call = WithdrawalParameters.BatchUrl(), ReferenceId = "35", Authorization = user.AccessToken, Parameters = WithdrawalParameters },
                         new BatchCallsArguments { Call = WithdrawalFindParameters.BatchUrl(), ReferenceId = "36", Authorization = user.AccessToken, Parameters = WithdrawalFindParameters },
-                        new BatchCallsArguments { Call = WithdrawalModifyParameters.BatchUrl(), ReferenceId = "37", Authorization = user.AccessToken, Parameters = WithdrawalModifyParameters }
                         #endregion
                     }
                         });
