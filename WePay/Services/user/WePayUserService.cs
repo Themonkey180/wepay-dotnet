@@ -5,6 +5,9 @@ using WePay.User;
 
 namespace WePay
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class WePayUserService : WepayService
     {
         public WePayUserService(string accessToken = null, long? clientId = null, string ClientSecret = null) : base(accessToken, clientId, ClientSecret) { }

@@ -162,7 +162,7 @@
     <Compile Include="Infrastructure\Converters\WePayBirthDateConverter.cs" />
     <Compile Include="Infrastructure\Converters\WePayDateTimeConverter.cs" />
     <Compile Include="Infrastructure\Converters\WePayRbitsConverter.cs" />
-    <Compile Include="Infrastructure\WepayPermissions.cs" />
+    <Compile Include="Infrastructure\Enums\WepayPermissions.cs" />
     <Compile Include="Infrastructure\BatchUrlType.cs" />
     <Compile Include="Infrastructure\EpochTime.cs" />
     <Compile Include="Infrastructure\WepayMapping.cs" />
